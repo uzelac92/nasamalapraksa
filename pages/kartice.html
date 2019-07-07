@@ -1,7 +1,7 @@
 <div class="loaderwrapper"><div class="loaderCard mb-5"></div></div>
 <div class="row CardLK" data-ng-init="initLoader()">
   	<div class="card" ng-repeat="item in postovi | limitTo:limit track by $index" ng-init="$last && finishLoad()">
-      <a ng-href="/{{item.PUTANJA}}">
+      <a ng-href="#/{{item.PUTANJA}}">
         <img class="cardimage" ng-src="images/{{item.SLIKA}}" alt="slika medicinskog stanja"/>
         <div class="card-body">
           <h5 class="card-title ">{{item.NASLOV_A}}</h5>
