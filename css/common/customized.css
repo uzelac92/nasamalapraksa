@@ -17,6 +17,7 @@
 }
 .navbar-brand {
     text-transform: uppercase;
+    height: 100% !important;
 }
 .nav-item {
     text-transform: uppercase;
@@ -41,6 +42,10 @@
     transition: all .8s ease;
 }
 @media (max-width: 450px) {
+    .navbar.scrolled>.navbar-brand,
+    .navbar.scrolled .searchbar{
+    visibility: none;
+}
     .levakolona{
         width:93vw !important;
 
@@ -111,7 +116,7 @@
         background-color: rgba(117, 117, 117, 0.9) !important;
     }
   	.navbar-brand > img{
-        height:40px !important;
+        height:60px !important;
     }
     .card{
         transform: scale(0.8);
@@ -223,10 +228,10 @@
 }
 /* NAVBAR EFFECTS */
 .navbar-brand > img{
-    height: 45px;
+    height: 80px !important;
     margin-left: 20px;
     overflow: visible;
-    margin-top:-16px;
+    margin-top:-36px;
     position: absolute;
 }
 .nav-link:hover {
