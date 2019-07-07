@@ -34,6 +34,7 @@
 @media (max-width: 450px) {
     .levakolona{
         width:93vw !important;
+        
     }
   	body{
       overflow-x:hidden !important;
