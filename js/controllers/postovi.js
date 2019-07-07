@@ -4,7 +4,7 @@ app.controller('mainCtrl', function($scope, $routeParams, $http, $rootScope, $ti
         event.preventDefault();//prevent zoom
     });
   
-  	$scope.templateUrl = '/pages/postovi/'+$routeParams.postID;
+  	$scope.templateUrl = $routeParams.postID;
   	$scope.klikID = $routeParams.klikID;
  
     $scope.initLoader = function() {
@@ -18,19 +18,12 @@ app.controller('mainCtrl', function($scope, $routeParams, $http, $rootScope, $ti
     }
 
     webservice.getPosts().then(function (response) {
-        console.log(response.data.records);
         if (response.statusText == "OK") {
             $scope.postovi = response.data.records;
+            $scope.topPostovi = $scope.postovi.sort((a,b) => (a.KLIK > b.KLIK) ? -1 : ((b.KLIK > a.KLIK) ? 1 : 0));
         } else {
           alert('Baza trenutno van funkcije!');
         }
-    })
-  
-    $http({
-      method: 'get',
-      url: 'topPost.php'
-    }).then(function successCallback(rezultat) {
-      $scope.topPostovi = rezultat.data;
     });
   
     $scope.kliknuto = function() {
