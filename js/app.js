@@ -26,25 +26,16 @@ app.config(['$routeProvider', '$locationProvider','$compileProvider',function($r
     {
         title: 'Pocetna',
         templateUrl : "/pages/kartice.html",
-        controller: 'kontroler'
-    })
-  	.when("/defaultsite", 
-    {
-        title: 'Pocetna',
-        templateUrl : "/pages/kartice.html",
-        controller: 'kontroler'
     })
   	.when("/mitovi", 
     {
         title: 'Mitovi',
         templateUrl : "/pages/Mitovi.html",
-        controller: 'kontroler'
     })
     .when("/post/:postID/:klikID", 
     {
         title: 'Post',
         templateUrl: '/pages/post.html',
-        controller: 'kontroler'
     })
     .otherwise({
         redirectTo: '/'
@@ -59,11 +50,3 @@ $(function () {
         $nav.toggleClass('scrolled text-white', $(this).scrollTop() > $nav.height());
     });
 });
-
-function scrollDownContact() {
-    document.getElementById("footer").scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
-}
-
-function izradjuje(){
-    alert("Stranica u izradi!");
-}
