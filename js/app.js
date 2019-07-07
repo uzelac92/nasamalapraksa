@@ -20,7 +20,7 @@ window.fbAsyncInit = function() {
 
 app.config(['$routeProvider', '$locationProvider','$compileProvider',function($routeProvider, $locationProvider, $compileProvider) {
   	$locationProvider.html5Mode(true);
-	$locationProvider.hashPrefix('!');
+	  $locationProvider.hashPrefix('!');
     $routeProvider
     .when("/", 
     {
@@ -32,10 +32,12 @@ app.config(['$routeProvider', '$locationProvider','$compileProvider',function($r
         title: 'Mitovi',
         templateUrl : "/pages/Mitovi.html",
     })
-    .when("/post/:postID/:klikID", 
+    .when("/:postID", 
     {
         title: 'Post',
-        templateUrl: '/pages/post.html',
+        templateUrl: function(params) { // <-- 
+          return '/pages/postovi/'+params.postID;   
+        },
     })
     .otherwise({
         redirectTo: '/'

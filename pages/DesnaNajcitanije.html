@@ -9,10 +9,6 @@
     <div class="naslovNajcitaniji">Najčitaniji članci!</div>
     <div class="wrapper">
       
-      <!--
-			Ovde sam morao da ubacim jedan DIV da okupiram jednu karticu, jer u div-u se poziva funkcija zasluzna za kreiranje kartica
-			nisam mogao u <a> tagu da je pozovem jer vec koristimo neku promenljivu iz te funkcije tamo. Ti sredi kako ti mislis. VOLIM!
-		-->
       <div ng-repeat="topItem in topPostovi | limitTo: 3 ">
         <a href="/post/{{topItem.PUTANJA}}/{{topItem.ID}}">
           <div class="desnaCard" >
