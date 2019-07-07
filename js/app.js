@@ -1,5 +1,23 @@
 var app = angular.module('NasaMalaPraksa', ['ngRoute','ngAnimate','updateMeta']);
 
+window.fbAsyncInit = function() {
+  FB.init({
+    appId            : '245980766302862',
+    autoLogAppEvents : true,
+    xfbml            : true,
+    version          : 'v2.10'
+  });
+  FB.AppEvents.logPageView();
+};
+
+(function(d, s, id){
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
 app.config(['$routeProvider', '$locationProvider','$compileProvider',function($routeProvider, $locationProvider, $compileProvider) {
   	$locationProvider.html5Mode(true);
 	$locationProvider.hashPrefix('!');
@@ -32,75 +50,6 @@ app.config(['$routeProvider', '$locationProvider','$compileProvider',function($r
         redirectTo: '/'
      });
      
-}]);
-
-app.controller('kontroler', ['$scope', '$routeParams', '$http','$rootScope','$timeout', '$location','$window',
-                             function($scope, $routeParams, $http, $rootScope, $timeout, $location,$window){
-  	document.body.addEventListener("wheel", e=>{
-      if(e.ctrlKey)
-        event.preventDefault();//prevent zoom
-    });
-  
-  	$scope.templateUrl = '/pages/postovi/'+$routeParams.postID;
-  	$scope.klikID = $routeParams.klikID;
- 
-    $scope.initLoader = function() {
-        angular.element(document.getElementsByClassName("CardLK")).css('display','none');
-        angular.element(document.getElementsByClassName("loaderCard")).css('display','block');
-    }
-    
-    $scope.finishLoad = function() {
-      	angular.element(document.getElementsByClassName("CardLK")).css('display','inline-flex');
-        angular.element(document.getElementsByClassName("loaderCard")).css('display','none');
-    }
-    
-    $http({
-      method: 'get',
-      url: 'getPost.php'
-    }).then(function successCallback(response) {
-      $scope.postovi = response.data;
-    });
-  
-    $http({
-      method: 'get',
-      url: 'topPost.php'
-    }).then(function successCallback(rezultat) {
-      $scope.topPostovi = rezultat.data;
-    });
-  
-    $scope.kliknuto = function() {
-
-      $http({
-        method: "post",
-        url: "updatePost.php",
-        data: { klikID: $scope.klikID
-        }, headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-      }).then(function successCallback(response) {
-        $scope.prikazi = response.data[0];
-      });
-
-      
-
-    }
-    
-    $scope.limit= 12;
-    $scope.loadMore = function() {
-      $scope.limit = $scope.limit + 6;
-    }
-    
-    $scope.sakriveno = function() {
-      angular.element(document.querySelector("#aboutID")).css('display', 'none');
-      angular.element(document.querySelector("#navPost")).css('display', 'flex');
-    }
-    $scope.pokazano = function() {
-      angular.element(document.querySelector("#aboutID")).css('display', 'inline-flex');
-      angular.element(document.querySelector("#navPost")).css('display', 'none');
-    }
-    
-    $scope.kaFejsu = function() {
-       $window.open('https://www.facebook.com/pages/category/Health---Wellness-Website/Nasa-Mala-Praksa-567480650330734/', '_blank');
-	};
-    
 }]);
 
 $(function () {

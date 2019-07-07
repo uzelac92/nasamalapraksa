@@ -6,34 +6,6 @@
         <meta charset="UTF-8">
         <base href="/" />
       	<meta name="fragment" content="!">
-      
-      	<!--<title ng-bind="metaservice.metaTitle()"></title>
-        <meta name="description" content="{{ metaservice.metaDescription() }}" />
-        <meta name="image" content="{{ metaservice.metaImage() }}" />
-      
-      	<meta property="og:title" content="{{metaservice.metaTitle()}}" />
-      	<meta property="og:description" content="{{metaservice.metaDescription()}}" />
-      	<meta property="og:type" content="website" />
-        <meta property="og:url" content="{{metaservice.metaUrl() }}" />
-      	<meta property="og:image" content="{{ metaservice.metaImage() }}" />
-      
-      	<title>Naša mala praksa</title>
-      	<meta name="description" content="Blog o najčešćim medicinskim temama i aktuelnostima. Opisani najčešći zdravstveni problemi u populaciji." />
-        <meta property="og:type" content="website" />
-      	<meta property="og:url" content="https://www.nasamalapraksa.com" />
-      	<meta property="og:title" content="Naša mala praksa" />
-      	<meta property="og:image" content="https://www.nasamalapraksa.com/images/Baner.png" />
-      	<meta property="og:description" content="Blog o najčešćim medicinskim temama i aktuelnostima. Opisani najčešći zdravstveni problemi u populaciji." />
-      	
-      	<meta property="fb:app_id" content="245980766302862" />
-        <meta property="og:url" content="http://drib.tech/fbsharetest/quiz.html" >
-        <meta property="og:type" content="article" >
-        <meta property="og:title" content="Are you the real Star Trek geek?" >
-        <meta property="og:description" content="Prove your Star Trek geekhood! Are you wise like Yoda or Jar Jar Binks?" >
-        <meta property="og:image" content="http://drib.tech/fbsharetest/quiz_landing.jpg" >
-        <meta property="og:image:width" content="1200" >
-        <meta property="og:image:height" content="630" >
-      	-->
       	<meta name="google-site-verification" content="em8wmHnGI5ZUmu0VEwgc3vzUkMIJicGtjLlt-wSfwvk" />
       	<meta property="fb:app_id" content="245980766302862" />
       
@@ -55,6 +27,8 @@
         <script src="js/common/update-meta.js"></script>
         
         <script src="js/app.js"></script>
+        <script src="js/services/services.js?version=1.1"></script>
+        <script src="js/controllers/postovi.js"></script>
       
 		<!-- Global site tag (gtag.js) - Google Analytics -->
 		    <script src="https://www.googletagmanager.com/gtag/js?id=UA-133436304-1"></script>
@@ -65,25 +39,6 @@
           gtag('config', 'UA-133436304-1');
         </script>
 
-          <script>
-              window.fbAsyncInit = function() {
-                FB.init({
-                  appId            : '245980766302862',
-                  autoLogAppEvents : true,
-                  xfbml            : true,
-                  version          : 'v2.10'
-                });
-                FB.AppEvents.logPageView();
-              };
-
-              (function(d, s, id){
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) {return;}
-                js = d.createElement(s); js.id = id;
-                js.src = "//connect.facebook.net/en_US/sdk.js";
-                fjs.parentNode.insertBefore(js, fjs);
-              }(document, 'script', 'facebook-jssdk'));
-        </script>
     </head>
 
     <body style="overflow-x: hidden" ng-controller="kontroler">
