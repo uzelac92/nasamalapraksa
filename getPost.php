@@ -16,13 +16,9 @@
   $sql = "SELECT * from `post` ORDER BY ID DESC";  
   $result = $dbh->query($sql);
 
-  if ($result > 0) {
-    $output = array();  
-    while($row=$result->fetch(PDO::FETCH_ASSOC)) {
-      $output[] = $row;
-    }
-  } else {
-    echo "0 Results ";
+  $output = array();  
+  while($row=$result->fetch(PDO::FETCH_ASSOC)) {
+    $output[] = $row;
   }
 
   echo json_encode($output);

@@ -21,14 +21,10 @@
   $sql = "SELECT * from `post` WHERE ID=$klikID";  
   $result = $dbh->query($sql);
 
-  if ($result > 0) {
-    $output = array();  
+  $output = array();  
     while($row=$result->fetch(PDO::FETCH_ASSOC)) {
       $output[] = $row;
     }
-  } else {
-    echo "0 Results ";
-  }
 
   echo json_encode($output);
 ?>
