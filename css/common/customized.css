@@ -10,10 +10,10 @@
         NAVBAR STYLE
  *************************/
  .navbar {
-    border-bottom-right-radius: 20px;
-    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
     border-bottom:1px solid lightgray;
-    color: grey;
+    transition: all .8s ease;
 }
 .navbar-brand {
     text-transform: uppercase;
@@ -21,15 +21,24 @@
 .nav-item {
     text-transform: uppercase;
 }
+.navbar a{
+    color:grey !important;
+}
 .navbar.scrolled {
-    background-color: rgb(56, 56, 56, 0.8) !important;
+    background-color: rgba(37, 37, 37, 0.7) !important;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
     border: none;
     height: 50px;
-    font-weight: bold;
-    color: red!important;
+    transition: all .8s ease;
 }
-.navbar.scrolled>.navbar-brand{
+.navbar.scrolled>.navbar-brand,
+.navbar.scrolled .searchbar{
     display: none;
+}
+.navbar.scrolled a{
+    color:whitesmoke !important;
+    transition: all .8s ease;
 }
 @media (max-width: 450px) {
     .levakolona{

@@ -107,7 +107,7 @@ $(function () {
     $(document).scroll(function () {
         var $nav = $(".navbar");
         var $jumbo = $(".slikabaner");
-        $nav.toggleClass('scrolled', $(this).scrollTop() > $jumbo.height());
+        $nav.toggleClass('scrolled text-white', $(this).scrollTop() > $nav.height());
     });
 });
 
