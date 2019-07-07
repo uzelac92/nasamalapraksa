@@ -1,0 +1,1054 @@
+/*************************
+        FONTOVI
+ *************************/
+@font-face {
+    font-family:Sansita;
+  	font-display:auto;
+    src: url("../fonts/Sansita-Bold.otf");
+}
+/*************************
+        NAVBAR STYLE
+ *************************/
+ .navbar {
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom:1px solid lightgray;
+    color: white;
+}
+.navbar-brand {
+    text-transform: uppercase;
+}
+.nav-item {
+    text-transform: uppercase;
+}
+.navbar a {
+    color: white!important;
+}
+.navbar.scrolled {
+    background-color: rgb(56, 56, 56, 0.8) !important;
+    transition: background-color 600ms linear;
+    border: none
+}
+@media (max-width: 450px) {
+    .levakolona{
+        width:93vw !important;
+    }
+  	body{
+      overflow-x:hidden !important;
+      width:100vw !important;
+  	}
+  	.levakolona .posth4,
+    .levakolona p,
+    .levakolona .posth2,
+    .levakolona .postcontainer{
+        margin-left:3vw;
+    }
+  	.desnaCard{
+        display: flex;
+    }
+    .wrapper{
+        display: block !important;
+        justify-content: center;
+        align-items:center;
+        padding-left: 10px;
+        margin-left: 0px !important;
+    }
+    .desnakolona{
+        display: flex;
+        justify-content: center;
+        align-items:center; 
+      	flex-wrap:wrap;
+    }
+    .desnaSlika{
+        width:100% !important;
+        height: 100px !important;
+        object-fit: cover;
+        opacity: .8 !important;
+    }
+    .desnaNaslov{
+        padding-top: 110px !important;
+    }
+  	.onk{
+        display: inline-flex;
+        flex-wrap: wrap; 
+    }
+    .prva{
+        font-size: .4em !important;
+        display: inline-flex;
+        justify-content: left;
+        align-items: left;
+    }
+    .nascilj{
+        column-count: 2 !important;
+    }
+  	.mith,
+	.mithheader{
+		width:90% !important;
+  	}	
+  
+}
+
+@media (max-width: 850px) {
+    .banner {
+        padding: 300px 15px;
+        height: 80vh !important;
+    }
+    .onamakartica{
+        font-size: smaller;
+    }
+ 	 body{
+      overflow-x:hidden !important;
+  	}
+    .navbar{
+        background-color: rgba(117, 117, 117, 0.9) !important;
+    }
+  	.navbar-brand > img{
+        height:40px !important;
+    }
+    .interesantnost h1{
+        min-width: 100px;
+        font-size: 1.8em;
+    }
+    #interesantno_pitanje{
+        display: inline-block !important;
+    }
+    .interesantnost{
+        margin-top:20vh !important;
+        max-width:70vw;
+    } 
+    .card{
+        transform: scale(0.8);
+        min-width: 98% !important;
+        margin-right: 1vw !important;
+        font-size: .8rem !important;
+    }
+    .card-text{
+        visibility: visible !important;
+        height: 82px !important;
+        
+    }
+    .cardimage{
+        width: 100px !important;
+        margin-left: 5px !important;
+    }
+    .card-title{
+        margin-top: -15px;
+    }
+    .oko{
+        padding-top: 0px !important;
+    }
+    .levakolona{
+        border-right: none !important;
+    }
+    
+    .levakolona h1{
+        font-size: smaller;
+        line-height: 1em;
+        margin-top: 40px !important;
+    }
+    .desnaSlika{
+        width:100% !important;
+        height:100px;
+        object-fit: cover !important;
+
+    }
+    .naslovNajcitaniji{
+        font-size: smaller;
+        letter-spacing: 3px;
+    }
+    .najcitanijiPostovi{
+        margin-left: 1vw;
+    }
+    .interesantnost {        
+        margin-top: 0vh!important;
+    }
+    
+    #particles-js {
+        margin-top: -300px!important;
+    }
+  	.desnaSlika{
+        width:100% !important;
+        height:100px;
+        object-fit: cover !important;
+
+    }
+    .desnakolona{
+        display: flex;
+        justify-content: center;
+        align-items:center; 
+      	flex-wrap:wrap;
+    }
+    .wrapper{
+        margin-left: -15px;
+    }
+  	.najcitanijiOpis{
+        display: none !important;
+    }
+    .sadrzaj img{
+        max-width: 100% !important;
+    }
+  	.mithnaslov{
+      	font-size:0.8em !important;
+      	line-height:2.2em !important;
+  	}
+  	.mithobjasnjenje,
+  	.mithheader{
+      font-size:0.9em;
+  	}
+  	.loaderCard{
+      	transform: scale(.8);
+  	}
+  	.carousel{
+		width: 95vw!important;
+	}
+	.slajd{
+		height:70vh !important;
+	}
+	.lopis{
+		visibility: hidden !important;
+	}
+	.opis{
+		font-size: .5rem !important;
+		line-height: .8rem;
+		padding: 10px !important;
+      	height:90% !important;
+      	width:80% !important;
+	}
+    .traka{
+      	display:none !important;
+    }
+}
+@-moz-document url-prefix() {
+    .card-title{
+      	text-align:left;
+      	font-size:0.9em;
+    }
+    .card-text {
+        max-height:112px !important;
+        overflow: hidden;
+    }
+    .tritacke::after{
+        content: '...';
+    }
+}
+/* NAVBAR EFFECTS */
+.navbar-brand > img{
+    height: 45px;
+    margin-left: 20px;
+    overflow: visible;
+    margin-top:-16px;
+    position: absolute;
+}
+.nav-link:hover {
+    -webkit-mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 30%, #000 50%, rgba(0,0,0,.6) 70%);
+    -webkit-mask-size: 200%;
+    animation: shine 2s infinite;
+}
+@-webkit-keyframes shine {
+    from {
+        -webkit-mask-position: 150%;
+    }
+
+    to {
+        -webkit-mask-position: -50%;
+    }
+}
+header {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+}
+/*************************
+        BANNER STYLE
+ *************************/
+.banner {
+    position: relative;
+    background: #262626;
+    min-width: 70vh;
+    background-size: cover;
+    background-position: center;
+    height: 90vh;
+}
+.container-baner {
+    display: block;
+    align-items: left;
+    margin-left: 6vw;
+    margin-top: -10vh;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+#particles-js {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+.interesantnost {
+    color: antiquewhite;
+    width: 100px;
+    text-shadow: 0px 0px 10px rgb(10, 10, 10);
+    user-select: none;
+    padding: 17vw 0 14vw;
+    
+}
+#interesantno_pitanje{
+    font-family: 'Merienda One', cursive;
+    max-height: 415px;
+    display: table-caption;
+}
+/*************************
+        FOOTER STYLE
+ *************************/
+full {
+    width: 100%;
+}
+.footer {
+    height: auto;
+    padding-bottom: 30px;
+    position: relative;
+    width: 100%;
+    color:#fff;
+    background-image: linear-gradient(to bottom, rgb(5, 187, 187), rgb(0, 92, 92));
+    box-shadow: 0px -5px 10px rgb(161, 161, 161);
+}
+.footer h3 {
+    border-bottom: 1px solid rgb(1, 58, 58);
+    color:rgb(0, 92, 92);
+    font-size: 18px;
+    line-height: 27px;
+    padding: 40px 0 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.footer ul {
+    font-size: 13px;
+    
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 0;
+    margin-top: 15px;
+    color:rgb(1, 56, 56);
+}
+.footer ul li a {
+    padding: 0 0 5px 0;
+    display: block;
+}
+.footer a {
+    color: rgb(0, 39, 39)
+}
+.footer a:hover{
+    color: rgb(1, 31, 31);
+    font-style: italic;
+    text-decoration: none;
+    font-weight: bolder;
+}
+footer a:visited{
+    color: rgb(0, 39, 39);
+    text-decoration: none;
+}
+.supportLi h4 {
+    font-size: 20px;
+    font-weight: lighter;
+    line-height: normal;
+    margin-bottom: 0 !important;
+    padding-bottom: 0;
+}
+.pretplati .btn {
+    border: medium none;
+    display: inline-block;
+    height: 40px;
+    padding: 0;
+    color: #fff;
+}
+.pretplati {
+    overflow: hidden;
+    margin-top:10px;
+    width: 100%;
+    border-radius: 15px; 
+}
+/* SOCIAL ICONS */
+.social-network {
+	list-style: none;
+	display: inline;
+	padding: 0;
+}
+.social-network li {
+    display: inline-block;
+    margin-left: 7px;
+}
+/* SOCIAL ICONS */
+.social-network a.icoFacebook:hover {
+	background-color:#3B5998;
+}
+.social-network a.icoTwitter:hover {
+	background-color:#33ccff;
+}
+.social-network a.icoGoogle:hover {
+	background-color:#BD3518;
+}
+.social-network a.icoLinkedin:hover {
+	background-color:#007bb7;
+}
+.social-network a.icoFacebook:hover i, .social-network a.icoTwitter:hover i,
+.social-network a.icoGoogle:hover i, .social-network a.icoLinkedin:hover i {
+	color:#fff;
+}
+.social-circle li a {
+	display:inline-block;
+	position:relative;
+	margin:0 auto 0 auto;
+	-moz-border-radius:50%;
+	-webkit-border-radius:50%;
+	border-radius:50%;
+	text-align:center;
+	width: 50px;
+	height: 50px;
+	font-size:20px;
+}
+.social-circle li i {
+	margin:0;
+	line-height:50px;
+	text-align: center;
+}
+.social-circle li a:hover i, .triggeredHover {
+	-moz-transform: rotate(360deg);
+	-webkit-transform: rotate(360deg);
+	-ms--transform: rotate(360deg);
+	transform: rotate(360deg);
+	-webkit-transition: all 0.2s;
+	-moz-transition: all 0.2s;
+	-o-transition: all 0.2s;
+	-ms-transition: all 0.2s;
+	transition: all 0.2s;
+}
+.social-circle i {
+	color: #fff;
+	-webkit-transition: all 0.8s;
+	-moz-transition: all 0.8s;
+	-o-transition: all 0.8s;
+	-ms-transition: all 0.8s;
+	transition: all 0.8s;
+}
+.social-network > a {
+    background-color: #D3D3D3;   
+}
+
+.footer-bottom {
+    background: rgb(0, 92, 92);
+    border-top: 1px solid rgb(0, 92, 92);
+    color:white;
+    padding-bottom: 5px;
+}
+.copyrightText {
+    text-align: center;
+    margin-top: 20px;
+    line-height: 10px;
+}
+/*    PRETPLATI SE   */
+.pretplati{
+    border: 1px solid rgb(177, 177, 4) !important;
+}
+.pretplati span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+.pretplati span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+.pretplati:hover{
+    box-shadow: 0px 0px 10px rgba(71, 71, 71, 0.863),  0px 0px 10px rgba(71, 71, 71, 0.863);
+}
+.pretplati:hover span {
+    padding-right: 25px;
+}
+.pretplati:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+/*************************
+    levakolona sadrzaj
+ *************************/
+.levakolona{
+    text-align: justify;
+    border-right: 1px solid lightgray;
+    margin-top: 2vw;
+    margin-bottom: 1vw;
+    padding-right: 1vw;
+    padding-left: 1vw;
+}
+.levakolona > li{
+    list-style-type: none;
+    padding-left: 16px;
+}
+.levakolona > li:before{
+    content: "+";
+    padding-right: 8px;
+}
+.levakolona p a {
+    color:rgb(28, 60, 92);
+    font-weight:700;
+    text-decoration:none;
+}
+.levakolona p a:hover, a:visited{
+    color:#399;
+    font-style:italic;
+}
+.levakolona a{
+    text-decoration: none;
+    color: black;
+}
+.levakolona a:hover{
+    text-decoration: none;
+    color: black;
+}
+
+/*************************
+        kartice CSS
+ *************************/
+.card {
+    display: inline-block;
+    width: 48%;
+    height:210px;
+    user-select: none;
+    margin-left: 13px;
+    margin-top: 8px;
+    transform: scale(0.98);
+    font-family: 'Signika', sans-serif;
+    overflow: hidden;
+}
+.card-body{
+    height:210px;
+    max-height: 210px;
+    display: flex;
+    flex-wrap: wrap;
+}
+@keyframes senka {
+    0% {
+        box-shadow: none;
+    }
+    100% {
+        box-shadow: 0 0 10px darkgrey;
+    }
+ }
+ @keyframes senka2 {
+    0% {
+        box-shadow: none;
+    }
+    100% {
+        box-shadow: 0 0 10px rgb(110, 110, 110);
+    }
+}
+.card:hover{
+    animation:senka ease-in-out .2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    cursor: pointer;
+}
+.cardimage{
+    object-fit: cover;
+    width:40%;
+    height:100%;
+    float:right;
+    transition: all .4s ease;
+    margin-left: 15px;
+}
+.card:hover .cardimage{
+    width:100px;
+    transition: all .4s ease;
+}
+.card-text{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    visibility: hidden;
+    height:0px;
+    transition: all .4s ease;
+    line-height: 1rem;
+    font-size: .9rem;
+    margin-top: -2px;
+}
+.card:hover .card-text{
+    height:82px;
+    visibility: visible;
+    transition: all .4s ease;
+    transition-delay: .4s;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+}
+.card-title{
+    font-weight: bolder;
+    text-align: left;
+    padding-bottom: 10px;
+    border-bottom: 3px solid cornflowerblue;
+    max-width:180px;
+    font-size: 1rem;
+    display: flex;
+    align-self: center !important;
+    grid-area: header;
+}
+.oko{
+    padding-top: 10px;
+  transition: all .4s ease;
+}
+.card:hover .oko{
+  	padding-top:50px;
+  transition: all .4s ease;
+}
+/*************************
+        DESNA KOLONA
+ *************************/
+ .najcitanijiPostovi{
+     user-select: none;
+     cursor: pointer;
+     margin: 15px;
+     width:90%;
+     max-width:90%;
+ }
+ .naslovNajcitaniji{
+     padding:5px;
+     font-family: 'Signika', sans-serif;
+     font-weight: bold;
+     font-size: 1.2em;
+     text-align: center;
+     margin-bottom: 10px;
+     letter-spacing: 5px;
+ }
+ .najcitanijiPostovi .wrapper{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 100%;
+ }
+ .imgcontainer{
+     position: absolute;
+     width:86%;
+     height: 150px;
+     display: inline-block;
+ }
+ .desnaSlika{
+     object-fit: cover;
+     width:1px;
+     height: 100%;
+     position:relative;
+     transition: ease 0.4s;
+     z-index: 1;
+     padding:3px;
+     opacity: 0;
+ }
+ .desnaCard{
+     width:98%;
+     height: 160px;
+     display: inline-flex;
+     overflow: hidden;
+     align-items: center;
+     flex-wrap: wrap;
+     justify-content: center;
+   	 margin-bottom: 20px;
+ }
+ .desnaCard:hover  .desnaSlika{ 
+    opacity: 1;
+    width: 100%;
+    transition: ease 0.4s;
+}
+.desnaCard:hover .najcitanijiOpis{
+    opacity: 0;
+    transition: ease .4s;
+}
+ .desnaNaslov{
+    color: rgb(163, 78, 8);
+    font: Palanquin bold 1em;
+    max-width: 70%;
+    text-align: center;
+    padding:5px;
+    border-bottom: 1px solid #262626;
+    margin-top: 10px;
+    margin-top: -10px;
+ }
+ .najcitanijiOpis{
+     display: block;
+     position: relative;
+     max-width:96%;
+     height:50%;
+     margin-left:2%;
+     margin-right: 2%;
+     margin-top: -35px;
+     color: rgb(34, 34, 34);
+     text-align: justify;
+     user-select: none;
+     font-size: .8em;
+     overflow: hidden;
+     transition: ease .6s;
+     color: #262626;
+ }
+ .najcitanijiPostovi a:hover{
+     all: unset
+ }
+.fbwrapper{
+     display: flex;
+     width: 100%;
+     align-items: center;
+     justify-content: center;
+     padding-top: 15px;
+ }
+ .fbkartica{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+     width: 95%;
+     height:50px;
+     color: rgb(39, 83, 124);
+     text-align: center;
+    cursor: pointer;
+    user-select: none;
+    border-bottom: 1px solid rgb(39, 83, 124);
+ }
+ .fbanimacija{
+     width: 100%;
+     height: 1px;
+     background: rgb(39, 83, 124);
+     align-self: flex-start;
+ }
+ .fbtxt{
+     position: absolute;
+ }
+ .fbkartica:hover > .fbanimacija{
+     height:100%;
+     transition: ease .3s;
+ }
+ .fbkartica:hover > .fbtxt{
+     color:whitesmoke;
+     transition: ease .3s;
+     transition-delay: .3s;
+ }
+/*************************
+        postovi
+ *************************/
+.posth1{
+    text-align:center;
+    font-size:2em;
+    line-height:0.5em;
+    font-family:Sansita;
+    font-weight: bold;
+    color:rgb(194, 2, 2);
+    letter-spacing: 0.1em;
+}
+.postcontainer > .slika{
+    height:inherit;
+    width: 100%;
+  	-moz-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+.posth2 {
+    background-color: rgb(40,81,152);
+    padding: 10px;
+    color: white;
+    border-left: #6FB657 solid 10px;
+    line-height:0.9em;
+    font-size: 1.1em;
+    margin-bottom: -15px;
+}
+.posth4{
+    font-style:italic;
+    border-bottom:solid 1px darkgrey;
+    padding-bottom:5px;
+    margin-top: 30px;
+    font-size: 1em;
+}
+.autor{
+    text-align:right;
+    font-weight:bold;
+    padding: 5px;
+    background-color:rgb(204,204,0,0.5)
+}
+.postcontainer{
+    max-width:100%;
+    background-color:white;
+    margin-top: 25px;
+    margin-bottom: 35px;
+    box-shadow:2px 2px 5px lightgrey;
+    text-align:center;
+    margin-left: 0px;
+    border-radius: 2%
+}
+.imgalt{
+    line-height:2em;
+    vertical-align:middle;
+    color: rgb(40,81,152);
+    font-style: italic;
+    margin-top:0px;
+    padding:3px;
+    border-bottom-left-radius: 2%;
+    border-bottom-right-radius: 2%;
+}
+/******************
+        SEARCH
+*******************/
+.searchbar{
+    margin-bottom: auto;
+    margin-top: auto;
+    height: 60px;
+    background-color: transparent;
+    border: white 1px solid;
+    border-radius: 30px;
+    padding: 10px;
+}
+
+.search_input{
+    color: white;
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 0;
+    caret-color:transparent;
+    line-height: 40px;
+    transition: width 0.4s linear;
+}
+
+.searchbar:hover > .search_input{
+    padding: 0 10px;
+    width: 250px;
+    caret-color:red;
+    transition: width 0.4s linear;
+}
+
+.searchbar:hover > .search_icon{
+    background: white;
+    color: red!important;
+}
+
+.search_icon{
+    height: 40px;
+    width: 40px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color:white;
+}
+
+/******************
+    MORE BTN
+*******************/
+.morebtn{
+    background-color: rgba(128, 128, 128, 0);
+    border:1px solid grey;
+    font-family: 'Signika', sans-serif;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-left: 45%;
+    user-select: none;
+    cursor: pointer;
+    box-shadow: 0px 0px 15px rgb(105, 105, 105);
+    color: rgb(77, 76, 76);
+    display: block;
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+    transition: ease .2s;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+.morebtn:hover{
+    box-shadow: 0px 0px 30px rgb(3, 3, 3); 
+    transform: rotate(360deg);
+    transition: ease .2s;
+}
+.morebtn:active,
+.morebtn:focus{
+    outline: none !important;
+    border: none !important;
+}
+/******************
+    MITOVI
+*******************/
+.mithheader{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: 'Signika', sans-serif;
+	font-size: 1.5em;
+	color:rgba(168,103,53,1.00);
+}
+.mithheaderspan{
+  	border-bottom: 1px solid darkgray;
+}
+.mith,
+.mithheader{
+	width:80%;
+	margin-top:10px;
+	user-select: none;
+	cursor: pointer;
+	padding: 5px;
+  	margin-left:10%;
+}
+.mith{
+	max-height: 40px;
+	overflow: hidden;
+	transition: all .8s ease;
+  	-webkit-transition: all .8s ease;
+	-moz-transition: all .8s ease;
+	-o-transition:all .8s ease;
+	text-align: justify;
+	box-shadow: 0 0 10px darkgrey;
+	background: #181d24;
+  	color:white;
+	
+}
+.mith:hover{
+	max-height: 180px;
+	box-shadow: 0 0 10px #383838;
+	transition: all .8s ease;
+	-webkit-transition: all .8s ease;
+	-moz-transition: all .8s ease;
+	-o-transition:all .8s ease;
+}
+.mithnaslov{
+	display: flex;
+	align-items: center;
+	font-weight: 300;
+	font-size: 1.2em;
+	margin-bottom: 5px; 
+	margin-top: 2px;
+	font-family: 'Barlow Condensed', sans-serif;
+  	font-weight:400;
+}
+.mithnaslov::before{
+	content: '\021C0';
+	padding-right: 3px;
+}
+.mithobjasnjenje{
+	font-family: 'Barlow Condensed', sans-serif;
+	line-height: 1em;
+  	font-weight:300;
+  	padding-bottom:5px;
+}
+/******************
+    LOADER
+*******************/
+
+@-webkit-keyframes spin {
+  from {
+    transform:rotate(0deg);
+  }
+
+  to {
+    transform:rotate(360deg);
+  }
+}
+.loaderCard{
+  	margin-left:45%;
+	height: 70px;
+	width: 70px;
+	border: 5px solid lightgrey;
+	border-top: 12px solid cornflowerblue;
+	border-radius: 60px;
+	animation: spin 800ms linear infinite;
+}
+/******************
+     O nama
+*******************/
+.wrapperonama{
+  	display:flex;
+  	justify-content:center;
+  	align-items:center;
+    width:100vw;
+}
+.carousel{
+	width: 80vw;
+  	margin-top: 50px;
+  	margin-bottom: 50px;
+}
+.slajd{
+	background: #353839;
+	height:50vh;
+	align-items: center;
+	justify-content: center;
+}
+.polovine{
+	align-items: center;
+	overflow: hidden;
+}
+.opis{
+	font-family: Laila;
+	font-size: .9rem;
+	line-height: 1rem;
+	color: white;
+	padding-right: 130px !important;
+}
+.lopis{
+	color:#F2C649;
+	font-family: Merienda One;
+	text-align: right;
+	justify-content: flex-end;
+	padding-right: 50px;
+}
+.kapsn{
+	font-family: Laila;
+	font-style: italic;
+	color: #D9E650;
+}
+
+.traka{
+    height:50px;
+    width:100vw;
+    padding-left: 15px;
+    margin-top: 2px;
+    background: rgb(7, 7, 7);
+}
+.kalendar{
+    height:100%;
+    width: 100%;
+    display: inline-flex;
+    flex-wrap: nowrap;
+    flex-shrink: 0 !important;
+    overflow: hidden;
+}
+.datum{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    height:100%;
+    width: 80px;
+    padding: 5px;
+    background: rgb(7, 7, 7);
+    overflow: hidden;
+    color: rgb(245, 241, 241);
+    transition: ease-out .8s;
+    border-right: 1px solid rgb(68, 68, 68);
+    cursor: pointer;
+    user-select: none;
+    flex-shrink: 0 !important;
+}
+.kalendaropis{
+    opacity: 0;
+    transition: ease .3s;
+    padding-left: 3px;
+    display: flex;
+    flex-wrap: nowrap;
+    word-wrap: unset;
+    word-break: none;
+  	font-size:12px;
+}
+.datum:hover>.kalendaropis{
+    opacity: 1;
+    transition: ease .8s;
+    transition-delay: .4s;
+}
+.datum:hover{
+    width: 300px;
+    transition: ease-out 1s;
+}
+

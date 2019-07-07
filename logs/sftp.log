@@ -1,0 +1,60 @@
+Jul  5 18:46:10 10.71.54.20 tmp96236703-8049 Connection from 10.71.54.20 port 63704 on 74.208.59.50 port 22
+Jul  5 18:46:10 10.71.54.20 tmp96236703-8049 Accepted password for tmp96236703-8049 from 10.71.54.20 port 63704 ssh2
+Jul  5 18:46:10 10.71.54.20 tmp96236703-8049 Starting session: subsystem 'sftp' for tmp96236703-8049 from 10.71.54.20 port 63704
+Jul  5 18:46:10 10.71.54.20 tmp96236703-8049 session opened for local user tmp96236703-8049 from [10.71.54.20]
+Jul  5 18:46:34 10.71.54.20 tmp96236703-3218 Connection from 10.71.54.20 port 18454 on 74.208.59.50 port 22
+Jul  5 18:46:35 10.71.54.20 tmp96236703-3218 Accepted password for tmp96236703-3218 from 10.71.54.20 port 18454 ssh2
+Jul  5 18:46:36 10.71.54.20 tmp96236703-8049 open "/index.html" flags READ mode 0666
+Jul  5 18:46:36 10.71.54.20 tmp96236703-8049 close "/index.html" bytes read 4011 written 0
+Jul  5 18:46:36 10.71.54.20 tmp96236703-8049 [10.71.54.20|get|0|4011|0|0|0|2f696e6465782e68746d6c|]
+Jul  5 18:50:30 10.71.54.20 tmp96236703-8049 open "/index.html" flags WRITE,CREATE,TRUNCATE mode 0666
+Jul  5 18:50:30 10.71.54.20 tmp96236703-8049 close "/index.html" bytes read 0 written 5313
+Jul  5 18:50:30 10.71.54.20 tmp96236703-8049 [10.71.54.20|put|0|5313|0|0|0|2f696e6465782e68746d6c|]
+Jul  5 18:51:34 10.71.54.20 tmp96236703-8049 open "/index.html" flags READ mode 0666
+Jul  5 18:51:35 10.71.54.20 tmp96236703-8049 close "/index.html" bytes read 5313 written 0
+Jul  5 18:51:35 10.71.54.20 tmp96236703-8049 [10.71.54.20|get|1|5313|0|0|0|2f696e6465782e68746d6c|]
+Jul  5 18:53:19 10.71.54.20 tmp96236703-8049 open "/index.html" flags WRITE,CREATE,TRUNCATE mode 0666
+Jul  5 18:53:19 10.71.54.20 tmp96236703-8049 close "/index.html" bytes read 0 written 5314
+Jul  5 18:53:19 10.71.54.20 tmp96236703-8049 [10.71.54.20|put|0|5314|0|0|0|2f696e6465782e68746d6c|]
+Jul  5 18:57:50 10.71.54.20 tmp96236703-8049 open "/js/app.js" flags READ mode 0666
+Jul  5 18:57:51 10.71.54.20 tmp96236703-8049 close "/js/app.js" bytes read 3521 written 0
+Jul  5 18:57:51 10.71.54.20 tmp96236703-8049 [10.71.54.20|get|1|3521|0|0|0|2f6a732f6170702e6a73|]
+Jul  5 18:58:54 10.71.54.20 tmp96236703-8049 open "/getPost.php" flags READ mode 0666
+Jul  5 18:58:54 10.71.54.20 tmp96236703-8049 close "/getPost.php" bytes read 666 written 0
+Jul  5 18:58:54 10.71.54.20 tmp96236703-8049 [10.71.54.20|get|0|666|0|0|0|2f676574506f73742e706870|]
+Jul  5 18:59:21 10.71.54.20 tmp96236703-8049 open "/pages/post.html" flags READ mode 0666
+Jul  5 18:59:21 10.71.54.20 tmp96236703-8049 close "/pages/post.html" bytes read 116 written 0
+Jul  5 18:59:21 10.71.54.20 tmp96236703-8049 [10.71.54.20|get|0|116|0|0|0|2f70616765732f706f73742e68746d6c|]
+Jul  5 18:59:50 10.71.54.20 tmp96236703-8049 open "/js/app.js" flags READ mode 0666
+Jul  5 18:59:50 10.71.54.20 tmp96236703-8049 close "/js/app.js" bytes read 3521 written 0
+Jul  5 18:59:50 10.71.54.20 tmp96236703-8049 [10.71.54.20|get|0|3521|0|0|0|2f6a732f6170702e6a73|]
+Jul  5 19:18:25 10.71.54.20 tmp96236703-8049 open "/js/app.js" flags WRITE,CREATE,TRUNCATE mode 0666
+Jul  5 19:18:26 10.71.54.20 tmp96236703-8049 close "/js/app.js" bytes read 0 written 3521
+Jul  5 19:18:26 10.71.54.20 tmp96236703-8049 [10.71.54.20|put|1|3521|0|0|0|2f6a732f6170702e6a73|]
+Jul  5 19:21:20 10.71.54.20 tmp96236703-8049 open "/js/app.js" flags READ mode 0666
+Jul  5 19:21:21 10.71.54.20 tmp96236703-8049 close "/js/app.js" bytes read 3521 written 0
+Jul  5 19:21:21 10.71.54.20 tmp96236703-8049 [10.71.54.20|get|1|3521|0|0|0|2f6a732f6170702e6a73|]
+Jul  5 19:24:06 10.71.54.20 tmp96236703-8049 open "/pages/post.html" flags READ mode 0666
+Jul  5 19:24:06 10.71.54.20 tmp96236703-8049 close "/pages/post.html" bytes read 116 written 0
+Jul  5 19:24:06 10.71.54.20 tmp96236703-8049 [10.71.54.20|get|0|116|0|0|0|2f70616765732f706f73742e68746d6c|]
+Jul  5 19:24:29 10.71.54.20 tmp96236703-8049 open "/pages/post.html" flags READ mode 0666
+Jul  5 19:24:30 10.71.54.20 tmp96236703-8049 close "/pages/post.html" bytes read 116 written 0
+Jul  5 19:24:30 10.71.54.20 tmp96236703-8049 [10.71.54.20|get|1|116|0|0|0|2f70616765732f706f73742e68746d6c|]
+Jul  5 19:25:50 10.71.54.20 tmp96236703-8049 open "/getPost.php" flags READ mode 0666
+Jul  5 19:25:51 10.71.54.20 tmp96236703-8049 close "/getPost.php" bytes read 666 written 0
+Jul  5 19:25:51 10.71.54.20 tmp96236703-8049 [10.71.54.20|get|1|666|0|0|0|2f676574506f73742e706870|]
+Jul  5 19:26:20 10.71.54.20 tmp96236703-8049 open "/info.php" flags READ mode 0666
+Jul  5 19:26:21 10.71.54.20 tmp96236703-8049 close "/info.php" bytes read 17 written 0
+Jul  5 19:26:21 10.71.54.20 tmp96236703-8049 [10.71.54.20|get|1|17|0|0|0|2f696e666f2e706870|]
+Jul  5 19:26:40 10.71.54.20 tmp96236703-8049 open "/getPost.php" flags READ mode 0666
+Jul  5 19:26:40 10.71.54.20 tmp96236703-8049 close "/getPost.php" bytes read 666 written 0
+Jul  5 19:26:40 10.71.54.20 tmp96236703-8049 [10.71.54.20|get|0|666|0|0|0|2f676574506f73742e706870|]
+Jul  5 19:28:55 10.71.54.20 tmp96236703-8049 open "/updatePost.php" flags READ mode 0666
+Jul  5 19:28:55 10.71.54.20 tmp96236703-8049 close "/updatePost.php" bytes read 596 written 0
+Jul  5 19:28:55 10.71.54.20 tmp96236703-8049 [10.71.54.20|get|1|596|0|0|0|2f757064617465506f73742e706870|]
+Jul  5 19:33:08 10.71.54.20 tmp96236703-8049 open "/js/app.js" flags READ mode 0666
+Jul  5 19:33:09 10.71.54.20 tmp96236703-8049 close "/js/app.js" bytes read 3521 written 0
+Jul  5 19:33:09 10.71.54.20 tmp96236703-8049 [10.71.54.20|get|1|3521|0|0|0|2f6a732f6170702e6a73|]
+Jul  5 19:36:59 10.71.54.20 tmp96236703-8049 open "/getPost.php" flags READ mode 0666
+Jul  5 19:36:59 10.71.54.20 tmp96236703-8049 close "/getPost.php" bytes read 666 written 0
+Jul  5 19:36:59 10.71.54.20 tmp96236703-8049 [10.71.54.20|get|0|666|0|0|0|2f676574506f73742e706870|]
