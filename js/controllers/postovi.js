@@ -1,4 +1,4 @@
-app.controller('kontroler', function($scope, $routeParams, $http, $rootScope, $timeout, $location,$window, webservice, $http){
+app.controller('mainCtrl', function($scope, $routeParams, $http, $rootScope, $timeout, $location,$window, webservice, $http){
   	document.body.addEventListener("wheel", e=>{
       if(e.ctrlKey)
         event.preventDefault();//prevent zoom
@@ -16,13 +16,15 @@ app.controller('kontroler', function($scope, $routeParams, $http, $rootScope, $t
       	angular.element(document.getElementsByClassName("CardLK")).css('display','inline-flex');
         angular.element(document.getElementsByClassName("loaderCard")).css('display','none');
     }
-    
-    $http({
-      method: 'get',
-      url: 'getPost.php'
-    }).then(function successCallback(response) {
-      $scope.postovi = response.data;
-    });
+
+    webservice.getPosts().then(function (response) {
+        console.log(response.data.records);
+        if (response.statusText == "OK") {
+            $scope.postovi = response.data.records;
+        } else {
+          alert('Baza trenutno van funkcije!');
+        }
+    })
   
     $http({
       method: 'get',
@@ -57,9 +59,5 @@ app.controller('kontroler', function($scope, $routeParams, $http, $rootScope, $t
       angular.element(document.querySelector("#aboutID")).css('display', 'inline-flex');
       angular.element(document.querySelector("#navPost")).css('display', 'none');
     }
-    
-    $scope.kaFejsu = function() {
-       $window.open('https://www.facebook.com/pages/category/Health---Wellness-Website/Nasa-Mala-Praksa-567480650330734/', '_blank');
-	};
     
 });
