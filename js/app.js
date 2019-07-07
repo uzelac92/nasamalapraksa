@@ -19,8 +19,8 @@ window.fbAsyncInit = function() {
 }(document, 'script', 'facebook-jssdk'));
 
 app.config(['$routeProvider', '$locationProvider','$compileProvider',function($routeProvider, $locationProvider, $compileProvider) {
-  	//$locationProvider.html5Mode(true);
-	  //$locationProvider.hashPrefix('!');
+  	$locationProvider.html5Mode(true);
+	  $locationProvider.hashPrefix('!');
     $routeProvider
     .when("/", 
     {
@@ -35,7 +35,7 @@ app.config(['$routeProvider', '$locationProvider','$compileProvider',function($r
     .when("/:postID", 
     {
         title: 'Post',
-        templateUrl: function(params) { // <-- 
+        templateUrl: function(params) {
           return '/pages/postovi/'+params.postID;   
         },
     })
