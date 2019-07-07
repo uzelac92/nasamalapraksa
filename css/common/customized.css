@@ -13,7 +13,7 @@
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
     border-bottom:1px solid lightgray;
-    color: white;
+    color: grey;
 }
 .navbar-brand {
     text-transform: uppercase;
@@ -21,13 +21,15 @@
 .nav-item {
     text-transform: uppercase;
 }
-.navbar a {
-    color: white!important;
-}
 .navbar.scrolled {
     background-color: rgb(56, 56, 56, 0.8) !important;
-    transition: background-color 600ms linear;
-    border: none
+    border: none;
+    height: 50px;
+    font-weight: bold;
+    color: white !important;
+}
+.navbar.scrolled>.navbar-brand{
+    display: none;
 }
 @media (max-width: 450px) {
     .levakolona{
@@ -89,10 +91,6 @@
 }
 
 @media (max-width: 850px) {
-    .banner {
-        padding: 300px 15px;
-        height: 80vh !important;
-    }
     .onamakartica{
         font-size: smaller;
     }
@@ -105,17 +103,6 @@
   	.navbar-brand > img{
         height:40px !important;
     }
-    .interesantnost h1{
-        min-width: 100px;
-        font-size: 1.8em;
-    }
-    #interesantno_pitanje{
-        display: inline-block !important;
-    }
-    .interesantnost{
-        margin-top:20vh !important;
-        max-width:70vw;
-    } 
     .card{
         transform: scale(0.8);
         min-width: 98% !important;
@@ -161,10 +148,6 @@
     }
     .interesantnost {        
         margin-top: 0vh!important;
-    }
-    
-    #particles-js {
-        margin-top: -300px!important;
     }
   	.desnaSlika{
         width:100% !important;
@@ -214,9 +197,6 @@
       	height:90% !important;
       	width:80% !important;
 	}
-    .traka{
-      	display:none !important;
-    }
 }
 @-moz-document url-prefix() {
     .card-title{
@@ -253,49 +233,13 @@
         -webkit-mask-position: -50%;
     }
 }
-header {
-    position: absolute;
-    z-index: 10;
-    width: 100%;
-}
 /*************************
         BANNER STYLE
  *************************/
-.banner {
-    position: relative;
-    background: #262626;
-    min-width: 70vh;
-    background-size: cover;
-    background-position: center;
-    height: 90vh;
-}
-.container-baner {
-    display: block;
-    align-items: left;
-    margin-left: 6vw;
-    margin-top: -10vh;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-}
-#particles-js {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-}
-.interesantnost {
-    color: antiquewhite;
-    width: 100px;
-    text-shadow: 0px 0px 10px rgb(10, 10, 10);
-    user-select: none;
-    padding: 17vw 0 14vw;
-    
-}
-#interesantno_pitanje{
-    font-family: 'Merienda One', cursive;
-    max-height: 415px;
-    display: table-caption;
-}
+ .slikabaner{
+     position: relative;
+     margin-top: 77px;
+ }          
 /*************************
         FOOTER STYLE
  *************************/
