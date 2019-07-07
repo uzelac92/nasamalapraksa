@@ -106,7 +106,7 @@ app.controller('kontroler', ['$scope', '$routeParams', '$http','$rootScope','$ti
 $(function () {
     $(document).scroll(function () {
         var $nav = $(".navbar");
-        var $jumbo = $(".banner");
+        var $jumbo = $(".slikabaner");
         $nav.toggleClass('scrolled', $(this).scrollTop() > $jumbo.height());
     });
 });
