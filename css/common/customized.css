@@ -26,7 +26,7 @@
     border: none;
     height: 50px;
     font-weight: bold;
-    color: white !important;
+    color: red!important;
 }
 .navbar.scrolled>.navbar-brand{
     display: none;
@@ -34,7 +34,7 @@
 @media (max-width: 450px) {
     .levakolona{
         width:93vw !important;
-        
+
     }
   	body{
       overflow-x:hidden !important;
