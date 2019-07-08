@@ -1,41 +1,26 @@
-
-  <a class="fbwrapper" ng-href="https://www.facebook.com/pages/category/Health---Wellness-Website/Nasa-Mala-Praksa-567480650330734/" target="_blank">
+<a class="fbwrapper"
+  ng-href="https://www.facebook.com/pages/category/Health---Wellness-Website/Nasa-Mala-Praksa-567480650330734/"
+  target="_blank">
   <div class="fbkartica">
     <div class="fbanimacija"></div>
     <div class="fbtxt">pratite nas na FB</div>
   </div>
 </a>
-<<<<<<< HEAD
 
 <div class="d-block">
-<div class="najcitanije">Najčitaniji postovi</div>
-<div ng-repeat="topItem in topPostovi | limitTo: 3">
-  <a class="linkd" href="/{{topItem.PUTANJA}}">
-    <figure>
-      <div class="preko"><img src="/images/trougao.png"/></div>
-      <figcaption>
-        <h4> <span>{{topItem.NASLOV}}</span></h4>
-      </figcaption>
-      <div class="ribbon">
-        <span class="redni">{{topItem.KLIK}}</span>
-      </div>
-      <img ng-src="/images/{{topItem.SLIKA}}" class="slikad"/>
-  </figure></a>
-=======
-<div class="d-block">
   <div ng-repeat="topItem in topPostovi | limitTo: 3">
-    <a class="linkd" href="/{{topItem.PUTANJA}}">
+    <a class="linkd" href="/{{ topItem.PUTANJA }}">
       <figure>
-        <div class="preko"><img src="/images/trougao.png"/></div>
+        <div class="preko"><img src="/images/trougao.png" /></div>
         <figcaption>
-          <h4> <span>{{topItem.NASLOV}}</span></h4>
+          <h4>
+            <span>{{ topItem.NASLOV }}</span>
+          </h4>
         </figcaption>
         <div class="ribbon">
-          <span class="redni">{{topItem.KLIK}}</span>
+          <span class="redni">{{ topItem.KLIK }}</span>
         </div>
-        <img ng-src="/images/{{topItem.SLIKA}}" class="slikad"/>
-    </figure></a>
+        <img ng-src="/images/{{ topItem.SLIKA }}" class="slikad" /></figure
+    ></a>
   </div>
->>>>>>> asd
-</div>
 </div>
