@@ -5,7 +5,6 @@
     <div class="fbtxt">pratite nas na FB</div>
   </div>
 </a>
-<<<<<<< HEAD
 <div ng-repeat="topItem in topPostovi | limitTo: 3">
   <a class="linkd" href="/{{topItem.PUTANJA}}">
     <figure>
@@ -15,20 +14,6 @@
       </figcaption>
       <div class="ribbon">
         <span class="redni">{{topItem.KLIK}}</span>
-=======
-<div class="najcitanijiPostovi">
-    <div class="naslovNajcitaniji">Najčitaniji članci!</div>
-    <div class="wrapper">
-      
-      <div ng-repeat="topItem in topPostovi | limitTo: 3 ">
-        <a href="/{{topItem.PUTANJA}}">
-          <div class="desnaCard" >
-            <div class="imgcontainer"><img alt="najcitanije" class="desnaSlika" ng-src="images/{{topItem.SLIKA}}" /></div>
-            <p class="desnaNaslov">{{topItem.NASLOV}}</p>
-            <div class="najcitanijiOpis">{{topItem.INTRO}}</div>
-          </div>
-        </a>
->>>>>>> sinhro
       </div>
       <img src="/images/{{topItem.SLIKA}}" class="slikad"/>
   </figure></a>
