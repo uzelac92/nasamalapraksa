@@ -5,6 +5,9 @@
     <div class="fbtxt">pratite nas na FB</div>
   </div>
 </a>
+
+<div class="d-block">
+<div class="najcitanije">Najčitaniji postovi</div>
 <div ng-repeat="topItem in topPostovi | limitTo: 3">
   <a class="linkd" href="/{{topItem.PUTANJA}}">
     <figure>
@@ -15,6 +18,7 @@
       <div class="ribbon">
         <span class="redni">{{topItem.KLIK}}</span>
       </div>
-      <img src="/images/{{topItem.SLIKA}}" class="slikad"/>
+      <img ng-src="/images/{{topItem.SLIKA}}" class="slikad"/>
   </figure></a>
+</div>
 </div>
