@@ -962,96 +962,52 @@ figure h4 span{
 /******************
      O nama
 *******************/
-.wrapperonama{
-  	display:flex;
-  	justify-content:center;
-  	align-items:center;
-    width:100vw;
-}
-.carousel{
-	width: 80vw;
-  	margin-top: 50px;
-  	margin-bottom: 50px;
-}
-.slajd{
-	background: #353839;
-	height:50vh;
-	align-items: center;
-	justify-content: center;
-}
-.polovine{
-	align-items: center;
-	overflow: hidden;
-}
-.opis{
-	font-family: Laila;
-	font-size: .9rem;
-	line-height: 1rem;
-	color: white;
-	padding-right: 130px !important;
-}
-.lopis{
-	color:#F2C649;
-	font-family: Merienda One;
-	text-align: right;
-	justify-content: flex-end;
-	padding-right: 50px;
-}
-.kapsn{
-	font-family: Laila;
-	font-style: italic;
-	color: #D9E650;
+.onamawrapper{
+    margin-top: 60px;
+    margin-bottom: 60px;
+    width: 97vw;
+    height: 50vh;
+    display: grid;
+    grid-template-columns: 14% 35% 24% 24%;
+    grid-template-rows: 100%;
+    justify-content: center;
 }
 
-.traka{
-    height:50px;
-    width:100vw;
-    padding-left: 15px;
-    margin-top: 2px;
-    background: rgb(7, 7, 7);
-}
-.kalendar{
-    height:100%;
-    width: 100%;
+.celija{
+    font-family: 'Signika', sans-serif;
     display: inline-flex;
-    flex-wrap: nowrap;
-    flex-shrink: 0 !important;
+    flex-wrap: wrap;
+    background: white;
+    border-right: 1px solid rgb(77, 77, 77);
+    padding:20px;
     overflow: hidden;
-}
-.datum{
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-wrap: nowrap;
-    height:100%;
-    width: 80px;
-    padding: 5px;
-    background: rgb(7, 7, 7);
-    overflow: hidden;
-    color: rgb(245, 241, 241);
-    transition: ease-out .8s;
-    border-right: 1px solid rgb(68, 68, 68);
-    cursor: pointer;
     user-select: none;
-    flex-shrink: 0 !important;
+    align-items: center;
 }
-.kalendaropis{
-    opacity: 0;
-    transition: ease .3s;
-    padding-left: 3px;
-    display: flex;
-    flex-wrap: nowrap;
-    word-wrap: unset;
-    word-break: none;
-  	font-size:12px;
+.onamawrapper span{
+    font-weight: bold;
+    font-size: 1.8rem;
+    color: rgb(0, 0, 0);
+    text-shadow: 0 0 3px rgb(66, 66, 66);
+    border-left: 3px solid cornflowerblue;
+    padding-left: 10px;
+    margin-bottom: 10px;
 }
-.datum:hover>.kalendaropis{
-    opacity: 1;
-    transition: ease .8s;
-    transition-delay: .4s;
+.onamawrapper p{
+    text-align: justify;
+    font-size: 0.9rem;
 }
-.datum:hover{
-    width: 300px;
-    transition: ease-out 1s;
+.onamawrapper img{
+    width: 100%;
+    height: 100%;
 }
-
+.onamakontakt{
+    border:none;
+    box-shadow: -5px 0 3px rgb(221, 221, 221);
+}
+.onamatxt{
+    box-shadow: -5px 0 3px rgb(221, 221, 221);
+}
+.onamacilj{
+    box-shadow: -5px 0 3px rgb(221, 221, 221);
+}
