@@ -65,6 +65,14 @@ app.controller('myPostCtrl', function($scope, $http){
     });
 
     $scope.initTiny = function() {
+        $scope.$on('$destroy', function() {
+            var tinyInstance = tinymce.get('intro');
+      
+            if (tinyInstance) {
+              tinyInstance.remove();
+              tinyInstance = null;
+            }
+        });
         tinymce.init({
             /* replace textarea having class .tinymce with tinymce editor */
             selector: "textarea.tinymce",
@@ -118,6 +126,10 @@ app.controller('myPostCtrl', function($scope, $http){
                     {title: "Justify", icon: "alignjustify", format: "alignjustify"}
                 ]}
             ]
+        });
+
+        jQuery(".wysiwyg").each(function(){ 
+            tinyMCE.execCommand("mceAddControl",false, this.id);
         });
     }
 
@@ -173,37 +185,45 @@ app.controller('myPostCtrl', function($scope, $http){
     }
 
     $scope.questions = [];
-    $scope.elementi = 0;
     $scope.showElem = false;
-
-
     $scope.count = 0;
+
     $scope.addQuestion = function() {
         ++$scope.count;
 
         $scope.pit = 'pitanje' + $scope.count;
         $scope.op = 'opis' + $scope.count;
         $scope.pr = 'problem' + $scope.count;
+        ++$scope.elementi;
+        $scope.showElem = true;
+
         $scope.questions.push({
             'pitanje': $scope.pit,
             'opis': $scope.op,
             'problem': $scope.pr,
         });
-        ++$scope.elementi;
-        $scope.showElem = true;
     }
 
     $scope.removeQuestion = function() {
-        $scope.questions.pop({
+        $scope.questions.pop({});
 
-        });
-        --$scope.elementi;
-        if($scope.elementi == 0) {
+        --$scope.count;
+        $scope.pit = 'pitanje' + $scope.count;
+        $scope.op = 'opis' + $scope.count;
+        $scope.pr = 'problem' + $scope.count;
+        if($scope.count == 0) {
             $scope.showElem = false;
         }
     }
 
     $scope.pokazi = function() {
-        console.log($scope.pitanje1);
+        console.log();
     }
+
+    $scope.dodajId = function(id) {
+        document.getElementById(id).toggleClass('tinymce');
+        tinyMCE.execCommand('mceAddControl', true, id);
+        tinyMCE.triggerSave();
+    }
+
 });

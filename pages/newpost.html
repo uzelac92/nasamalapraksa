@@ -18,18 +18,18 @@
             </div>
         </div>
 
-        <div class="col-12 my-3" ng-repeat="quest in questions" ng-init="initTiny()">
+        <div class="col-12 my-3" ng-repeat="quest in questions" ng-init="initTiny();">
             <div class="col-12 form-group">
                 <h5 class="text-center">Pitanje</h5>
                 <input ng-model="quest.pitanje" id="quest.pitanje" type="text" class="col-12 form-control" placeholder="Sta je to... Lecenje... Simptomi...">
             </div>
             <div class="col-12 form-group">
                 <h5 class="text-center">Kratak uvod</h5>
-                <textarea class="tinymce"></textarea>
+                <textarea id="quest.opis" ng-click="dodajId(quest.opis)"></textarea>
             </div>
             <div class="col-12 form-group">
                 <h5 class="text-center">Opis problema</h5>
-                <textarea class="tinymce"></textarea>
+                <textarea id="quest.problem" ng-click="dodajId(quest.problem)"></textarea>
             </div>
             <hr>
         </div>
