@@ -127,10 +127,6 @@ app.controller('myPostCtrl', function($scope, $http){
                 ]}
             ]
         });
-
-        jQuery(".wysiwyg").each(function(){ 
-            tinyMCE.execCommand("mceAddControl",false, this.id);
-        });
     }
 
     $scope.form=[];
@@ -214,16 +210,6 @@ app.controller('myPostCtrl', function($scope, $http){
         if($scope.count == 0) {
             $scope.showElem = false;
         }
-    }
-
-    $scope.pokazi = function() {
-        console.log();
-    }
-
-    $scope.dodajId = function(id) {
-        document.getElementById(id).toggleClass('tinymce');
-        tinyMCE.execCommand('mceAddControl', true, id);
-        tinyMCE.triggerSave();
     }
 
 });
