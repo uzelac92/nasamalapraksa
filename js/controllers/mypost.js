@@ -1,4 +1,4 @@
-app.controller('myPostCtrl', function($scope, $http){
+app.controller('myPostCtrl', function($scope, $http,$sce){
 
     $scope.$on('$destroy', function() {
         var tinyInstance = tinymce.get('intro');
@@ -65,6 +65,14 @@ app.controller('myPostCtrl', function($scope, $http){
     });
 
     $scope.initTiny = function() {
+        $scope.$on('$destroy', function() {
+            var tinyInstance = tinymce.get('intro');
+      
+            if (tinyInstance) {
+              tinyInstance.remove();
+              tinyInstance = null;
+            }
+        });
         tinymce.init({
             /* replace textarea having class .tinymce with tinymce editor */
             selector: "textarea.tinymce",
@@ -173,37 +181,48 @@ app.controller('myPostCtrl', function($scope, $http){
     }
 
     $scope.questions = [];
-    $scope.elementi = 0;
-    $scope.showElem = false;
-
-
     $scope.count = 0;
+
     $scope.addQuestion = function() {
-        ++$scope.count;
+        $scope.pit = $scope.pitanje;
+        $scope.op = $sce.trustAsHtml(tinymce.get('opis').getContent());
+        $scope.pr = $sce.trustAsHtml(tinymce.get('problem').getContent());
 
-        $scope.pit = 'pitanje' + $scope.count;
-        $scope.op = 'opis' + $scope.count;
-        $scope.pr = 'problem' + $scope.count;
-        $scope.questions.push({
-            'pitanje': $scope.pit,
-            'opis': $scope.op,
-            'problem': $scope.pr,
-        });
-        ++$scope.elementi;
-        $scope.showElem = true;
-    }
+        if($scope.pit != '' && $scope.op != '' && $scope.pr != '') {
+            $scope.questions.push({
+                'id': $scope.count,
+                'pitanje': $scope.pit,
+                'opis': $scope.op,
+                'problem': $scope.pr,
+            });
+            tinymce.get('opis').setContent('');
+            tinymce.get('problem').setContent('')
+            $scope.pitanje = '';
+            ++$scope.count;
 
-    $scope.removeQuestion = function() {
-        $scope.questions.pop({
-
-        });
-        --$scope.elementi;
-        if($scope.elementi == 0) {
-            $scope.showElem = false;
+            console.log($scope.questions);
+        } else {
+            alert('Popuni pitanje!');
         }
     }
 
-    $scope.pokazi = function() {
-        console.log($scope.pitanje1);
+    $scope.removeQuestion = function(item) {
+        //$scope.questions.pop({});
+        var index = $scope.questions.indexOf(item);
+        $scope.questions.splice(index, 1);
+        --$scope.count;
     }
+
+    $scope.editQuestion = function(item) {
+        //$scope.questions.pop({});
+        var index = $scope.questions.indexOf(item);
+        console.log(index);
+        console.log($scope.questions[index]);
+        // $scope.pitanje = $scope.questions[index].pitanje;
+        // tinymce.get('opis').setContent($scope.questions[index].opis);
+        // tinymce.get('problem').setContent($scope.questions[index].problem)
+        // $scope.questions.splice(index, 1);
+        // --$scope.count;
+    }
+
 });

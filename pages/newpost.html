@@ -18,33 +18,72 @@
             </div>
         </div>
 
-        <div class="col-12 my-3" ng-repeat="quest in questions" ng-init="initTiny()">
+        <div class="col-12 my-3" ng-init="initTiny()">
             <div class="col-12 form-group">
                 <h5 class="text-center">Pitanje</h5>
-                <input ng-model="quest.pitanje" id="quest.pitanje" type="text" class="col-12 form-control" placeholder="Sta je to... Lecenje... Simptomi...">
+                <input ng-model="pitanje" id="quest.pitanje" type="text" class="col-12 form-control" placeholder="Sta je to... Lecenje... Simptomi...">
             </div>
             <div class="col-12 form-group">
                 <h5 class="text-center">Kratak uvod</h5>
-                <textarea class="tinymce"></textarea>
+                <textarea id="opis" class="tinymce"></textarea>
             </div>
             <div class="col-12 form-group">
                 <h5 class="text-center">Opis problema</h5>
-                <textarea class="tinymce"></textarea>
+                <textarea id="problem" class="tinymce"></textarea>
             </div>
-            <hr>
         </div>
-        <div class="col-12 my-4">
+        <button ng-click="addQuestion()"
+            class="btn btn-sm text-dark mx-auto">
+            <i class="fas fa-plus"></i></button>
+        <hr class="bg-dark">
+        <div class="col-12 my-2 row" ng-repeat="quest in questions">
+            <table class="table table-striped table-hover">
+                <thead class="border-top-0">
+                    <tr class="border-top-0">
+                        <th scope="col" class="border-top-0">{{quest.id}}</th>
+                        <th scope="col" class="border-top-0"></th>
+                        <th scope="col" class="border-top-0"></th>
+                        <th scope="col" class="row border-bottom-0 border-top-0">
+                            <button ng-click="editQuestion(quest.id)"
+                                class="btn btn-sm text-dark mx-auto">
+                                <i class="fas fa-edit"></i></button>
+                            <button ng-click="removeQuestion(quest.id)"
+                                class="btn btn-sm text-dark mx-auto">
+                                <i class="fas fa-trash-alt"></i></button>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Pitanje</th>
+                        <td colspan="3">{{quest.pitanje}}</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Kratki opis</th>
+                        <td colspan="3" ng-bind-html="quest.opis"></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Sadrzaj</th>
+                        <td colspan="3" ng-bind-html="quest.problem"></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr class="bg-black">
+        </div>
+        <div class="col-12 my-4" style="display: none">
             <h5 class="text-center">Sekcije</h5>
             <div class="row col-sm-2 mx-auto text-center">
-                <button ng-click="removeQuestion()" ng-show="showElem"
-                    class="btn btn-sm text-dark mx-auto">
-                    <i class="fas fa-minus"></i></button>
-                <button ng-click="addQuestion()"
+                <button ng-click="addQuestion()" type="submit"
                     class="btn btn-sm text-dark mx-auto">
                     <i class="fas fa-plus"></i></button>
             </div>
         </div>
-        <input type="submit" value="Publish" class="btn btn-success mx-auto my-3 col-4">	
-        <button ng-click="pokazi()">Tekst</button>
+        <input type="submit" value="Publish" class="btn btn-success mx-auto my-3 col-4">
     </form>
 </div>
