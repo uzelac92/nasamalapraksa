@@ -1,4 +1,4 @@
-app.controller('mainCtrl', function($scope, $routeParams, $http, $rootScope, $timeout, $location,$window, webservice, $http){
+app.controller('mainCtrl', function($scope, $routeParams, $http, $rootScope, $timeout, $location,$window, webservice){
   	document.body.addEventListener("wheel", e=>{
       if(e.ctrlKey)
         event.preventDefault();//prevent zoom
@@ -52,5 +52,4 @@ app.controller('mainCtrl', function($scope, $routeParams, $http, $rootScope, $ti
       angular.element(document.querySelector("#aboutID")).css('display', 'inline-flex');
       angular.element(document.querySelector("#navPost")).css('display', 'none');
     }
-    
 });
