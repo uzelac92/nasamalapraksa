@@ -1,8 +1,8 @@
 <?php
-  $host_name = 'localhost:8889';
+  $host_name = '127.0.0.1';
   $database = 'db770021752';
   $user_name = 'root';
-  $password = 'root';
+  $password = '';
 
   $dbh = null;
   try {
