@@ -966,7 +966,7 @@ figure h4 span{
     margin-top: 60px;
     margin-bottom: 60px;
     width: 97vw;
-    height: 50vh;
+    height: 480px;
     display: grid;
     grid-template-columns: 14% 35% 24% 24%;
     grid-template-rows: 100%;
