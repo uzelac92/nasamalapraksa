@@ -1,0 +1,50 @@
+<div class="col-12 p-1" ng-controller="myPostCtrl">
+    <form class="col-10 mx-auto text-center" name="form" ng-submit="insert()" ng-init="initTiny()">
+        <div class="col-12 form-group">
+            <h3 class="text-center">Naslov</h3>
+            <input ng-model="postnaslov" type="text" class="col-12 form-control" placeholder="Unesi naslov posta...">
+        </div>
+        <div class="col-12 form-group">
+            <h5 class="text-center">Intro</h5>
+            <textarea id="intro" class="tinymce"></textarea>
+        </div>
+    
+        <div class="col-8 mx-auto">
+            <div class="row col-12 mx-auto">
+                <input type="file"  ng-model="image1" accept="image/*" onchange="angular.element(this).scope().uploadedFile(this)" class="btn btn-info col-8 mx-auto"/>
+            </div>
+            <div class="col-12 mx-auto text-center">
+                <img id="output"  style="width:400px; height:300px" class="img-responsive mx-auto"/>
+            </div>
+        </div>
+
+        <div class="col-12 my-3" ng-repeat="quest in questions" ng-init="initTiny()">
+            <div class="col-12 form-group">
+                <h5 class="text-center">Pitanje</h5>
+                <input ng-model="quest.pitanje" id="quest.pitanje" type="text" class="col-12 form-control" placeholder="Sta je to... Lecenje... Simptomi...">
+            </div>
+            <div class="col-12 form-group">
+                <h5 class="text-center">Kratak uvod</h5>
+                <textarea class="tinymce"></textarea>
+            </div>
+            <div class="col-12 form-group">
+                <h5 class="text-center">Opis problema</h5>
+                <textarea class="tinymce"></textarea>
+            </div>
+            <hr>
+        </div>
+        <div class="col-12 my-4">
+            <h5 class="text-center">Sekcije</h5>
+            <div class="row col-sm-2 mx-auto text-center">
+                <button ng-click="removeQuestion()" ng-show="showElem"
+                    class="btn btn-sm text-dark mx-auto">
+                    <i class="fas fa-minus"></i></button>
+                <button ng-click="addQuestion()"
+                    class="btn btn-sm text-dark mx-auto">
+                    <i class="fas fa-plus"></i></button>
+            </div>
+        </div>
+        <input type="submit" value="Publish" class="btn btn-success mx-auto my-3 col-4">	
+        <button ng-click="pokazi()">Tekst</button>
+    </form>
+</div>

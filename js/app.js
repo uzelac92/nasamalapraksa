@@ -32,6 +32,11 @@ app.config(['$routeProvider', '$locationProvider','$compileProvider',function($r
         title: 'Mitovi',
         templateUrl : "/pages/Mitovi.html",
     })
+  	.when("/newpost", 
+    {
+        title: 'Mitovi',
+        templateUrl : "/pages/newpost.html",
+    })
     .when("/:postID", 
     {
         title: 'Post',

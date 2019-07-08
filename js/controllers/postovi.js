@@ -1,4 +1,4 @@
-app.controller('mainCtrl', function($scope, $routeParams, $http, $rootScope, $timeout, $location,$window, webservice, $http){
+app.controller('mainCtrl', function($scope, $routeParams, $http, $rootScope, $timeout, $location,$window, webservice){
   	document.body.addEventListener("wheel", e=>{
       if(e.ctrlKey)
         event.preventDefault();//prevent zoom
