@@ -6,18 +6,17 @@ header("Content-Type: application/json; charset=UTF-8");
 // database connection will be here
 // include database and object files
 include_once '../config/database.php';
-include_once '../objects/post.php';
  
 // instantiate database and post object
 $database = new Database();
 $db = $database->getConnection();
  
-// initialize object
-$post = new Post($db);
- 
-// read posts will be here
-// query posts
-$stmt = $post->read();
+$query = "SELECT * FROM post ORDER BY ID DESC";
+
+$stmt = $db->prepare($query);
+
+$stmt->execute();
+
 $num = $stmt->rowCount();
  
 // check if more than 0 record found
