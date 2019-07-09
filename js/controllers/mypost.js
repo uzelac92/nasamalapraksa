@@ -7,6 +7,28 @@ app.controller('myPostCtrl', function($scope, $http,$sce){
           tinyInstance.remove();
           tinyInstance = null;
         }
+
+        tinyInstance = tinymce.get('opis');
+  
+        if (tinyInstance) {
+          tinyInstance.remove();
+          tinyInstance = null;
+        }
+
+
+        tinyInstance = tinymce.get('problem');
+  
+        if (tinyInstance) {
+          tinyInstance.remove();
+          tinyInstance = null;
+        }
+
+        tinyInstance = tinymce.get('postnaslov');
+  
+        if (tinyInstance) {
+          tinyInstance.remove();
+          tinyInstance = null;
+        }
     });
 
     tinymce.init({
@@ -24,7 +46,7 @@ app.controller('myPostCtrl', function($scope, $http,$sce){
         plugins: [
             "advlist autolink link image lists charmap print preview hr anchor pagebreak",
             "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
-            "save table contextmenu directionality emoticons template paste textcolor"
+            "save table directionality emoticons template paste"
         ],
 
         /* toolbar */
@@ -88,7 +110,7 @@ app.controller('myPostCtrl', function($scope, $http,$sce){
             plugins: [
                 "advlist autolink link image lists charmap print preview hr anchor pagebreak",
                 "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
-                "save table contextmenu directionality emoticons template paste textcolor"
+                "save table directionality emoticons template paste"
             ],
         
             /* toolbar */
@@ -184,9 +206,12 @@ app.controller('myPostCtrl', function($scope, $http,$sce){
     $scope.count = 0;
 
     $scope.addQuestion = function() {
-        $scope.pit = $scope.pitanje;
-        $scope.op = $sce.trustAsHtml(tinymce.get('opis').getContent());
-        $scope.pr = $sce.trustAsHtml(tinymce.get('problem').getContent());
+        $scope.pit = '';
+        $scope.op = '';
+        $scope.pr = '';
+        $scope.pit += $scope.pitanje;
+        $scope.op += tinymce.get('opis').getContent();
+        $scope.pr += tinymce.get('problem').getContent();
 
         if($scope.pit != '' && $scope.op != '' && $scope.pr != '') {
             $scope.questions.push({
@@ -199,30 +224,44 @@ app.controller('myPostCtrl', function($scope, $http,$sce){
             tinymce.get('problem').setContent('')
             $scope.pitanje = '';
             ++$scope.count;
-
-            console.log($scope.questions);
         } else {
             alert('Popuni pitanje!');
         }
     }
 
     $scope.removeQuestion = function(item) {
-        //$scope.questions.pop({});
-        var index = $scope.questions.indexOf(item);
+        var index = 0;
+        for(var i=0; i<$scope.questions.length; i++) {
+            if($scope.questions[i].id == item) {
+                index = i;
+                break;
+            }
+        }
         $scope.questions.splice(index, 1);
         --$scope.count;
     }
 
     $scope.editQuestion = function(item) {
-        //$scope.questions.pop({});
-        var index = $scope.questions.indexOf(item);
-        console.log(index);
-        console.log($scope.questions[index]);
-        // $scope.pitanje = $scope.questions[index].pitanje;
-        // tinymce.get('opis').setContent($scope.questions[index].opis);
-        // tinymce.get('problem').setContent($scope.questions[index].problem)
-        // $scope.questions.splice(index, 1);
-        // --$scope.count;
+        var index = 0;
+        for(var i=0; i<$scope.questions.length; i++) {
+            if($scope.questions[i].id == item) {
+                index = i;
+                break;
+            }
+        }
+
+        $scope.pitanje = $scope.questions[index].pitanje;
+        tinymce.get('opis').setContent($scope.questions[index].opis);
+        tinymce.get('problem').setContent($scope.questions[index].problem)
+        $scope.questions.splice(index, 1);
+        --$scope.count;
     }
+
+    $scope.trustAsHtml = function(html) {
+        return $sce.trustAsHtml(html);
+    }
+
+
+
 
 });

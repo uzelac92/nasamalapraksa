@@ -1,0 +1,22 @@
+<h1 class="posth1" id="seboreja">
+{{POST.NASLOV}}
+</h1>
+
+<h4 class="posth4">
+{{POST.INTRO}}
+ </h4>
+<div class="postcontainer"><img class="slika" alt="Seboroični dermatitis svrab srvenilo ljuštenje uha" src="{{POST.SLIKA}}" /><p class="imgalt">Izgled i najčešća lokalizacija seboroičnog dermatitisa</p></div>
+
+<div ng-repeat="q in questions">
+  <h2 class="posth2">
+    {{q.PITANJE}}
+  </h2>
+  <h4 class="posth4">
+    {{q.OPIS}}
+  </h4>
+  {{q.PROBLEM}}
+</div>
+
+<p class="autor">
+01.02.2019. | Mladen
+</p>
