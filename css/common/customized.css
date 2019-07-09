@@ -258,52 +258,93 @@
 /*************************
         FOOTER STYLE
  *************************/
-full {
-    width: 100%;
-}
-.footer {
+footer {
     height: auto;
-    padding-bottom: 30px;
+    padding-top:60px;
+    padding-bottom: 60px;
     position: relative;
     width: 100%;
     color:#fff;
-    background-image: linear-gradient(to bottom, rgb(5, 187, 187), rgb(0, 92, 92));
-    box-shadow: 0px -5px 10px rgb(161, 161, 161);
+    border-top: 1px solid rgb(99, 99, 99);
+    background: #383838;
 }
-.footer h3 {
-    border-bottom: 1px solid rgb(1, 58, 58);
-    color:rgb(0, 92, 92);
+footer .container{
+    min-width: 90% !important;
+    height:auto;
+}
+.upbutton{
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+    background: white;
+    color: #383838;
+    position: absolute;
+    right: 30px;
+    bottom: 60px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 3rem;
+    user-select: none;
+    box-shadow: inset 0 0 5px rgb(126, 126, 126);
+    overflow: hidden;
+    cursor: pointer;
+}
+.upbutton p{
+    position: absolute;
+    bottom: -40px;
+    transition: .2s ease;
+}
+.upbutton:hover>p{
+    bottom: -10px;
+    transition: .2s ease;
+}
+footer h3 {
+    border-bottom: 1px solid rgb(202, 182, 0);
+    color:rgb(114, 114, 114);
     font-size: 18px;
     line-height: 27px;
     padding: 40px 0 10px;
     text-transform: uppercase;
     font-weight: bold;
 }
-.footer ul {
+footer ul {
     font-size: 13px;
     
     list-style-type: none;
     margin-left: 0;
     padding-left: 0;
     margin-top: 15px;
-    color:rgb(1, 56, 56);
+    color:rgb(228, 230, 230);
 }
-.footer ul li a {
+footer .pratite li a {
     padding: 0 0 5px 0;
     display: block;
 }
-.footer a {
-    color: rgb(0, 39, 39)
+footer .pratite a {
+    color:rgb(228, 230, 230);
 }
-.footer a:hover{
-    color: rgb(1, 31, 31);
+footer .pratite a:hover{
+    color: rgb(189, 189, 189);
     font-style: italic;
     text-decoration: none;
     font-weight: bolder;
+    background: rgba(32, 32, 32, 0.322);
 }
 footer a:visited{
-    color: rgb(0, 39, 39);
+    color: rgb(255, 196, 0);
     text-decoration: none;
+}
+.doniraj{
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: bold;
+    border:1px solid rgb(255, 217, 0);
+    margin-top:10px;
+    padding-top: 5px;
+    padding-left: 10px;
 }
 .supportLi h4 {
     font-size: 20px;
@@ -312,24 +353,14 @@ footer a:visited{
     margin-bottom: 0 !important;
     padding-bottom: 0;
 }
-.pretplati .btn {
-    border: medium none;
-    display: inline-block;
-    height: 40px;
-    padding: 0;
-    color: #fff;
-}
-.pretplati {
-    overflow: hidden;
-    margin-top:10px;
-    width: 100%;
-    border-radius: 15px; 
-}
 /* SOCIAL ICONS */
 .social-network {
 	list-style: none;
-	display: inline;
-	padding: 0;
+	display: inline-flex;
+    padding: 0;
+    float: right;
+    height: 100%;
+    align-items: center;
 }
 .social-network li {
     display: inline-block;
@@ -337,32 +368,31 @@ footer a:visited{
 }
 /* SOCIAL ICONS */
 .social-network a.icoFacebook:hover {
-	background-color:#3B5998;
+	background-color:rgb(126, 126, 126);
 }
 .social-network a.icoTwitter:hover {
-	background-color:#33ccff;
-}
-.social-network a.icoGoogle:hover {
-	background-color:#BD3518;
+	background-color:rgb(126, 126, 126);
 }
 .social-network a.icoLinkedin:hover {
-	background-color:#007bb7;
+	background-color:rgb(126, 126, 126);
 }
 .social-network a.icoFacebook:hover i, .social-network a.icoTwitter:hover i,
-.social-network a.icoGoogle:hover i, .social-network a.icoLinkedin:hover i {
+.social-network a.icoLinkedin:hover i {
 	color:#fff;
 }
 .social-circle li a {
-	display:inline-block;
+	display:inline-flex;
 	position:relative;
 	margin:0 auto 0 auto;
 	-moz-border-radius:50%;
 	-webkit-border-radius:50%;
 	border-radius:50%;
-	text-align:center;
-	width: 50px;
-	height: 50px;
-	font-size:20px;
+    text-align:center;
+    align-items: center;
+    justify-content: center;
+	width: 75px;
+	height: 75px;
+	font-size:2rem;
 }
 .social-circle li i {
 	margin:0;
@@ -380,8 +410,11 @@ footer a:visited{
 	-ms-transition: all 0.2s;
 	transition: all 0.2s;
 }
+.social-circle a:hover{
+    text-decoration: none;
+}
 .social-circle i {
-	color: #fff;
+	color: rgb(129, 129, 129);
 	-webkit-transition: all 0.8s;
 	-moz-transition: all 0.8s;
 	-o-transition: all 0.8s;
@@ -389,23 +422,21 @@ footer a:visited{
 	transition: all 0.8s;
 }
 .social-network > a {
-    background-color: #D3D3D3;   
-}
-
-.footer-bottom {
-    background: rgb(0, 92, 92);
-    border-top: 1px solid rgb(0, 92, 92);
-    color:white;
-    padding-bottom: 5px;
-}
-.copyrightText {
-    text-align: center;
-    margin-top: 20px;
-    line-height: 10px;
+    background-color: rgb(226, 224, 224);   
 }
 /*    PRETPLATI SE   */
 .pretplati{
-    border: 1px solid rgb(177, 177, 4) !important;
+    border: none !important;
+    background: rgb(231, 231, 231);
+    color: rgb(80, 80, 80);
+    user-select: none;
+    cursor: pointer;
+    display:inline-flex;
+    justify-content: center;
+    align-items: center; 
+    overflow: hidden;
+    margin-top:10px;
+    width: 40%;
 }
 .pretplati span {
     cursor: pointer;
@@ -422,7 +453,7 @@ footer a:visited{
     transition: 0.5s;
 }
 .pretplati:hover{
-    box-shadow: 0px 0px 10px rgba(71, 71, 71, 0.863),  0px 0px 10px rgba(71, 71, 71, 0.863);
+    box-shadow: 0px 0px 5px rgba(94, 93, 93, 0.863);
 }
 .pretplati:hover span {
     padding-right: 25px;
@@ -430,6 +461,18 @@ footer a:visited{
 .pretplati:hover span:after {
     opacity: 1;
     right: 0;
+}
+
+/**copyright**/
+.copyr{
+    background: rgb(34, 34, 34);
+    height: 40px;
+    margin-top:1px;
+    color:rgb(151, 151, 151);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
 }
 /*************************
     levakolona sadrzaj
@@ -846,25 +889,25 @@ figure h4 span{
 *******************/
 .morebtn{
     background-color: rgba(128, 128, 128, 0);
-    border:1px solid grey;
+    border: none !important;
     font-family: 'Signika', sans-serif;
     font-size: 1.1em;
     font-weight: bold;
     margin-left: 45%;
     user-select: none;
     cursor: pointer;
-    box-shadow: 0px 0px 15px rgb(105, 105, 105);
+    box-shadow: 0 0 5px rgb(105, 105, 105);
     color: rgb(77, 76, 76);
     display: block;
     width: 60px;
     height: 60px;
     border-radius: 60px;
     transition: ease .2s;
-    margin-top:10px;
+    margin-top:40px;
     margin-bottom:10px;
 }
 .morebtn:hover{
-    box-shadow: 0px 0px 30px rgb(3, 3, 3); 
+    box-shadow: 0px 0px 10px rgb(83, 83, 83); 
     transform: rotate(360deg);
     transition: ease .2s;
 }
@@ -1004,10 +1047,24 @@ figure h4 span{
 .onamakontakt{
     border:none;
     box-shadow: -5px 0 3px rgb(221, 221, 221);
+    display: block;
 }
 .onamatxt{
     box-shadow: -5px 0 3px rgb(221, 221, 221);
 }
 .onamacilj{
     box-shadow: -5px 0 3px rgb(221, 221, 221);
+}
+.unos{
+    border:1px solid black;
+    padding: 3px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.unos:focus{
+    border:1px solid black;
+    padding: 3px;
+    background: gold;
+    color:black;
+
 }

@@ -18,5 +18,23 @@
         <p>Mladen je doktor medicine, koji se radom s pacijentima u primarnoj zdravstvenoj zaštiti bavi već preko pet godina. Takođe je doktorand biomedicinskih nauka. 
         U slobodno vreme, voli da pisanjem blogova, deli svoje medicinsko znanje sa drugim ljudima u svrhu rešavanja zdravstvenih nedoumica. 
         S tim u cilju, rodila se želja za kreiranjem ove veb stranice, koja je nastavak prethodnog rada na sličnom blogu.</p></div>
-    <div class="onamakontakt celija"><span>PIŠITE NAM</span></div>
+    <div class="onamakontakt celija"><span>PIŠITE NAM</span>
+        <div class="contactForm d-block">
+            <?php if(!empty($statusMsg)){ ?>
+                <p class="statusMsg <?php echo !empty($msgClass)?$msgClass:''; ?>"><?php echo $statusMsg; ?></p>
+            <?php } ?>
+            <form action="" method="post">
+                <h4>Korisničko ime</h4>
+                <input class="unos" type="text" name="name" placeholder="Ime" required="">
+                <h4>Email </h4>
+                <input class="unos" type="email" name="email" placeholder="email@primer.com" required="">
+                <h4>Subject</h4>
+                <input class="unos" type="text" name="subject" placeholder="Predmet" required="">
+                <h4>Message</h4>
+                <textarea name="message" class="w-100" placeholder="" required=""> </textarea>
+                <input class="pretplati" class="w-100 f-right" type="submit" name="submit" value="Pošalji">
+                <div class="clear"> </div>
+            </form>
+        </div>
+    </div>
 </div>

@@ -52,4 +52,8 @@ app.controller('mainCtrl', function($scope, $routeParams, $http, $rootScope, $ti
       angular.element(document.querySelector("#aboutID")).css('display', 'inline-flex');
       angular.element(document.querySelector("#navPost")).css('display', 'none');
     }
+
+    $scope.scrollGore = function() {
+      $('html, body').animate({scrollTop:0}, '300');
+    }
 });
