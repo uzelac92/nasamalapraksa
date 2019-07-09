@@ -41,11 +41,33 @@
     color:whitesmoke !important;
     transition: all .8s ease;
 }
-@media (max-width: 450px) {
-    .navbar.scrolled>.navbar-brand,
-    .navbar.scrolled .searchbar{
-    visibility: none;
+@media (max-width: 500px) {
+    .navbar.scrolled>.navbar-collapse{
+    display: none !important;
 }
+    .slikabaner{
+        visibility: hidden !important;
+    }
+    .drzacbanera{
+        background-image: url('/images/bannertel.gif');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        height: 80vw;
+        width: 100%;
+    }
+    .navbar button:focus{
+        outline: none !important;
+    }
+    .navbar-brand{
+        display: none!important;
+    }
+    .searchbar{
+        transform: scale(.8)
+    }
+    .navbar a{
+        color: rgb(241, 241, 241) !important;
+    }
     .levakolona{
         width:93vw !important;
 
@@ -60,49 +82,36 @@
     .levakolona .postcontainer{
         margin-left:3vw;
     }
-  	.desnaCard{
-        display: flex;
-    }
-    .wrapper{
-        display: block !important;
-        justify-content: center;
-        align-items:center;
-        padding-left: 10px;
-        margin-left: 0px !important;
-    }
     .desnakolona{
         display: flex;
         justify-content: center;
         align-items:center; 
-      	flex-wrap:wrap;
-    }
-    .desnaSlika{
-        width:100% !important;
-        height: 100px !important;
-        object-fit: cover;
-        opacity: .8 !important;
-    }
-    .desnaNaslov{
-        padding-top: 110px !important;
-    }
-  	.onk{
-        display: inline-flex;
-        flex-wrap: wrap; 
-    }
-    .prva{
-        font-size: .4em !important;
-        display: inline-flex;
-        justify-content: left;
-        align-items: left;
-    }
-    .nascilj{
-        column-count: 2 !important;
+        flex-wrap:wrap;
     }
   	.mith,
 	.mithheader{
 		width:90% !important;
-  	}	
-  
+      }
+    .mrvice{
+        font-size: smaller;
+    }	
+    .upbutton{
+        visibility: hidden;
+    }
+    .onamawrapper{
+        display: grid;
+        height: auto !important;
+        grid-template-columns: 100% !important;
+        grid-template-rows: auto !important;
+    }
+    .celija{
+        box-shadow: none !important;
+        border-bottom: 1px solid black ;
+        border-right: none !important;
+    }
+    .onamaslika{
+        display: none !important;
+    }
 }
 
 @media (max-width: 850px) {
@@ -148,39 +157,11 @@
         line-height: 1em;
         margin-top: 40px !important;
     }
-    .desnaSlika{
-        width:100% !important;
-        height:100px;
-        object-fit: cover !important;
-
-    }
-    .naslovNajcitaniji{
-        font-size: smaller;
-        letter-spacing: 3px;
-    }
-    .najcitanijiPostovi{
-        margin-left: 1vw;
-    }
-    .interesantnost {        
-        margin-top: 0vh!important;
-    }
-  	.desnaSlika{
-        width:100% !important;
-        height:100px;
-        object-fit: cover !important;
-
-    }
     .desnakolona{
         display: flex;
         justify-content: center;
         align-items:center; 
       	flex-wrap:wrap;
-    }
-    .wrapper{
-        margin-left: -15px;
-    }
-  	.najcitanijiOpis{
-        display: none !important;
     }
     .sadrzaj img{
         max-width: 100% !important;
@@ -193,25 +174,6 @@
   	.mithheader{
       font-size:0.9em;
   	}
-  	.loaderCard{
-      	transform: scale(.8);
-  	}
-  	.carousel{
-		width: 95vw!important;
-	}
-	.slajd{
-		height:70vh !important;
-	}
-	.lopis{
-		visibility: hidden !important;
-	}
-	.opis{
-		font-size: .5rem !important;
-		line-height: .8rem;
-		padding: 10px !important;
-      	height:90% !important;
-      	width:80% !important;
-	}
 }
 @-moz-document url-prefix() {
     .card-title{
@@ -267,6 +229,9 @@ footer {
     color:#fff;
     border-top: 1px solid rgb(99, 99, 99);
     background: #383838;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
 }
 footer .container{
     min-width: 90% !important;
@@ -291,13 +256,13 @@ footer .container{
     overflow: hidden;
     cursor: pointer;
 }
-.upbutton p{
+.upbutton i{
     position: absolute;
-    bottom: -40px;
+    bottom: -20px;
     transition: .2s ease;
 }
-.upbutton:hover>p{
-    bottom: -10px;
+.upbutton:hover>i{
+    bottom: -5px;
     transition: .2s ease;
 }
 footer h3 {
@@ -462,7 +427,6 @@ footer a:visited{
     opacity: 1;
     right: 0;
 }
-
 /**copyright**/
 .copyr{
     background: rgb(34, 34, 34);
@@ -711,15 +675,15 @@ figure h4 span{
     color: white;
     text-shadow: 0 0 5px black;
 }
-.preko img{
-    width: 50px;
-    height: 50px;
-    transform: scale(.5);
-    transition: .2s ease;
+.prekoimg{
+    opacity: 0;
+    z-index: 5;
+    color: rgb(56, 56, 56);
+    transition: .3s ease;
 }
-.linkd:hover .preko img{
-    transform: scale(1);
-    transition: .2s ease;
+.linkd:hover .prekoimg{
+    opacity: .9;
+    transition: .3s ease;
 }
 .preko{
     position: absolute;
@@ -1015,7 +979,6 @@ figure h4 span{
     grid-template-rows: 100%;
     justify-content: center;
 }
-
 .celija{
     font-family: 'Signika', sans-serif;
     display: inline-flex;
@@ -1066,5 +1029,4 @@ figure h4 span{
     padding: 3px;
     background: gold;
     color:black;
-
 }
