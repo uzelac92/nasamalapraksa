@@ -35,71 +35,33 @@ if( $data->NASLOV != "" &&
     $vNASLOV_A = $data->NASLOV_A;
     $vNASLOV_B = $data->NASLOV_B;
 
-    // $query = "INSERT INTO post SET  NASLOV=:naslov, INTRO=:intro, SLIKA=:slika, PUTANJA=:putanja, KLIK=:klik, KEYWORDS=:keywords, NASLOV_A=:naslov_a, NASLOV_B=:naslov_b;";
-
-    // // prepare query
-    // $stmt = $db->prepare($query);
-
-    // // sanitize
-    // $vNASLOV=htmlspecialchars(strip_tags($vNASLOV));
-    // $vINTRO=htmlspecialchars(strip_tags($vINTRO));
-    // $vSLIKA=htmlspecialchars(strip_tags($vSLIKA));
-    // $vPUTANJA=htmlspecialchars(strip_tags($vPUTANJA));
-    // $vKLIK=htmlspecialchars(strip_tags($vNASLOV));
-    // $vKEYWORDS=htmlspecialchars(strip_tags($vKEYWORDS));
-    // $vNASLOV_A=htmlspecialchars(strip_tags($vNASLOV_A));
-    // $vNASLOV_B=htmlspecialchars(strip_tags($vNASLOV_B));
-
-    // // bind values
-    // $stmt->bindParam(":naslov", $vNASLOV);
-    // $stmt->bindParam(":intro", $vINTRO);
-    // $stmt->bindParam(":slika", $vSLIKA);
-    // $stmt->bindParam(":putanja", $vPUTANJA);
-    // $stmt->bindParam(":klik", $vKLIK);
-    // $stmt->bindParam(":keywords", $vKEYWORDS);
-    // $stmt->bindParam(":naslov_a", $vNASLOV_A);
-    // $stmt->bindParam(":naslov_b", $vNASLOV_B);
-
-    //$query = "INSERT INTO 'post' ('ID','NASLOV','INTRO','SLIKA','PUTANJA','KLIK','KEYWORDS','NASLOV_A','NASLOV_B') VALUES (NULL,'$vNASLOV','$vINTRO','$vSLIKA','$vPUTANJA','$vKLIK','$vKEYWORDS','$vNASLOV_A','$vNASLOV_B')";
-    $query = "INSERT INTO `post` (`ID`,`NASLOV`, `INTRO`, `SLIKA`, `PUTANJA`, `KLIK`, `KEYWORDS`, `NASLOV_A`, `NASLOV_B`) VALUES (NULL,'', '', '', '', 0, '', '', '')";
-    //$query = "INSERT INTO post (ID, NASLOV, INTRO, SLIKA, PUTANJA, KLIK, KEYWORDS, NASLOV_A, NASLOV_B) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
-    //$stmt = $db->prepare('INSERT INTO post (ID, NASLOV, INTRO, SLIKA, PUTANJA, KLIK, KEYWORDS, NASLOV_A, NASLOV_B) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)');
-
-    //$state = $stmt->execute(['48', 'ASD', 'ASD', 'ASD', 'ASD', 'ASD', '0', 'ASD', 'ASD']);
-
+    $query = "INSERT INTO `post` (`ID`,`NASLOV`, `INTRO`, `SLIKA`, `PUTANJA`, `KLIK`, `KEYWORDS`, `NASLOV_A`, `NASLOV_B`) VALUES (NULL,'', '', '', '', 0, '', '', '');SELECT LAST_INSERT_ID();";
     $stmt = $db->prepare($query);
     $state = $stmt->execute();
 
-    echo json_encode($state);
+    $LAST_ID = $db->lastInsertId();
+
+    echo json_encode($LAST_ID);
 
     // create the product
     if($state){
-
         // set response code - 201 created
         http_response_code(201);
-
         // tell the user
         echo json_encode(array("message" => "Post was created."));
     }
-
     // if unable to create the product, tell the user
     else{
-
         // set response code - 503 service unavailable
         http_response_code(503);
-
         // tell the user
         echo json_encode(array("message" => "Unable to create post."));
     }
 }
-
 // tell the user data is incomplete
 else{
-
     // set response code - 400 bad request
     http_response_code(400);
-
     // tell the user
     echo json_encode(array("message" => "Unable to create post. Data is incomplete."));
 }
