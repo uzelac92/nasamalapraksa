@@ -8,33 +8,50 @@ header('Content-Type: application/json');
  
 // include database and object files
 include_once '../config/database.php';
-include_once '../objects/post.php';
  
 // get database connection
 $database = new Database();
 $db = $database->getConnection();
  
-// prepare post object
-$post = new post($db);
- 
 // set ID property of record to read
-$post->ID = isset($_GET['id']) ? $_GET['id'] : die();
+$id = $_GET['id'];
+
+$query = "SELECT * FROM POST WHERE ID = ? LIMIT 0,1";
+     
+// prepare query statement
+$stmt = $db->prepare( $query );
+
+// bind id of product to be updated
+$stmt->bindParam(1, $id);
+
+// execute query
+$stmt->execute();
+
+// get retrieved row
+$row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+// set values to object properties
+$NASLOV = $row['NASLOV'];
+$INTRO = $row['INTRO'];
+$SLIKA = $row['SLIKA'];
+$PUTANJA = $row['PUTANJA'];
+$KLIK = $row['KLIK'];
+$KEYWORDS = $row['KEYWORDS'];
+$NASLOV_A = $row['NASLOV_A'];
+$NASLOV_B = $row['NASLOV_B'];
  
-// read the details of post to be edited
-$post->readOne();
- 
-if($post->NASLOV!=null){
+if($NASLOV!=null){
     // create array
     $post_arr = array(
-        "ID" =>  $post->ID,
-        "NASLOV" => $post->NASLOV,
-        "INTRO" => $post->INTRO,
-        "SLIKA" => $post->SLIKA,
-        "PUTANJA" => $post->PUTANJA,
-        "KLIK" => $post->KLIK,
-        "KEYWORDS" => $post->KEYWORDS,
-        "NASLOV_A" => $post->NASLOV_A,
-        "NASLOV_B" => $post->NASLOV_B
+        "ID" =>  $id,
+        "NASLOV" => $NASLOV,
+        "INTRO" => $INTRO,
+        "SLIKA" => $SLIKA,
+        "PUTANJA" => $PUTANJA,
+        "KLIK" => $KLIK,
+        "KEYWORDS" => $KEYWORDS,
+        "NASLOV_A" => $NASLOV_A,
+        "NASLOV_B" => $NASLOV_B
  
     );
  
