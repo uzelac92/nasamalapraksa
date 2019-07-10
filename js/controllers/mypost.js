@@ -212,15 +212,15 @@ app.controller('myPostCtrl', function($scope, $http,$sce,$location,$routeParams,
         var postKeywords = $scope.kljucnereci;
 
         if(postNaslov == undefined || postNaslov == '') {
-            alert('Unesi glavni naziv posta!');
+            toastr.error('Unesi glavni naziv posta!', 'Greska');
         } else if(postIntro == undefined || postIntro == '') {
-            alert('Unesi kratki uvod posta!');
+            toastr.error('Unesi kratki uvod posta!', 'Greska');
         } else if(postSlika == undefined || postSlika == '') {
-            alert('Izaberi sliku!');
+            toastr.error('Izaberi sliku', 'Greska');
         } else if(postAlt == undefined || postAlt == '') {
-            alert('Unesi opis slike!');
+            toastr.error('Unesi opis slike!', 'Greska');
         } else if(postKeywords == undefined || postKeywords == '') {
-            alert('Unesi kljucne reci!');
+            toastr.error('Unesi kljucne reci posta!', 'Greska');
         } else {
             var vData = {
                 vNaslov:postNaslov,
@@ -232,14 +232,13 @@ app.controller('myPostCtrl', function($scope, $http,$sce,$location,$routeParams,
 
             webservice.putPost(vData).then(function (response) {
                 if (response.data.status == "success") {
-                    toastr.success('Osnovni podaci su uneseni :)', 'Bravo')
-                    alert();
+                    toastr.success('Osnovni podaci su uneseni :)', 'Bravo');
                     $scope.lastID = response.data.ID;
 
                     $('html, body').animate({scrollTop:0}, '300');
                     $scope.finished = true;
                 } else {
-                    toastr.error('Baza trenutno van funkcije!', 'Greska')
+                    toastr.error('Baza trenutno van funkcije!', 'Greska');
                 }
             });
         }
