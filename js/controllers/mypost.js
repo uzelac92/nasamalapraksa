@@ -179,24 +179,31 @@ app.controller('myPostCtrl', function($scope, $http,$sce, webservice){
     $scope.count = 0;
 
     $scope.addQuestion = function() {
-        $scope.pit = '';
-        $scope.op = '';
-        $scope.pr = '';
+        $scope.pit = "";
+        $scope.op = "";
+        $scope.pr = "";
         $scope.pit += $scope.pitanje;
         $scope.op += tinymce.get('opis').getContent();
         $scope.pr += tinymce.get('problem').getContent();
 
         if($scope.pit != '' && $scope.op != '' && $scope.pr != '') {
             $scope.questions.push({
-                'id':$scope.count,
-                'pitanje':$scope.pit,
-                'opis':$scope.op,
-                'problem':  $scope.pr,
+                "id":$scope.count,
+                "pitanje":$scope.pit,
+                "opis":$scope.op,
+                "problem": $scope.pr,
             });
             tinymce.get('opis').setContent('');
             tinymce.get('problem').setContent('')
             $scope.pitanje = '';
             ++$scope.count;
+
+            if($scope.IsValidJSONString($scope.questions)) {
+                console.log("OK FORMAT");
+            } else {
+                console.log("NOT OK!");
+                console.log($scope.questions);
+            }
         } else {
             alert('Popuni pitanje!');
         }
@@ -234,7 +241,16 @@ app.controller('myPostCtrl', function($scope, $http,$sce, webservice){
         return $sce.trustAsHtml(html);
     }
 
-    $scope.uploadPost = function() {
+    $scope.IsValidJSONString = function(str) {
+        try {
+            JSON.parse(str);
+        } catch (e) {
+            return false;
+        }
+        return true;
+    }
+
+    $scope.uploadFirst = function() {
         var postFajl = $scope.fajl;
         var postNaslov = tinymce.get('postnaslov').getContent();
         var postIntro = tinymce.get('intro').getContent();
