@@ -188,10 +188,10 @@ app.controller('myPostCtrl', function($scope, $http,$sce, webservice){
 
         if($scope.pit != '' && $scope.op != '' && $scope.pr != '') {
             $scope.questions.push({
-                'id': $scope.count,
-                'pitanje': $scope.pit,
-                'opis': $scope.op,
-                'problem': $scope.pr,
+                'id':$scope.count,
+                'pitanje':$scope.pit,
+                'opis':$scope.op,
+                'problem':  $scope.pr,
             });
             tinymce.get('opis').setContent('');
             tinymce.get('problem').setContent('')
@@ -270,18 +270,9 @@ app.controller('myPostCtrl', function($scope, $http,$sce, webservice){
                 vKeywords:postKeywords,
             };
 
-            // $http({
-            //     method: "post",
-            //     url: "http://localhost:8000/api/post/create.php",
-            //     data: vData,
-            //     headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-            //   }).then(function successCallback(response) {
-            //     console.log(response);
-            //   });
-
             webservice.putPost(vData).then(function (response) {
                 if (response.statusText == "OK") {
-                    console.log(response.data);
+                    console.log(response);
                     alert('USPESNO! :)');
                 } else {
                     alert('Baza trenutno van funkcije!');

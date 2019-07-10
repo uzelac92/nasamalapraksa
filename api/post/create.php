@@ -20,14 +20,17 @@
     $vPITANJA = $data->vPitanja;
     $vKEYWORDS = $data->vKeywords;
 
-    echo json_encode($data);
-
     $query = "INSERT INTO `post` (`ID`,`NASLOV`, `INTRO`, `SLIKA`, `ALT`, `PUTANJA`, `KLIK`, `KEYWORDS`) VALUES (NULL,'$vNASLOV', '$vINTRO', '$vSLIKA', '$vALT','$vPUTANJA', 0, '$vKEYWORDS');SELECT LAST_INSERT_ID();";
     $stmt = $db->prepare($query);
     $state = $stmt->execute();
 
     $LAST_ID = $db->lastInsertId();
-    echo json_encode($LAST_ID);
+    // for($i=0; i<count($vPITANJA); $i++) {
+    //     $query = "INSERT INTO `PITANJE` (`PITANJEID`, `UPITNICA`, `UVOD`, `ODGOVOR`, `POST_ID`) VALUES (NULL, '$vPITANJA[$i].UPITNICA', '$vPITANJA[$i].UVOD', '$vPITANJA[$i].ODGOVOR', '$LAST_ID')";
+    //     $stmt = $db->prepare($query);
+    //     $state = $stmt->execute();
+    // }
+    //$query = "INSERT INTO `PITANJE` (`PITANJEID`, `UPITNICA`, `UVOD`, `ODGOVOR`, `POST_ID`) VALUES (NULL, '', '', '', '')"
 
     // create the product
     if($state){
