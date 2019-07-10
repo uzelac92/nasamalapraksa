@@ -1,4 +1,4 @@
-app.controller('myPostCtrl', function($scope, $http,$sce, webservice){
+app.controller('myPostCtrl', function($scope, $http,$sce, $location,$routeParams,$route, webservice){
 
     $scope.$on('$destroy', function() {
         var tinyInstance = tinymce.get('intro');
@@ -296,7 +296,7 @@ app.controller('myPostCtrl', function($scope, $http,$sce, webservice){
 
     $scope.uploadLast = function() {
         $('html, body').animate({scrollTop:0}, '300');
-        $scope.finished = false;
+        $route.reload();
     }
 
 
