@@ -11,25 +11,26 @@
     $data = json_decode(file_get_contents("php://input"));
 
     // set product property values
-    $vNASLOV = $data->vNaslov;
-    $vINTRO = $data->vIntro;
-    $vSLIKA = $data->vSlika;
-    $vALT = $data->vAlt;
-    $vPUTANJA = $data->vPutanja;
-    $vKLIK = $data->vKlik;
-    $vKEYWORDS = $data->vKeywords;
+    $vUPITNICA = $data->vUpitnica;
+    $vUVOD = $data->vUvod;
+    $vODGOVOR = $data->vOdgovor;
+    $vPOSTID = $data->vPostId;
 
-    $query = "INSERT INTO `post` (`NASLOV`, `INTRO`, `SLIKA`, `ALT`, `PUTANJA`, `KEYWORDS`) VALUES ('$vNASLOV', '$vINTRO', '$vSLIKA', '$vALT','$vPUTANJA','$vKEYWORDS');SELECT LAST_INSERT_ID();";
+    $query = "INSERT INTO `PITANJE` (`UPITNICA`, `UVOD`, `ODGOVOR`, `POST_ID`) VALUES ('$vUPITNICA', '$vUVOD', '$vODGOVOR ', $vPOSTID)";
     $stmt = $db->prepare($query);
     $state = $stmt->execute();
+    // for($i=0; i<count($vPITANJA); $i++) {
+    //     $query = "INSERT INTO `PITANJE` (`PITANJEID`, `UPITNICA`, `UVOD`, `ODGOVOR`, `POST_ID`) VALUES (NULL, '$vPITANJA[$i].UPITNICA', '$vPITANJA[$i].UVOD', '$vPITANJA[$i].ODGOVOR', '$LAST_ID')";
+    //     $stmt = $db->prepare($query);
+    //     $state = $stmt->execute();
+    // }
+    //$query = "INSERT INTO `PITANJE` (`PITANJEID`, `UPITNICA`, `UVOD`, `ODGOVOR`, `POST_ID`) VALUES (NULL, '', '', '', '')"
 
-    $LAST_ID = $db->lastInsertId();
     // create the product
     if($state){
 
         $response['status'] = 'success';
-        $response['message'] = 'Post was created.';
-        $response['ID'] = number_format((float) $LAST_ID);
+        $response['message'] = 'Question was created.';
 
         echo json_encode($response);
     }

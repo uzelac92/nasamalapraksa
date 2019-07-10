@@ -6,11 +6,18 @@ app.factory('webservice', function ($http) {
         $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
         return $http.post('http://localhost:8000/api/post/create.php',data)
     }
+    obj.putQuestion = function (data) {
+        $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
+        return $http.post('http://localhost:8000/api/question/create.php',data)
+    }
     obj.getPost = function (id) {
-        return $http.get('http://localhost:8000/api/post/read_one.php?id='+id)
+        return $http.get('http://localhost:8000/api/post/read_one.php?id='+id);
     }
     obj.getPosts = function () {
-        return $http.get('http://localhost:8000/api/post/read.php')
+        return $http.get('http://localhost:8000/api/post/read.php');
+    }
+    obj.getQuestions = function () {
+        return $http.get('http://localhost:8000/api/question/read.php');
     }
     obj.ulogin = function (data) {
         $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';

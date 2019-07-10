@@ -1,5 +1,5 @@
 <div class="col-12 p-1" ng-controller="myPostCtrl">
-    <form class="col-10 mx-auto text-center" name="form" ng-init="initTiny()" id="firstPage">
+    <form class="col-10 mx-auto text-center animated" ng-class="finished ? 'bounceOut hideForm' : bounceIn" name="form" ng-init="initTiny()" id="firstPage">
         <div class="col-6 form-group mx-auto">
             <h5 class="text-center">Fajl</h5>
             <input ng-model="fajl" id="fajl" type="text" class="col-12 form-control" placeholder="Ime fajla...">
@@ -31,7 +31,7 @@
         <hr>
         <button type="submit" ng-click="uploadFirst()" class="btn btn-success mx-auto my-3 col-4">Next</button>
     </form>
-    <form class="col-10 mx-auto text-center" name="form" ng-init="initTiny()" id="nextPage">
+    <form class="col-10 mx-auto text-center animated hideForm" ng-class="finished ? 'bounceIn delay-1s' : 'bounceOut hideForm'" name="form" ng-init="initTiny()" id="nextPage">
         <div class="col-12 my-3">
             <div class="col-12 form-group">
                 <h5 class="text-center">Pitanje</h5>
@@ -90,6 +90,6 @@
             </table>
             <hr class="bg-black">
         </div>
-        <button type="submit" ng-click="uploadLast()" class="btn btn-success mx-auto my-3 col-4">Publish</button>
+        <button type="submit" ng-click="uploadLast()" class="btn btn-info mx-auto my-3 col-4">Finish</button>
     </form>
 </div>

@@ -1021,11 +1021,6 @@ figure h4 span{
     color:black;
 }
 
-.fadeo{
-    opacity: 0;
-    transition: .4s ease;
-}
-.fadei{
-    opacity: 1;
-    transition: .4s ease;
+.hideForm {
+    display: none;
 }

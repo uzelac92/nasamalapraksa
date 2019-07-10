@@ -175,40 +175,6 @@ app.controller('myPostCtrl', function($scope, $http,$sce, webservice){
         reader.readAsDataURL(element.files[0]);
     }
 
-    $scope.questions = [];
-    $scope.count = 0;
-
-    $scope.addQuestion = function() {
-        $scope.pit = "";
-        $scope.op = "";
-        $scope.pr = "";
-        $scope.pit += $scope.pitanje;
-        $scope.op += tinymce.get('opis').getContent();
-        $scope.pr += tinymce.get('problem').getContent();
-
-        if($scope.pit != '' && $scope.op != '' && $scope.pr != '') {
-            $scope.questions.push({
-                "id":$scope.count,
-                "pitanje":$scope.pit,
-                "opis":$scope.op,
-                "problem": $scope.pr,
-            });
-            tinymce.get('opis').setContent('');
-            tinymce.get('problem').setContent('')
-            $scope.pitanje = '';
-            ++$scope.count;
-
-            if($scope.IsValidJSONString($scope.questions)) {
-                console.log("OK FORMAT");
-            } else {
-                console.log("NOT OK!");
-                console.log($scope.questions);
-            }
-        } else {
-            alert('Popuni pitanje!');
-        }
-    }
-
     $scope.removeQuestion = function(item) {
         var index = 0;
         for(var i=0; i<$scope.questions.length; i++) {
@@ -237,26 +203,13 @@ app.controller('myPostCtrl', function($scope, $http,$sce, webservice){
         --$scope.count;
     }
 
-    $scope.trustAsHtml = function(html) {
-        return $sce.trustAsHtml(html);
-    }
-
-    $scope.IsValidJSONString = function(str) {
-        try {
-            JSON.parse(str);
-        } catch (e) {
-            return false;
-        }
-        return true;
-    }
-
+    $scope.lastID = 0;
     $scope.uploadFirst = function() {
         var postFajl = $scope.fajl;
         var postNaslov = tinymce.get('postnaslov').getContent();
         var postIntro = tinymce.get('intro').getContent();
         var postSlika = $scope.imageData;
         var postAlt = $scope.imgAlt;
-        var postPitanja = $scope.questions;
         var postKeywords = $scope.kljucnereci;
 
         if(postFajl == undefined || postFajl == '') {
@@ -269,8 +222,6 @@ app.controller('myPostCtrl', function($scope, $http,$sce, webservice){
             alert('Izaberi sliku!');
         } else if(postAlt == undefined || postAlt == '') {
             alert('Unesi opis slike!');
-        } else if(postPitanja == undefined || postPitanja.length == 0) {
-            alert('Unesi bar jedno pitanje!');
         } else if(postKeywords == undefined || postKeywords == '') {
             alert('Unesi kljucne reci!');
         } else {
@@ -280,7 +231,6 @@ app.controller('myPostCtrl', function($scope, $http,$sce, webservice){
                 vSlika:postSlika,
                 vAlt:postAlt,
                 vPutanja:postFajl,
-                vPitanja:postPitanja,
                 vKeywords:postKeywords,
             };
 
@@ -288,12 +238,71 @@ app.controller('myPostCtrl', function($scope, $http,$sce, webservice){
                 console.log(response);
                 if (response.data.status == "success") {
                     alert(response.data.message);
+                    $scope.lastID = response.data.ID;
+
+                    $scope.finished = true;
+                } else {
+                    alert('Baza trenutno van funkcije!');
+                }
+            });
+        }
+    }
+
+    $scope.trustAsHtml = function(html) {
+        return $sce.trustAsHtml(html);
+    }
+
+    $scope.questions = [];
+    $scope.addQuestion = function() {
+        var upitnica = $scope.pitanje;
+        var uvod = tinymce.get('opis').getContent();
+        var odgovor = tinymce.get('problem').getContent();
+        var post_id = $scope.lastID;
+
+        if(upitnica == undefined || upitnica == '') {
+            alert('Unesi pitanje!');
+        } else if(uvod == undefined || uvod == '') {
+            alert('Unesi uvod pitanja!');
+        } else if(odgovor == undefined || odgovor == '') {
+            alert('Unesi odgovor');
+        } else if(post_id == undefined || post_id == 0) {
+            alert('Pogresan post id!');
+        } else {
+            var vData = {
+                vUpitnica:upitnica,
+                vUvod:uvod,
+                vOdgovor:odgovor,
+                vPostId:post_id,
+            };
+
+            webservice.putQuestion(vData).then(function (response) {
+                console.log(response);
+                if (response.data.status == "success") {
+                    alert(response.data.message);
+
+                    webservice.getQuestions().then(function (response) {
+                        if (response.statusText == "OK") {
+                            alert(response.data.message)
+                            $scope.questions = response.data.records;
+                        } else {
+                          alert('Baza trenutno van funkcije!');
+                        }
+                    });
+
+                    $scope.pitanje = "";
+                    tinymce.get('opis').setContent('');
+                    tinymce.get('problem').setContent('');
                 } else {
                     alert('Baza trenutno van funkcije!');
                 }
             });
         }
 
+    }
+
+    $scope.uploadLast = function() {
+        $('html, body').animate({scrollTop:0}, '300');
+        $scope.finished = false;
     }
 
 
