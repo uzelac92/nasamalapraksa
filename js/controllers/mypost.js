@@ -299,10 +299,6 @@ app.controller('myPostCtrl', function($scope, $http,$sce,$location,$routeParams,
     $scope.uploadLast = function() {
         $('html, body').animate({scrollTop:0}, '300');
         $route.reload();
-<<<<<<< HEAD
-=======
-        toastr.remove();
->>>>>>> fe1c44e4d20da970f659c11509afd420274de6c2
     }
 
 
