@@ -1,4 +1,4 @@
-var app = angular.module('NasaMalaPraksa', ['ngRoute','ngAnimate','updateMeta']);
+var app = angular.module('NasaMalaPraksa', ['ngRoute','toastr','ngAnimate','updateMeta']);
 
 window.fbAsyncInit = function() {
   FB.init({
