@@ -1,34 +1,39 @@
 <footer>
     <div class="container">
-        <div class="row col-12">
-            <div class="fcard col-lg-4  col-md-4 col-sm-4 col-xs-6">
-            <h3> Prati</h3>
+        <div class="footergrid">
+            <div class="footercard p-2">
+                <div class="h3 w-100"> Prati</div>
                 <ul class="pratite">
                     <li> <a href="https://www.who.int/"> WHO/SZO</a> </li>
                     <li> <a href="https://www.thelancet.com/"> Lancet </a> </li>
                     <li> <a href="https://www.ncbi.nlm.nih.gov/pubmed/"> PubMed </a> </li>
-                    <li> <a href="https://www.cdc.gov/">CDC</a> </li>
-                    <li class="doniraj"> <a href="#" onclick="alert('Stranica u izradi!')"> Doniraj! </a></li>
-                </ul>
+                    <li> <a href="https://www.cdc.gov/">CDC</a> </li>               
+                 </ul>
             </div>
-            <div class="fcard col-lg-4  col-md-4 col-sm-6 col-xs-12 d-block">
-                <h3> Pretplati se </h3>
-                <ul>
-                    <li>
-                        <div class="input-append padajuci text-center">
-                            <input id="MIV" type="text" class="full text-center w-100" placeholder="Email ">
-                            <button class="pretplati" onclick="alert('Stranica u izradi!')" type="submit"><span><label for="MIV">Pretplati se</label> </span></button>
-                        </div>
-                    </li>
-                </ul>
+            <div class="footercard pl-4 d-block">
+                <div class="mozda w-100">
+                    <div class="w-100 h3 mt-2"> Pretplati se </div>
+                    <div class="padajuci w-100">
+                        <input id="MIV" type="text" class="full text-center w-100" placeholder="Email ">
+                        <button class="pretplati w-100" onclick="alert('Stranica u izradi!')" type="submit"><span><label for="MIV">Pretplati se</label> </span></button>
+                    </div>
+                </div>
+                <div class="mozda w-100">
+                    <div class="h3 w-100 mt-2"> Doniraj!</div>
+                    <div class="padajuci w-100">
+                        <input id="MIV" type="text" class="full text-center w-100" placeholder="Email ">
+                        <button class="pretplati" onclick="alert('Stranica u izradi!')" type="submit"><span><label for="MIV">Pretplati se</label> </span></button>
+                    </div>
+                </div>
             </div>
-            
-            <div class="socmed col-lg-3  col-md-3 col-sm-6 col-xs-12">
-                <ul class="social-network social-circle">
-                    <li><a href="#" class="icoFacebook" title="Facebook" ng-click="kaFejsu()"><i class="fab fa-facebook-f"></i></a></li>
-                    <li><a href="#" class="icoTwitter" title="Twitter"><i class="fab fa-twitter"></i></a></li>
-                    <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fab fa-linkedin-in"></i></a></li>
-                </ul>
+            <div class="footercard p-2 d-flex justify-content-end align-items-center">
+                <div class="socmed col-lg-3  col-md-3 col-sm-6 col-xs-12">
+                    <ul class="social-network social-circle">
+                        <li><a href="#" class="icoFacebook" title="Facebook" ng-click="kaFejsu()"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#" class="icoTwitter" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fab fa-linkedin-in"></i></a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

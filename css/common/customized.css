@@ -237,6 +237,11 @@ footer .container{
     min-width: 90% !important;
     height:auto;
 }
+.footergrid{
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    grid-template-rows: 100%;
+}
 .upbutton{
     width: 60px;
     height: 60px;
@@ -265,27 +270,35 @@ footer .container{
     bottom: -5px;
     transition: .2s ease;
 }
-footer h3 {
+footer .h3 {
     border-bottom: 1px solid rgb(202, 182, 0);
-    color:rgb(114, 114, 114);
-    font-size: 18px;
-    line-height: 27px;
-    padding: 40px 0 10px;
+    color:rgb(151, 151, 151);
+    font-size: 1.3rem;
+    padding: 5px;
+    max-height: 3rem;
     text-transform: uppercase;
     font-weight: bold;
 }
-footer ul {
-    font-size: 13px;
-    
-    list-style-type: none;
-    margin-left: 0;
-    padding-left: 0;
-    margin-top: 15px;
-    color:rgb(228, 230, 230);
+.mozda{
+    max-height:50px;
+    overflow: hidden;
+    transition: .5s ease;
 }
-footer .pratite li a {
-    padding: 0 0 5px 0;
+.mozda .h3{
+    user-select: none;
+    cursor: pointer;
+}
+.mozda:hover{
+    max-height: 200px;
+    transition: .5s ease;
+}
+footer .pratite li {
+    padding:5px;
     display: block;
+    text-decoration: none;
+}
+footer ul{
+    padding: 0;
 }
 footer .pratite a {
     color:rgb(228, 230, 230);
@@ -301,31 +314,13 @@ footer a:visited{
     color: rgb(255, 196, 0);
     text-decoration: none;
 }
-.doniraj{
-    display: flex;
-    align-items: center;
-    font-size: 1rem;
-    font-weight: bold;
-    border:1px solid rgb(255, 217, 0);
-    margin-top:10px;
-    padding-top: 5px;
-    padding-left: 10px;
-}
-.supportLi h4 {
-    font-size: 20px;
-    font-weight: lighter;
-    line-height: normal;
-    margin-bottom: 0 !important;
-    padding-bottom: 0;
-}
 /* SOCIAL ICONS */
 .social-network {
 	list-style: none;
-	display: inline-flex;
+    display: inline-flex;
     padding: 0;
     float: right;
     height: 100%;
-    align-items: center;
 }
 .social-network li {
     display: inline-block;
