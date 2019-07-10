@@ -1,5 +1,9 @@
 <div class="col-12 p-1" ng-controller="myPostCtrl">
     <form class="col-10 mx-auto text-center" name="form" ng-submit="insert()" ng-init="initTiny()">
+        <div class="col-6 form-group mx-auto">
+            <h5 class="text-center">Fajl</h5>
+            <input ng-model="fajl" id="fajl" type="text" class="col-12 form-control" placeholder="Ime fajla...">
+        </div>
         <div class="col-12 form-group">
             <h3 class="text-center">Naslov</h3>
             <textarea id="postnaslov" class="tinymce"></textarea>
@@ -87,6 +91,11 @@
                     <i class="fas fa-plus"></i></button>
             </div>
         </div>
-        <input type="submit" value="Publish" class="btn btn-success mx-auto my-3 col-4">
+        <div class="form-group col-6 mx-auto">
+            <label for="keys"><h5>Kljucne reci</h5></label>
+            <textarea ng-model="kljucnereci" class="form-control" rows="5" id="keys"  placeholder="Odvojeno zarezom..."></textarea>
+        </div>
+        <hr>
+        <button type="submit" ng-click="uploadPost()" class="btn btn-success mx-auto my-3 col-4">Publish</button>
     </form>
 </div>

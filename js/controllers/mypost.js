@@ -1,4 +1,4 @@
-app.controller('myPostCtrl', function($scope, $http,$sce){
+app.controller('myPostCtrl', function($scope, $http,$sce, webservice){
 
     $scope.$on('$destroy', function() {
         var tinyInstance = tinymce.get('intro');
@@ -153,38 +153,7 @@ app.controller('myPostCtrl', function($scope, $http,$sce){
 
     $scope.form=[];
     $scope.files=[];
-    // $scope.insert=function(){
-    //     $scope.image1=$scope.files[0];
-    //     $http({
-    //         method:'POST',
-    //         url:"upload.php",
-    //         processData:false,
-    //         transformRequest:function(data){
-    //             var formData=new FormData();
-    //             formData.append("image1", $scope.image1);
-    //             formData.append("description", $scope.description);
-    //             formData.append("title", $scope.title);
-    //             formData.append("price", $scope.price);
-    //             formData.append("category", $scope.category);
-
-
-    //             return formData;
-    //             return $scope.category;
-    //             return $scope.title;
-    //             return $scope.price;
-    //             return $scope.description;  
-    //         },  
-    //         data : $scope.form,
-    //         headers: {
-    //                 'Content-Type': undefined
-    //         }
-    //     }).success(function(data){
-    //         alert(data);
-            
-    //     });
-        
-    // };
-
+    $scope.imageData = "";
     $scope.uploadedFile=function(element)
     {
         $scope.currentFile = element.files[0];
@@ -194,12 +163,14 @@ app.controller('myPostCtrl', function($scope, $http,$sce){
             var output = document.getElementById('output');
             output.src = URL.createObjectURL(element.files[0]);
 
-            $scope.image_source = event.target.result
+            $scope.image_source = event.target.result;
+            $scope.imageData = $scope.image_source;
             $scope.$apply(function($scope) {
                 $scope.files = element.files;
+                //console.log($scope.image_source); ovo su ti podaci!!!
             });
         }
-        reader.readAsDataURL(element.files[0]);
+        reader.readAsDataURL(element.files[0]); //ovo se koristi za prikazivanje slike kao sto ima i u bookmarks image data to bitmap preview
     }
 
     $scope.questions = [];
@@ -261,6 +232,62 @@ app.controller('myPostCtrl', function($scope, $http,$sce){
         return $sce.trustAsHtml(html);
     }
 
+    $scope.uploadPost = function() {
+        var postFajl = $scope.fajl;
+        var postNaslov = tinymce.get('postnaslov').getContent();
+        var postIntro = tinymce.get('intro').getContent();
+        var postSlika = $scope.imageData;
+        var postAlt = $scope.imgAlt;
+        var postPitanja = $scope.questions;
+        var postKeywords = $scope.kljucnereci;
+        var postKlik = '0';
+
+        if(postFajl == undefined || postFajl == '') {
+            alert('Unesi ime fajla!');
+        } else if(postNaslov == undefined || postNaslov == '') {
+            alert('Unesi glavni naziv posta!');
+        } else if(postIntro == undefined || postIntro == '') {
+            alert('Unesi kratki uvod posta!');
+        } else if(postSlika == undefined || postSlika == '') {
+            alert('Izaberi sliku!');
+        } else if(postAlt == undefined || postAlt == '') {
+            alert('Unesi opis slike!');
+        } else if(postPitanja == undefined || postPitanja.length == 0) {
+            alert('Unesi bar jedno pitanje!');
+        } else if(postKeywords == undefined || postKeywords == '') {
+            alert('Unesi kljucne reci!');
+        } else {
+            var vData = {
+                vNaslov:postNaslov,
+                vIntro:postIntro,
+                vSlika:"velikaslika",
+                vAlt:postAlt,
+                vPutanja:postFajl,
+                vKlik:postKlik,
+                vPitanja:postPitanja,
+                vKeywords:postKeywords,
+            };
+
+            // $http({
+            //     method: "post",
+            //     url: "http://localhost:8000/api/post/create.php",
+            //     data: vData,
+            //     headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            //   }).then(function successCallback(response) {
+            //     console.log(response);
+            //   });
+
+            webservice.putPost(vData).then(function (response) {
+                if (response.statusText == "OK") {
+                    console.log(response.data);
+                    alert('USPESNO! :)');
+                } else {
+                    alert('Baza trenutno van funkcije!');
+                }
+            });
+        }
+
+    }
 
 
 
