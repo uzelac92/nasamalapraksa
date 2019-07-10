@@ -26,13 +26,13 @@
     if($state){
 
         $response['status'] = 'success';
-        $response['message'] = 'Post was created.';
         $response['ID'] = number_format((float) $LAST_ID);
 
         echo json_encode($response);
     }
     // if unable to create the product, tell the user
     else{
+        $response['status'] = 'unsuccess';
         // set response code - 503 service unavailable
         http_response_code(503);
         // tell the user
