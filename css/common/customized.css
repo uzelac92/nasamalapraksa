@@ -112,6 +112,15 @@
     .onamaslika{
         display: none !important;
     }
+    .footergrid{
+        display: grid;
+        grid-template-columns: 100% !important;
+        grid-template-rows: auto auto auto !important;
+    }
+    .footercard{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }
 
 @media (max-width: 850px) {
@@ -221,21 +230,15 @@
         FOOTER STYLE
  *************************/
 footer {
-    height: auto;
     padding-top:60px;
     padding-bottom: 60px;
     position: relative;
-    width: 100%;
     color:#fff;
     border-top: 1px solid rgb(99, 99, 99);
     background: #383838;
-    display: flex;
-    align-items: center;
-    justify-content: center; 
 }
 footer .container{
     min-width: 90% !important;
-    height:auto;
 }
 .footergrid{
     display: grid;
@@ -251,9 +254,6 @@ footer .container{
     position: absolute;
     right: 30px;
     bottom: 60px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
     font-weight: bold;
     font-size: 3rem;
     user-select: none;
@@ -271,7 +271,7 @@ footer .container{
     transition: .2s ease;
 }
 footer .h3 {
-    border-bottom: 1px solid rgb(202, 182, 0);
+    border-bottom: 1px solid rgb(223, 223, 223);
     color:rgb(151, 151, 151);
     font-size: 1.3rem;
     padding: 5px;
@@ -282,7 +282,7 @@ footer .h3 {
 .mozda{
     max-height:50px;
     overflow: hidden;
-    transition: .5s ease;
+    transition: .2s ease;
 }
 .mozda .h3{
     user-select: none;
@@ -296,9 +296,6 @@ footer .pratite li {
     padding:5px;
     display: block;
     text-decoration: none;
-}
-footer ul{
-    padding: 0;
 }
 footer .pratite a {
     color:rgb(228, 230, 230);
@@ -317,9 +314,7 @@ footer a:visited{
 /* SOCIAL ICONS */
 .social-network {
 	list-style: none;
-    display: inline-flex;
     padding: 0;
-    float: right;
     height: 100%;
 }
 .social-network li {
