@@ -1,11 +1,16 @@
 app.factory('webservice', function ($http) {
 
-    var allPosts = "http://localhost:8000/api/post/read.php";
-
     var obj = {};
 
+    obj.putPost = function (data) {
+        $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
+        return $http.post('http://localhost:8000/api/post/create.php',data)
+    }
+    obj.getPost = function (id) {
+        return $http.get('http://localhost:8000/api/post/read_one.php?id='+id)
+    }
     obj.getPosts = function () {
-        return $http.get(allPosts)
+        return $http.get('http://localhost:8000/api/post/read.php')
     }
     obj.ulogin = function (data) {
         $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';

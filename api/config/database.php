@@ -3,7 +3,7 @@ class Database{
  
     // specify your own database credentials
     private $host = "localhost:8889";
-    private $db_name = "db770021752";
+    private $db_name = "postdb";
     private $username = "root";
     private $password = "root";
     public $conn;
