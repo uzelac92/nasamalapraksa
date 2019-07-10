@@ -205,16 +205,13 @@ app.controller('myPostCtrl', function($scope, $http,$sce, webservice){
 
     $scope.lastID = 0;
     $scope.uploadFirst = function() {
-        var postFajl = $scope.fajl;
         var postNaslov = tinymce.get('postnaslov').getContent();
         var postIntro = tinymce.get('intro').getContent();
         var postSlika = $scope.imageData;
         var postAlt = $scope.imgAlt;
         var postKeywords = $scope.kljucnereci;
 
-        if(postFajl == undefined || postFajl == '') {
-            alert('Unesi ime fajla!');
-        } else if(postNaslov == undefined || postNaslov == '') {
+        if(postNaslov == undefined || postNaslov == '') {
             alert('Unesi glavni naziv posta!');
         } else if(postIntro == undefined || postIntro == '') {
             alert('Unesi kratki uvod posta!');
@@ -230,7 +227,6 @@ app.controller('myPostCtrl', function($scope, $http,$sce, webservice){
                 vIntro:postIntro,
                 vSlika:postSlika,
                 vAlt:postAlt,
-                vPutanja:postFajl,
                 vKeywords:postKeywords,
             };
 
@@ -252,7 +248,6 @@ app.controller('myPostCtrl', function($scope, $http,$sce, webservice){
         return $sce.trustAsHtml(html);
     }
 
-    $scope.questions = [];
     $scope.addQuestion = function() {
         var upitnica = $scope.pitanje;
         var uvod = tinymce.get('opis').getContent();
@@ -276,14 +271,12 @@ app.controller('myPostCtrl', function($scope, $http,$sce, webservice){
             };
 
             webservice.putQuestion(vData).then(function (response) {
-                console.log(response);
                 if (response.data.status == "success") {
                     alert(response.data.message);
 
-                    webservice.getQuestions().then(function (response) {
-                        if (response.statusText == "OK") {
-                            alert(response.data.message)
-                            $scope.questions = response.data.records;
+                    webservice.getQuestions().then(function (odgovor) {
+                        if (odgovor.statusText == "OK") {
+                            $scope.questions = odgovor.data.records;
                         } else {
                           alert('Baza trenutno van funkcije!');
                         }
@@ -296,6 +289,7 @@ app.controller('myPostCtrl', function($scope, $http,$sce, webservice){
                     alert('Baza trenutno van funkcije!');
                 }
             });
+            
         }
 
     }

@@ -39,11 +39,9 @@ if($num>0){
             "NASLOV" => html_entity_decode($row['NASLOV']),
             "INTRO" => html_entity_decode($row['INTRO']),
             "SLIKA" => html_entity_decode($row['SLIKA']),
-            "PUTANJA" => html_entity_decode($row['PUTANJA']),
+            "ALT" => html_entity_decode($row['ALT']),
             "KLIK" => html_entity_decode($row['KLIK']),
             "KEYWORDS" => html_entity_decode($row['KEYWORDS']),
-            "NASLOV_A" => html_entity_decode($row['NASLOV_A']),
-            "NASLOV_B" => html_entity_decode($row['NASLOV_B'])
         );
  
         array_push($posts_arr["records"], $post_item);

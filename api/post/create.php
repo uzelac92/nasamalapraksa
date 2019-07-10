@@ -15,11 +15,10 @@
     $vINTRO = $data->vIntro;
     $vSLIKA = $data->vSlika;
     $vALT = $data->vAlt;
-    $vPUTANJA = $data->vPutanja;
     $vKLIK = $data->vKlik;
     $vKEYWORDS = $data->vKeywords;
 
-    $query = "INSERT INTO `post` (`NASLOV`, `INTRO`, `SLIKA`, `ALT`, `PUTANJA`, `KEYWORDS`) VALUES ('$vNASLOV', '$vINTRO', '$vSLIKA', '$vALT','$vPUTANJA','$vKEYWORDS');SELECT LAST_INSERT_ID();";
+    $query = "INSERT INTO `post` (`NASLOV`, `INTRO`, `SLIKA`, `ALT`, `KEYWORDS`) VALUES ('$vNASLOV', '$vINTRO', '$vSLIKA', '$vALT','$vKEYWORDS');SELECT LAST_INSERT_ID();";
     $stmt = $db->prepare($query);
     $state = $stmt->execute();
 

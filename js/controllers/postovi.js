@@ -1,4 +1,4 @@
-app.controller('mainCtrl', function($scope, $routeParams, $http, $rootScope, $timeout, $location,$window, webservice){
+app.controller('mainCtrl', function($scope, $routeParams, $http, $rootScope, $timeout, $location,$window, webservice, $sce){
   	document.body.addEventListener("wheel", e=>{
       if(e.ctrlKey)
         event.preventDefault();//prevent zoom
@@ -55,5 +55,9 @@ app.controller('mainCtrl', function($scope, $routeParams, $http, $rootScope, $ti
 
     $scope.scrollGore = function() {
       $('html, body').animate({scrollTop:0}, '300');
+    }
+
+    $scope.trustAsHtml = function(html) {
+      return $sce.trustAsHtml(html);
     }
 });

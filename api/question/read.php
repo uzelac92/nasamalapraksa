@@ -11,7 +11,7 @@ include_once '../config/database.php';
 $database = new Database();
 $db = $database->getConnection();
  
-$query = "SELECT * FROM pitanje ORDER BY ID DESC";
+$query = "SELECT * FROM pitanje ORDER BY PITANJEID DESC";
 
 $stmt = $db->prepare($query);
 

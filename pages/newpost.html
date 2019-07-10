@@ -1,9 +1,5 @@
 <div class="col-12 p-1" ng-controller="myPostCtrl">
     <form class="col-10 mx-auto text-center animated" ng-class="finished ? 'bounceOut hideForm' : bounceIn" name="form" ng-init="initTiny()" id="firstPage">
-        <div class="col-6 form-group mx-auto">
-            <h5 class="text-center">Fajl</h5>
-            <input ng-model="fajl" id="fajl" type="text" class="col-12 form-control" placeholder="Ime fajla...">
-        </div>
         <div class="col-12 form-group">
             <h3 class="text-center">Naslov</h3>
             <textarea id="postnaslov" class="tinymce"></textarea>
@@ -50,7 +46,7 @@
             class="btn btn-sm text-dark mx-auto">
             <i class="fas fa-plus-circle fa-3x"></i></button>
         <hr>
-        <div class="col-12 my-2 row" ng-repeat="quest in questions">
+        <div class="col-12 my-2 row" style="display: none" ng-repeat="quest in questions">
             <table class="table table-striped table-hover">
                 <thead class="border-top-0">
                     <tr class="border-top-0">
@@ -70,19 +66,19 @@
                 <tbody>
                     <tr>
                         <th scope="row">Pitanje</th>
-                        <td colspan="3">{{quest.pitanje}}</td>
+                        <td colspan="3">{{quest.UPITNICA}}</td>
                         <td></td>
                         <td></td>
                     </tr>
                     <tr>
                         <th scope="row">Kratki opis</th>
-                        <td colspan="3" ng-bind-html="trustAsHtml(quest.opis)"></td>
+                        <td colspan="3" ng-bind-html="trustAsHtml(quest.UVOD)"></td>
                         <td></td>
                         <td></td>
                     </tr>
                     <tr>
                         <th scope="row">Sadrzaj</th>
-                        <td colspan="3" ng-bind-html="trustAsHtml(quest.problem)"></td>
+                        <td colspan="3" ng-bind-html="trustAsHtml(quest.ODGOVOR)"></td>
                         <td></td>
                         <td></td>
                     </tr>
