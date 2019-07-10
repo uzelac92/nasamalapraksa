@@ -163,14 +163,16 @@ app.controller('myPostCtrl', function($scope, $http,$sce, webservice){
             var output = document.getElementById('output');
             output.src = URL.createObjectURL(element.files[0]);
 
+            
+
             $scope.image_source = event.target.result;
-            $scope.imageData = $scope.image_source;
             $scope.$apply(function($scope) {
                 $scope.files = element.files;
                 //console.log($scope.image_source); ovo su ti podaci!!!
             });
         }
-        reader.readAsDataURL(element.files[0]); //ovo se koristi za prikazivanje slike kao sto ima i u bookmarks image data to bitmap preview
+        $scope.imageData=element.files[0].name;
+        reader.readAsDataURL(element.files[0]);
     }
 
     $scope.questions = [];
@@ -260,7 +262,7 @@ app.controller('myPostCtrl', function($scope, $http,$sce, webservice){
             var vData = {
                 vNaslov:postNaslov,
                 vIntro:postIntro,
-                vSlika:"velikaslika",
+                vSlika:postSlika,
                 vAlt:postAlt,
                 vPutanja:postFajl,
                 vKlik:postKlik,
