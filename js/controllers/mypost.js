@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-app.controller('myPostCtrl', function($scope, $http,$sce, $location,$routeParams,$route, webservice){
-=======
 app.controller('myPostCtrl', function($scope, $http,$sce,$location,$routeParams,$route, webservice){
->>>>>>> fe1c44e4d20da970f659c11509afd420274de6c2
 
     $scope.$on('$destroy', function() {
         var tinyInstance = tinymce.get('intro');
