@@ -15,7 +15,6 @@
     $vINTRO = $data->vIntro;
     $vSLIKA = $data->vSlika;
     $vALT = $data->vAlt;
-    $vKLIK = $data->vKlik;
     $vKEYWORDS = $data->vKeywords;
 
     $query = "INSERT INTO `post` (`NASLOV`, `INTRO`, `SLIKA`, `ALT`, `KEYWORDS`) VALUES ('$vNASLOV', '$vINTRO', '$vSLIKA', '$vALT','$vKEYWORDS');SELECT LAST_INSERT_ID();";
@@ -27,13 +26,13 @@
     if($state){
 
         $response['status'] = 'success';
-        $response['message'] = 'Post was created.';
         $response['ID'] = number_format((float) $LAST_ID);
 
         echo json_encode($response);
     }
     // if unable to create the product, tell the user
     else{
+        $response['status'] = 'unsuccess';
         // set response code - 503 service unavailable
         http_response_code(503);
         // tell the user

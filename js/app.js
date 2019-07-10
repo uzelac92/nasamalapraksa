@@ -41,7 +41,7 @@ app.config(['$routeProvider', '$locationProvider','$compileProvider',function($r
     {
         title: 'Post',
         templateUrl: function(params) {
-          return '/pages/postovi/'+params.postID;   
+          return 'http://localhost:8000/api/post/read_one.php?id='+params.postID;   
         },
     })
     .otherwise({

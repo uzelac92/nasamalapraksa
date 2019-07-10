@@ -1,4 +1,4 @@
-app.controller('myPostCtrl', function($scope, $http,$sce, webservice){
+app.controller('myPostCtrl', function($scope, $http,$sce,$location,$routeParams,$route, webservice){
 
     $scope.$on('$destroy', function() {
         var tinyInstance = tinymce.get('intro');
@@ -231,14 +231,15 @@ app.controller('myPostCtrl', function($scope, $http,$sce, webservice){
             };
 
             webservice.putPost(vData).then(function (response) {
-                console.log(response);
                 if (response.data.status == "success") {
-                    alert(response.data.message);
+                    toastr.success('Osnovni podaci su uneseni :)', 'Bravo')
+                    alert();
                     $scope.lastID = response.data.ID;
 
+                    $('html, body').animate({scrollTop:0}, '300');
                     $scope.finished = true;
                 } else {
-                    alert('Baza trenutno van funkcije!');
+                    toastr.error('Baza trenutno van funkcije!', 'Greska')
                 }
             });
         }
@@ -272,13 +273,13 @@ app.controller('myPostCtrl', function($scope, $http,$sce, webservice){
 
             webservice.putQuestion(vData).then(function (response) {
                 if (response.data.status == "success") {
-                    alert(response.data.message);
+                    toastr.success('Uneto pitanje :)', 'Bravo')
 
                     webservice.getQuestions().then(function (odgovor) {
                         if (odgovor.statusText == "OK") {
                             $scope.questions = odgovor.data.records;
                         } else {
-                          alert('Baza trenutno van funkcije!');
+                            toastr.error('Nema pitanja za prikaz!', 'Greska')
                         }
                     });
 
@@ -286,17 +287,19 @@ app.controller('myPostCtrl', function($scope, $http,$sce, webservice){
                     tinymce.get('opis').setContent('');
                     tinymce.get('problem').setContent('');
                 } else {
-                    alert('Baza trenutno van funkcije!');
+                    toastr.error('Baza trenutno van funkcije!', 'Greska')
                 }
             });
             
         }
 
+        $('html, body').animate({scrollTop:0}, '300');
     }
 
     $scope.uploadLast = function() {
         $('html, body').animate({scrollTop:0}, '300');
-        $scope.finished = false;
+        $route.reload();
+        toastr.remove();
     }
 
 
