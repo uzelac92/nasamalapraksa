@@ -242,7 +242,6 @@ app.controller('myPostCtrl', function($scope, $http,$sce, webservice){
         var postAlt = $scope.imgAlt;
         var postPitanja = $scope.questions;
         var postKeywords = $scope.kljucnereci;
-        var postKlik = '0';
 
         if(postFajl == undefined || postFajl == '') {
             alert('Unesi ime fajla!');
@@ -265,15 +264,14 @@ app.controller('myPostCtrl', function($scope, $http,$sce, webservice){
                 vSlika:postSlika,
                 vAlt:postAlt,
                 vPutanja:postFajl,
-                vKlik:postKlik,
                 vPitanja:postPitanja,
                 vKeywords:postKeywords,
             };
 
             webservice.putPost(vData).then(function (response) {
-                if (response.statusText == "OK") {
-                    console.log(response);
-                    alert('USPESNO! :)');
+                console.log(response);
+                if (response.data.status == "success") {
+                    alert(response.data.message);
                 } else {
                     alert('Baza trenutno van funkcije!');
                 }

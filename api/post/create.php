@@ -20,7 +20,7 @@
     $vPITANJA = $data->vPitanja;
     $vKEYWORDS = $data->vKeywords;
 
-    $query = "INSERT INTO `post` (`ID`,`NASLOV`, `INTRO`, `SLIKA`, `ALT`, `PUTANJA`, `KLIK`, `KEYWORDS`) VALUES (NULL,'$vNASLOV', '$vINTRO', '$vSLIKA', '$vALT','$vPUTANJA', 0, '$vKEYWORDS');SELECT LAST_INSERT_ID();";
+    $query = "INSERT INTO `post` (`NASLOV`, `INTRO`, `SLIKA`, `ALT`, `PUTANJA`, `KEYWORDS`) VALUES ('$vNASLOV', '$vINTRO', '$vSLIKA', '$vALT','$vPUTANJA','$vKEYWORDS');SELECT LAST_INSERT_ID();";
     $stmt = $db->prepare($query);
     $state = $stmt->execute();
 
@@ -34,10 +34,12 @@
 
     // create the product
     if($state){
-        // set response code - 201 created
-        http_response_code(201);
-        // tell the user
-        echo json_encode(array("message" => "Post was created."));
+
+        $response['status'] = 'success';
+        $response['message'] = 'Post was created.';
+        $response['ID'] = number_format((float) $LAST_ID);
+
+        echo json_encode($response);
     }
     // if unable to create the product, tell the user
     else{
