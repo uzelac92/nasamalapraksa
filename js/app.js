@@ -40,9 +40,10 @@ app.config(['$routeProvider', '$locationProvider','$compileProvider',function($r
     .when("/:postID", 
     {
         title: 'Post',
-        templateUrl: function(params) {
-          return 'http://localhost:8000/api/post/read_one.php?id='+params.postID;   
-        },
+        templateUrl : "/pages/kalupHTML.html",
+        // templateUrl: function(params) {
+        //   return '/pages/kalupHTML.html'+params.postID;   
+        // }
     })
     .otherwise({
         redirectTo: '/'

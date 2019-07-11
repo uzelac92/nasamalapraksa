@@ -1,0 +1,18 @@
+<div ng-controller="postCtrl">
+    <h1 class="posth1" ng-bind-html="trustAsHtml(podaci.NASLOV)"></h1> <!--naslov-->
+
+    <h4 class="posth4" ng-bind-html="trustAsHtml(podaci.INTRO)"></h4> <!--intro-->
+    
+    <div class="postcontainer">
+      <img class="slika" alt="{{podaci.ALT}}" ng-src="../../images/podaci.SLIKA" title="{{podaci.ALT}}"/>
+      <p class="imgalt">{{podaci.ALT}}</p> <!--opis slike-->
+    </div>
+    
+    <div ng-repeat="p in podaci.PITANJA.records">
+      <h2 class="posth2" ng-bind-html="trustAsHtml(p.UPITNICA)"></h2> <!--pitanje-->
+      <h4 class="posth4" ng-bind-html="trustAsHtml(p.UVOD)"></h4> <!--kratki uvod nakon pitanja-->
+      <p ng-bind-html="trustAsHtml(p.ODGOVOR)"></p> <!--ovdje je tekst posta-->
+    </div>
+    
+    <p class="autor">28.01.2019. | Mladen  </p>
+</div>
