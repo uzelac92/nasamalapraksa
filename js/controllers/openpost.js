@@ -147,10 +147,7 @@ app.controller('postCtrl', function($scope, $http,$sce,$location,$routeParams,$r
                 if (response.statusText == "OK") {
                     toastr.success('Uspesna promena :)', 'Bravo')
 
-                    $scope.pitanje = "";
-                    tinymce.get('opis').setContent("");
-                    tinymce.get('problem').setContent("");
-                    $scope.finished = false;
+                    $route.reload();
                 } else {
                     toastr.error('Nema posta za prikaz!', 'Greska')
                 }
