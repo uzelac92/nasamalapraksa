@@ -198,7 +198,7 @@ app.controller('myPostCtrl', function($scope, $http,$sce,$location,$routeParams,
 
         $scope.pitanje = $scope.questions[index].pitanje;
         tinymce.get('opis').setContent($scope.questions[index].opis);
-        tinymce.get('problem').setContent($scope.questions[index].problem)
+        tinymce.get('problem').setContent($scope.questions[index].problem);
         $scope.questions.splice(index, 1);
         --$scope.count;
     }
