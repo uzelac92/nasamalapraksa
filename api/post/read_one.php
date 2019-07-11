@@ -37,7 +37,7 @@ $KEYWORDS = $row['KEYWORDS'];
 if($row['NASLOV'] != null){
 
     $query2 = "SELECT * FROM pitanje WHERE POST_ID = $ID
-            ORDER BY PITANJEID DESC";
+            ORDER BY PITANJEID ASC";
 
     $stmt2 = $db->prepare($query2);
 
