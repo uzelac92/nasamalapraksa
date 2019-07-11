@@ -19,8 +19,6 @@
  
     // prepare query statement
     $stmt = $db->prepare($query);
-
-    echo json_encode($stmt);
  
     // update the product
     if($stmt->execute()){

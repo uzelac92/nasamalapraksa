@@ -123,8 +123,8 @@ app.controller('postCtrl', function($scope, $http,$sce,$location,$routeParams,$r
 
     $scope.uploadEdit = function() {
         var upitnica = $scope.pitanje;
-        var uvod = tinymce.get('uvod').getContent();
-        var odgovor = tinymce.get('odgovor').getContent();
+        var uvod = tinymce.get('opis').getContent();
+        var odgovor = tinymce.get('problem').getContent();
         var kljuc = $scope.editID;
 
         if(upitnica == undefined || upitnica == '') {
@@ -133,7 +133,7 @@ app.controller('postCtrl', function($scope, $http,$sce,$location,$routeParams,$r
             alert('Unesi uvod pitanja!');
         } else if(odgovor == undefined || odgovor == '') {
             alert('Unesi odgovor');
-        } else if(kljuc == undefined || kljuc == '') {
+        } else if(kljuc == undefined || kljuc == 0) {
             alert('Nije izabrano pitanje!');
         } else {
             var vData = {
@@ -145,7 +145,12 @@ app.controller('postCtrl', function($scope, $http,$sce,$location,$routeParams,$r
 
             webservice.editQuestion(vData).then(function (response) {
                 if (response.statusText == "OK") {
-                    $scope.podaci = response.data;
+                    toastr.success('Uspesna promena :)', 'Bravo')
+
+                    $scope.pitanje = "";
+                    tinymce.get('opis').setContent("");
+                    tinymce.get('problem').setContent("");
+                    $scope.finished = false;
                 } else {
                     toastr.error('Nema posta za prikaz!', 'Greska')
                 }
