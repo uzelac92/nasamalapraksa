@@ -137,7 +137,6 @@
         height:60px !important;
     }
     .card{
-        transform: scale(0.8);
         min-width: 98% !important;
         margin-right: 1vw !important;
         font-size: .8rem !important;
@@ -183,6 +182,16 @@
   	.mithheader{
       font-size:0.9em;
   	}
+}
+@media (max-width: 1000px) {
+    .card{
+        min-width: 95% !important;
+        margin-right: 1vw !important;
+        font-size: .8rem !important;
+    }
+    .linkd{
+        transform: scale(.8);
+    }
 }
 @-moz-document url-prefix() {
     .card-title{
