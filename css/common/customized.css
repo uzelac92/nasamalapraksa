@@ -423,9 +423,7 @@ footer a:visited{
     height: 40px;
     margin-top:1px;
     color:rgb(151, 151, 151);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding-top: 8px;
     user-select: none;
 }
 /*************************
@@ -1028,4 +1026,28 @@ figure h4 p{
 
 .hideForm {
     display: none;
+}
+
+.border-top-green {
+    border-top: #00C851 2px solid!important;
+}
+
+.btn-green {
+    background-color: #00C851;
+}
+
+.modal-backdrop.fade {
+    opacity: 0.6!important;
+}
+
+.modal-open .modal {
+    top: 10vh!important;
+}
+
+.bg-red {
+    background-color: #D31B5E;
+}
+
+.has-error {
+    border: red 1px solid;
 }

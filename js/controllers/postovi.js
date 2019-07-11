@@ -1,12 +1,12 @@
-app.controller('mainCtrl', function($scope, $routeParams, $http, $rootScope, $timeout, $location,$window, webservice, $sce){
+app.controller('mainCtrl', function($scope, $routeParams,$uibModal, $firebaseAuth, webservice, $sce,$route,$location,$routeParams,){
   	document.body.addEventListener("wheel", e=>{
       if(e.ctrlKey)
         event.preventDefault();//prevent zoom
     });
   
   	$scope.templateUrl = $routeParams.postID;
-  	$scope.klikID = $routeParams.klikID;
- 
+    $scope.klikID = $routeParams.klikID;
+
     $scope.initLoader = function() {
         angular.element(document.getElementsByClassName("CardLK")).css('display','none');
         angular.element(document.getElementsByClassName("loaderCard")).css('display','block');
@@ -26,19 +26,6 @@ app.controller('mainCtrl', function($scope, $routeParams, $http, $rootScope, $ti
         }
     });
   
-    $scope.kliknuto = function() {
-
-      $http({
-        method: "post",
-        url: "updatePost.php",
-        data: { klikID: $scope.klikID
-        }, headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-      }).then(function successCallback(response) {
-        $scope.prikazi = response.data[0];
-      });
-
-    }
-    
     $scope.limit= 12;
     $scope.loadMore = function() {
       $scope.limit = $scope.limit + 6;
@@ -60,4 +47,23 @@ app.controller('mainCtrl', function($scope, $routeParams, $http, $rootScope, $ti
     $scope.trustAsHtml = function(html) {
       return $sce.trustAsHtml(html);
     }
+
+    $scope.logID = localStorage.getItem('userID');;
+
+    $scope.openCustomer = function () {
+      if($scope.logID != '') {
+        $scope.logID = '';
+        localStorage.setItem('userID', '');
+        window.location.reload();
+      } else {
+        $uibModal.open({
+            templateUrl: 'pages/login.html',
+            controller: 'customDialogCtrl',
+            size: 'md',
+        }).result.catch(function (resp) {
+          if (['cancel', 'backdrop click', 'escape key press'].indexOf(resp) === -1) throw resp;
+        });
+      }
+    }
+ 
 });
