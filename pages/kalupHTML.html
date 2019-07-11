@@ -8,7 +8,7 @@
       <p class="imgalt">{{podaci.ALT}}</p> <!--opis slike-->
     </div>
     
-    <div ng-repeat="p in podaci.PITANJA.records" class="animated" ng-class="finished ? 'bounceOut hideForm' : bounceIn">
+    <div ng-repeat="p in podaci.PITANJA.records" class="animated" ng-class="finished ? 'bounceOut hideForm' : bounceIn" ng-init="initTiny()">
       <h2 class="d-flex justify-content-end posth2">
           <i class="fas fa-edit mx-1" ng-click="editQuest(p.PITANJEID,p.UPITNICA,p.UVOD,p.ODGOVOR)"></i>
           <i class="fas fa-trash-alt mx-1" ng-click="removeQuest(p.PITANJEID)"></i>
