@@ -2,6 +2,10 @@ app.factory('webservice', function ($http) {
 
     var obj = {};
 
+    obj.putEmail = function (data) {
+        $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
+        return $http.post('http://localhost:8000/api/subscribe/subscribe.php',data)
+    }
     obj.putPost = function (data) {
         $http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
         return $http.post('http://localhost:8000/api/post/create.php',data)

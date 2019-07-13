@@ -220,5 +220,28 @@ app.controller('postCtrl', function($scope, $http,$sce,$location,$routeParams,$r
         }
     }
 
+    $scope.pretplata = function() {
+        var mejl = $scope.subEmail;
+
+        if(mejl == undefined || mejl == '') {
+            alert('Unesi pitanje!');
+        } else {
+            var vData = {
+                vEmail:mejl,
+            };
+
+            webservice.putEmail(vData).then(function (response) {
+                if (response.data.status == "success") {
+                    toastr.success('Uspesna pretplata :)', 'Bravo')
+
+                    $scope.subEmail = "";
+                } else {
+                    toastr.error('Baza trenutno van funkcije!', 'Greska')
+                }
+            });
+            
+        }
+    }
+
 
 });

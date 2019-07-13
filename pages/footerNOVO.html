@@ -1,4 +1,4 @@
-<footer class="h-auto w-100 d-flex align-items-center justify-content-center">
+<footer class="h-auto w-100 d-flex align-items-center justify-content-center" ng-controller="footCtrl">
     <div class="container h-auto">
         <div class="footergrid">
             <div class="footercard p-2 d-lg-block d-sm-flex">
@@ -14,8 +14,8 @@
                 <div class="mozda w-75 float-right">
                     <div class="w-100 h3 mt-2"> Pretplati se <i class="fas fa-angle-down float-right"></i></div>
                     <div class="padajuci w-100">
-                        <input id="MIV" type="text" class="full text-center w-100" placeholder="Email ">
-                        <button class="pretplati w-100" onclick="alert('Stranica u izradi!')" type="submit"><span><label for="MIV">Pretplati se</label> </span></button>
+                        <input id="MIV" ng-model="subEmail" type="text" class="full text-center w-100" placeholder="Email ">
+                        <button class="pretplati w-100" ng-click="pretplata()" type="submit"><span><label for="MIV">Subscribe</label> </span></button>
                     </div>
                 </div>
                 <div class="mozda w-75 float-right">
