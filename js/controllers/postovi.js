@@ -16,11 +16,20 @@ app.controller('mainCtrl', function($scope, $routeParams,$uibModal, $firebaseAut
       	angular.element(document.getElementsByClassName("CardLK")).css('display','inline-flex');
         angular.element(document.getElementsByClassName("loaderCard")).css('display','none');
     }
+    
+    var sortByProperty = function (property) {
+      return function (x, y) {
+        return ((parseInt(x[property]) === parseInt(y[property])) ? 0 : ((parseInt(x[property]) > parseInt(y[property])) ? -1 : 1));
+      };
+    };
 
     webservice.getPosts().then(function (response) {
         if (response.statusText == "OK") {
             $scope.postovi = response.data.records;
-            $scope.topPostovi = $scope.postovi.sort((a,b) => (a.KLIK > b.KLIK) ? -1 : ((b.KLIK > a.KLIK) ? 1 : 0));
+            $scope.topPostovi = JSON.parse(JSON.stringify( $scope.postovi ));
+            $scope.postovi.sort(sortByProperty('ID'));
+            $scope.topPostovi.sort(sortByProperty('KLIK'));
+            console.log($scope.postovi);
         } else {
           alert('Baza trenutno van funkcije!');
         }
