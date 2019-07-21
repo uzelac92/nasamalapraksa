@@ -38,4 +38,63 @@
       </div>
       <p class="autor">28.01.2019. | Mladen  </p>
   </div>
+
+  <div class="col-12">
+        <div class="comments-container">
+            <h1>Komentari</h1>
+    
+            <ul id="comments-list" class="comments-list">
+                <li ng-repeat="komentar in komentari">
+                    <div class="comment-main-level">
+                        <!-- Avatar -->
+                        <div class="comment-avatar"><img class="bg-white" ng-src="../images/anonymous-mask.png" alt=""></div>
+                        <!-- Contenedor del Comentario -->
+                        <div class="comment-box">
+                            <div class="comment-head">
+                                <h6 class="comment-name by-author"></h6>
+                                <span>{{komentar.DATUM}}</span>
+                                <i class="fa fa-reply" ng-click="pokazi = true"> Odgovori</i>
+                            </div>
+                            <div class="comment-content">
+                                {{komentar.TEKST}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="create_new_comment mx-5 my-2" id="{{komentar.KOMENTARID}}" ng-show="pokazi">
+    
+                        <img class="col-1 rounded-circle" src="../images/comment-avatar.png">
+                        <textarea class="input_comment col-8 form-control" id="id{{komentar.KOMENTARID}}" ng-model="podkomentarTxt" placeholder="Odgovori na komentar..."></textarea>
+                        <button class="btn btn-info btn-sm" ng-click="noviPodKom(komentar.KOMENTARID)">Posalji</button>
+                        <button class="btn btn-warning btn-sm" ng-click="pokazi = false; podkomentarTxt= ''">Otkazi</button>
+                    </div>
+                    <!-- Respuestas de los comentarios -->
+                    <ul class="comments-list reply-list" ng-repeat="podkom in komentar.PODKOMENTARI.podkomentar">
+                        <li>
+                            <!-- Avatar -->
+                            <div class="comment-avatar"><img class="bg-white" ng-src="../images/anonymous-avatar-png.png" alt=""></div>
+                            <!-- Contenedor del Comentario -->
+                            <div class="comment-box">
+                                <div class="comment-head">
+                                    <span>{{podkom.DATUM}}</span>
+                                </div>
+                                <div class="comment-content">
+                                    {{podkom.TEKST}}
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <hr>
+            <div class="m-3 col-12">
+                <div class="create_new_comment">
+    
+                    <img class="col-1 rounded-circle" src="../images/comment-avatar.png">
+                    <textarea class="input_comment col-9 form-control" ng-model="komentarTxt" placeholder="Prikljuci se konverzaciji..."></textarea>
+                    <button class="btn btn-info btn-sm" ng-click="noviKom(podaci.ID)">Posalji</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>

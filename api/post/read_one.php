@@ -4,7 +4,7 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: access");
 header("Access-Control-Allow-Methods: GET");
 header("Access-Control-Allow-Credentials: true");
-header('Content-Type: application/json');
+header("Content-Type: application/json; charset=UTF-8");
  
 // include database and object files
 include_once '../config/database.php';
@@ -68,6 +68,7 @@ if($row['NASLOV'] != null){
         "ALT" => $ALT,
         "KLIK" => $KLIK,
         "PITANJA" => $posts_arr,
+        "KEYWORDS" => $KEYWORDS,
     );
  
     // set response code - 200 OK

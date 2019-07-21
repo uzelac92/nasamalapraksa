@@ -1,4 +1,4 @@
-var app = angular.module('NasaMalaPraksa', ['ngRoute','ngAnimate','ui.bootstrap','updateMeta','firebase']);
+var app = angular.module('NasaMalaPraksa', ['ngRoute','ngAnimate','ui.bootstrap','updateMeta','firebase','ngMeta']);
 
 window.fbAsyncInit = function() {
   FB.init({
@@ -18,7 +18,7 @@ window.fbAsyncInit = function() {
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 
-app.config(['$routeProvider', '$locationProvider','$compileProvider',function($routeProvider, $locationProvider, $compileProvider) {
+app.config(['$routeProvider', '$locationProvider','$compileProvider','ngMetaProvider',function($routeProvider, $locationProvider, $compileProvider,ngMetaProvider) {
   	$locationProvider.html5Mode(true);
 	  $locationProvider.hashPrefix('!');
     $routeProvider
@@ -26,16 +26,37 @@ app.config(['$routeProvider', '$locationProvider','$compileProvider',function($r
     {
         title: 'Pocetna',
         templateUrl : "/pages/kartice.html",
+        data: {
+          meta: {
+            'title': 'Početna stranica',
+            'titleSuffix': ' | Naša Mala Praksa',
+            'description': 'Blog o najčešćim medicinskim temama i aktuelnostima. Opisani najčešći zdravstveni problemi u populaciji.'
+          }
+        }
     })
   	.when("/mitovi", 
     {
         title: 'Mitovi',
         templateUrl : "/pages/Mitovi.html",
+        data: {
+          meta: {
+            'title': 'Mitovi',
+            'titleSuffix': ' | Naša Mala Praksa',
+            'description': 'Najćešći mitovi u medicini.'
+          }
+        }
     })
   	.when("/newpost", 
     {
         title: 'Mitovi',
         templateUrl : "/pages/newpost.html",
+        data: {
+          meta: {
+            'title': 'Novi Post',
+            'titleSuffix': ' | Naša Mala Praksa',
+            'description': 'Kreiranje novog posta i ubacivanje u bazu podataka.'
+          }
+        }
     })
     .when("/:postID", 
     {
@@ -45,14 +66,27 @@ app.config(['$routeProvider', '$locationProvider','$compileProvider',function($r
     .otherwise({
         redirectTo: '/'
      });
+
+    ngMetaProvider.useTitleSuffix(true);
+    ngMetaProvider.setDefaultTitle('Glavna');    
+    ngMetaProvider.setDefaultTitleSuffix(' | Naša Mala Praksa');
+    ngMetaProvider.setDefaultTag('description', 'Blog o najčešćim medicinskim temama i aktuelnostima. Opisani najčešći zdravstveni problemi u populaciji.');
+    ngMetaProvider.setDefaultTag('og:title', 'Glavna');
+    ngMetaProvider.setDefaultTag('og:description', 'Blog o najčešćim medicinskim temama i aktuelnostima. Opisani najčešći zdravstveni problemi u populaciji.');
+    ngMetaProvider.setDefaultTag('og:url', 'www.nasamalarpraksa.com');
+    ngMetaProvider.setDefaultTag('og:image', '../images/banner.gif');
+    ngMetaProvider.setDefaultTag('twitter:title', 'Glavna');
+    ngMetaProvider.setDefaultTag('twitter:description', 'Blog o najčešćim medicinskim temama i aktuelnostima. Opisani najčešći zdravstveni problemi u populaciji.');
+    ngMetaProvider.setDefaultTag('twitter:image', '../images/banner.gif');
      
 }]);
 
-app.run(function($rootScope, $location) {  
+app.run(function($rootScope, $location,ngMeta) {  
+  ngMeta.init();
   $rootScope.$on('$routeChangeSuccess', function ($scope) {
     $scope.logID = localStorage.getItem('userID');
   });
-})
+});
   
 
 app.controller('customDialogCtrl', function ($scope, $uibModalInstance, $rootScope) {

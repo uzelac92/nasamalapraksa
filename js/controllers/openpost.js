@@ -1,4 +1,4 @@
-app.controller('postCtrl', function($scope, $http,$sce,$location,$routeParams,$route, webservice){
+app.controller('postCtrl', function($scope, $http,$sce,$location,$routeParams,$route, webservice,ngMeta){
 
     $scope.kljuc = $routeParams.postID;
 
@@ -160,10 +160,37 @@ app.controller('postCtrl', function($scope, $http,$sce,$location,$routeParams,$r
     webservice.getPost($scope.kljuc).then(function (response) {
         if (response.statusText == "OK") {
             $scope.podaci = response.data;
+
+            webservice.getComments($scope.podaci.ID).then(function (response) {
+                if (response.statusText == "OK") {
+                    $scope.komentari = response.data.komentari;
+                } else {
+                    toastr.error('Nema komentara za prikaz!', 'Greska')
+                }
+            });
+
+            ngMeta.setTitle(strip_html_tags($scope.podaci.NASLOV));
+            ngMeta.setTag('description', strip_html_tags($scope.podaci.INTRO));
+            ngMeta.setTag('og:title', strip_html_tags($scope.podaci.NASLOV));
+            ngMeta.setTag('og:description', strip_html_tags($scope.podaci.INTRO));
+            ngMeta.setTag('og:url', 'www.nasamalapraksa.com/'+$scope.podaci.ID);
+            ngMeta.setTag('og:image', 'www.nasamalapraksa.com/'+$scope.podaci.SLIKA);
+            ngMeta.setTag('twitter:title', strip_html_tags($scope.podaci.NASLOV));
+            ngMeta.setTag('twitter:description', strip_html_tags($scope.podaci.INTRO));
+            ngMeta.setTag('twitter:image', 'www.nasamalapraksa.com/'+$scope.podaci.SLIKA);
         } else {
             toastr.error('Nema posta za prikaz!', 'Greska')
         }
     });
+
+    function strip_html_tags(str){
+        if ((str===null) || (str===''))
+            return false;
+        else
+        str = str.toString();
+        return str.replace(/<[^>]*>/g, '');
+    }
+
 
     $scope.finished = false;
     $scope.editID = 0;
@@ -210,8 +237,7 @@ app.controller('postCtrl', function($scope, $http,$sce,$location,$routeParams,$r
 
             webservice.editQuestion(vData).then(function (response) {
                 if (response.statusText == "OK") {
-                    toastr.success('Uspesna promena :)', 'Bravo')
-
+                    toastr.success('Uspesna promena :)', 'Bravo');
                     $route.reload();
                 } else {
                     toastr.error('Nema posta za prikaz!', 'Greska')
@@ -232,7 +258,8 @@ app.controller('postCtrl', function($scope, $http,$sce,$location,$routeParams,$r
 
             webservice.putEmail(vData).then(function (response) {
                 if (response.data.status == "success") {
-                    toastr.success('Uspesna pretplata :)', 'Bravo')
+                    toastr.success('Uspesna pretplata :)', 'Bravo');
+                    $route.reload();
 
                     $scope.subEmail = "";
                 } else {
@@ -243,5 +270,51 @@ app.controller('postCtrl', function($scope, $http,$sce,$location,$routeParams,$r
         }
     }
 
+    $scope.noviKom = function(kljuc) {
+        var komentar = $scope.komentarTxt;
+
+        if(komentar == undefined || komentar == '' ) {
+            toastr.error('Unesi komentar!', 'Greska')
+        } else {
+            var vData = {
+                vTekst:komentar,
+                vPostId:kljuc,
+            };
+
+            webservice.putComment(vData).then(function (response) {
+                if (response.data.status == "success") {
+                    toastr.success('Unet komentar :)', 'Bravo');
+                    $route.reload();
+
+                } else {
+                    toastr.error('Baza trenutno van funkcije!', 'Greska')
+                }
+            });
+        }
+    }
+
+    $scope.noviPodKom = function(kljuc) {
+        var kljucID = 'id' + kljuc;
+        var komentar = document.getElementById(kljucID).value;
+
+        if(komentar == undefined || komentar == '' ) {
+            toastr.error('Unesi podkomentar!', 'Greska')
+        } else {
+            var vData = {
+                vTekst:komentar,
+                vKomentarID:kljuc,
+            };
+
+            webservice.putSubcomment(vData).then(function (response) {
+                if (response.data.status == "success") {
+                    toastr.success('Unet podkomentar :)', 'Bravo');
+                    $scope.podkomentarTxt = '';
+                    $route.reload();
+                } else {
+                    toastr.error('Baza trenutno van funkcije!', 'Greska')
+                }
+            });
+        }
+    }
 
 });

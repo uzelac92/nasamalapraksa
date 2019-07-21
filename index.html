@@ -6,7 +6,21 @@
         <meta charset="UTF-8">
       	<meta name="fragment" content="!">
       	<meta name="google-site-verification" content="em8wmHnGI5ZUmu0VEwgc3vzUkMIJicGtjLlt-wSfwvk" />
-      	<meta property="fb:app_id" content="245980766302862" />
+        <meta property="fb:app_id" content="245980766302862" />
+        <meta name="twitter:site" content="@nasamalapraksa">
+        
+        <title ng-bind="ngMeta.title"></title>
+        <meta name="description" content="{{ngMeta['description']}}"/>
+
+        <meta property="og:title" content="{{ngMeta['og:title']}}" />
+        <meta property="og:description" content="{{ngMeta['og:description']}}" />
+        <meta property="og:url" content="{{ngMeta['og:url']}}" />
+        <meta property="og:image" content="{{ngMeta['og:image']}}" />
+
+        <meta name="twitter:title" content="{{ngMeta['twitter:title']}}">
+        <meta name="twitter:description" content="{{ngMeta['twitter:description']}}">
+        <meta name="twitter:image" content="{{ngMeta['twitter:image']}}">
+        <meta name="twitter:card" content="summary_large_image">
       
       	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Signika">
       	<link href="https://fonts.googleapis.com/css?family=Merienda+One" rel="stylesheet">
@@ -26,6 +40,7 @@
         <script type="text/javascript" src="js/common/bootstrap.min.js"></script>
       
         <script src="js/common/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-meta/1.0.3/ngMeta.min.js"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
         <script type="text/javascript" src="js/common/angular-animate.js"></script>
@@ -84,7 +99,7 @@
       <div id="navPost" class="row" style="display: flex">
         <div class="col-sm-8">
           <div class="levakolona">
-            <div id="bcrumbs" ng-include="'pages/Traka.html'"></div>
+            <div style="display: none" id="bcrumbs" ng-include="'pages/Traka.html'"></div>
             <main ng-view></main>
           </div>
         </div>

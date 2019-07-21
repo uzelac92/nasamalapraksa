@@ -1,8 +1,8 @@
 app.controller('mainCtrl', function($scope, $routeParams,$uibModal, $firebaseAuth, webservice, $sce,$route,$location,$routeParams,){
-  	document.body.addEventListener("wheel", e=>{
-      if(e.ctrlKey)
-        event.preventDefault();//prevent zoom
-    });
+  	// document.body.addEventListener("wheel", e=>{
+    //   if(e.ctrlKey)
+    //     event.preventDefault();//prevent zoom
+    // });
   
   	$scope.templateUrl = $routeParams.postID;
     $scope.klikID = $routeParams.klikID;
