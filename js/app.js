@@ -120,5 +120,9 @@ $(function () {
         var $nav = $(".navbar");
         var $jumbo = $(".slikabaner");
         $nav.toggleClass('scrolled text-white', $(this).scrollTop() > $nav.height());
+        if($(this).scrollTop() > $nav.height()) {
+          $('#srchBtn').val('');
+          $('#srchResults').html('');
+        }
     });
 });

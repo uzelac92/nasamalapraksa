@@ -44,7 +44,7 @@
 @media (max-width: 500px) {
     .navbar.scrolled>.navbar-collapse{
     display: none !important;
-}
+    }
     .slikabaner{
         visibility: hidden !important;
     }
@@ -124,6 +124,9 @@
 }
 
 @media (max-width: 850px) {
+    #srchResults {
+        height: 250px!important;
+    }
     .onamakartica{
         font-size: smaller;
     }
@@ -806,15 +809,16 @@ figure h4 p{
 /******************
         SEARCH
 *******************/
+
 .searchbar{
     margin-bottom: auto;
     margin-top: auto;
     height: 60px;
-    background-color: transparent;
-    border: white 1px solid;
+    background-color: #353b48;
     border-radius: 30px;
     padding: 10px;
 }
+
 
 .search_input{
     color: white;
@@ -827,19 +831,14 @@ figure h4 p{
     transition: width 0.4s linear;
 }
 
-.searchbar:hover > .search_input{
+.searchbar > .search_input{
     padding: 0 10px;
     width: 250px;
     caret-color:red;
     transition: width 0.4s linear;
 }
 
-.searchbar:hover > .search_icon{
-    background: white;
-    color: red!important;
-}
-
-.search_icon{
+.search_icon {
     height: 40px;
     width: 40px;
     float: right;
@@ -847,8 +846,10 @@ figure h4 p{
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    color:white;
+    background: white;
+    color: red!important;
 }
+
 
 /******************
     MORE BTN

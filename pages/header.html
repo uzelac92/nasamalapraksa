@@ -6,7 +6,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="navbar-collapse collapse justify-content-between align-items-center" id="navbarSupportedContent">
-                <ul class="navbar-nav mx-auto text-center" ng-controller="mainCtrl">
+                <ul class="navbar-nav mx-auto text-center" >
                     <li class="nav-item active">
                         <a class="nav-link" href="/" ng-click="sakriveno()">Glavna</a>
                   	</li>
@@ -22,14 +22,15 @@
                 </ul>
                 <ul class="nav navbar-nav flex-row justify-content-center flex-nowrap">
                     <div class="searchbar">
-                        <input id="srchBtn" class="search_input" ng-model="nadjiPost" type="text" name="" ng-change="pretrazivanje()" placeholder="Search...">
-                        <a href="#" class="search_icon"><label for="srchBtn"><i class="fas fa-search"></i></label></a>
+                        <input ng-change="filterSrch()" id="srchBtn" class="search_input" ng-model="nadjiPost" type="text" name="" ng-change="pretrazivanje()" placeholder="Search...">
+                        <a href="#" class="search_icon"><label for="srchBtn"><i class="fas fa-search text-danger" ng-click='showAll()'></i></label></a>
                     </div>
+                    <ul id="srchResults" class="list-group position-absolute col-lg-4 col-8 my-5" style="height: 400px; overflow-x:auto" ng-if="nadjiPost != ''"></ul>
                 </ul>
             </div>
         </nav>
     </div>
     <div class="drzacbanera">
-        <img src="/images/banner.gif" id="slikabaner" class="W-100 col-sm-12 slikabaner"/>
+        <img src="/images/banner.gif" id="slikabaner" class="W-100 col-sm-12 p-0 slikabaner"/>
     </div>
 </header>

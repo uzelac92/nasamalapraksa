@@ -25,14 +25,38 @@ app.controller('mainCtrl', function($scope, $routeParams,$uibModal, $firebaseAut
 
     webservice.getPosts().then(function (response) {
         if (response.statusText == "OK") {
+            $scope.osnovno = response.data.records;
             $scope.postovi = response.data.records;
             $scope.topPostovi = JSON.parse(JSON.stringify( $scope.postovi ));
             $scope.postovi.sort(sortByProperty('ID'));
             $scope.topPostovi.sort(sortByProperty('KLIK'));
-            console.log($scope.postovi);
+
         } else {
-          alert('Baza trenutno van funkcije!');
+            toastr.error('Baza trenutno van funkcije!', 'Greska');
         }
+    });
+
+    $scope.filterSrch = function() {
+      $('#srchResults').html('');
+      var searchField = $('#srchBtn').val();
+
+      var expression = new RegExp(searchField, "i");
+
+      $.each($scope.postovi, function(key,value){
+        if(value.INTRO.search(expression) != -1 || value.NASLOV.search(expression) != -1 || value.KEYWORDS.search(expression) != -1) {
+
+          $('#srchResults').append('<a href="/'+value.ID+'" class=""><li class="list-group-item d-lg-inline-flex"><img src="../../../../images/'+value.SLIKA+'" class="col-lg-3" /><div class="col-lg-9 text-dark">'+value.NASLOV+'</div></li></a>');
+        }
+      });
+    }
+
+    $(window).click(function() {
+      $('#srchBtn').val('');
+      $('#srchResults').html('');
+    });
+    
+    $('#srchBtn').click(function(event){
+        event.stopPropagation();
     });
   
     $scope.limit= 12;

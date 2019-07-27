@@ -1,5 +1,8 @@
 app.controller('postCtrl', function($scope, $http,$sce,$location,$routeParams,$route, webservice,ngMeta){
 
+    $('#srchBtn').val('');
+    $('#srchResults').html('');
+
     $scope.kljuc = $routeParams.postID;
 
     $scope.$on('$destroy', function() {
