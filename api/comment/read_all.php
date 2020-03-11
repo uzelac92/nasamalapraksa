@@ -16,7 +16,7 @@ $db = $database->getConnection();
 
 $id = $_GET['id'];
 
-$query = "SELECT * FROM KOMENTAR WHERE POSTID = $id ORDER BY KOMENTARID DESC";
+$query = "SELECT * FROM `KOMENTAR` WHERE POSTID = $id ORDER BY KOMENTARID DESC";
 $stmt = $db->prepare( $query );
 $stmt->execute();
 $num = $stmt->rowCount();
@@ -38,7 +38,7 @@ if($num>0){
 
         $KOMENTARID = html_entity_decode($row['KOMENTARID']);
 
-        $query2 = "SELECT * FROM PODKOMENTAR WHERE KOMENTARID = $KOMENTARID
+        $query2 = "SELECT * FROM `PODKOMENTAR` WHERE KOMENTARID = $KOMENTARID
             ORDER BY PODKOMID DESC";
         $stmt2 = $db->prepare($query2);
         $stmt2->execute();

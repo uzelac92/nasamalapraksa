@@ -1,91 +1,93 @@
-<div class="col-12 p-1"ng-controller="mainCtrl" ng-if="logID != ''">
-    <form ng-controller="myPostCtrl"  class="col-10 mx-auto text-center animated" ng-class="finished ? 'bounceOut hideForm' : bounceIn" name="form" ng-init="initTiny()" id="firstPage">
-        <div class="col-12 form-group">
-            <h3 class="text-center">Naslov</h3>
-            <textarea id="postnaslov" class="tinymce"></textarea>
-        </div>
-        <div class="col-12 form-group">
-            <h5 class="text-center">Intro</h5>
-            <textarea id="intro" class="tinymce"></textarea>
-        </div>
-    
-        <div class="col-8 mx-auto">
-            <div class="row col-12 mx-auto">
-                <input type="file"  ng-model="image1" accept="image/*" onchange="angular.element(this).scope().uploadedFile(this)" class="btn btn-info col-8 mx-auto"/>
-            </div>
-            <div class="col-12 mx-auto text-center">
-                <img id="output"  style="width:400px; height:300px" class="img-responsive mx-auto"/>
-            </div>
-            <div class="col-12 mx-auto text-center">
-                <input type="text" placeholder="Text alt..." class="col-8 form-control mx-auto" ng-model="imgAlt">
-            </div>
-        </div>
-        <div class="form-group col-6 mx-auto my-2">
-            <label for="keys"><h5>Kljucne reci</h5></label>
-            <textarea ng-model="kljucnereci" class="form-control" rows="5" id="keys"  placeholder="Odvojeno zarezom..."></textarea>
-        </div>
-        <hr>
-        <button type="submit" ng-click="uploadFirst()" class="btn btn-success mx-auto my-3 col-4">Next</button>
-    </form>
-    <form class="col-10 mx-auto text-center animated hideForm" ng-class="finished ? 'bounceIn delay-1s' : 'bounceOut hideForm'" name="form" ng-init="initTiny()" id="nextPage">
-        <div class="col-12 my-3">
+<section  ng-controller="mainCtrl">
+    <div class="col-12 p-1" ng-controller="myPostCtrl">
+        <form class="col-10 mx-auto text-center animated" ng-class="finished ? 'bounceOut hideForm' : bounceIn" name="form" ng-init="initTiny()" id="firstPage">
             <div class="col-12 form-group">
-                <h5 class="text-center">Pitanje</h5>
-                <input ng-model="pitanje" id="quest.pitanje" type="text" class="col-12 form-control" placeholder="Sta je to... Lecenje... Simptomi...">
+                <h3 class="text-center">Naslov</h3>
+                <textarea id="postnaslov" class="tinymce"></textarea>
             </div>
             <div class="col-12 form-group">
-                <h5 class="text-center">Kratak uvod</h5>
-                <textarea id="opis" class="tinymce"></textarea>
+                <h5 class="text-center">Intro</h5>
+                <textarea id="intro" class="tinymce"></textarea>
             </div>
-            <div class="col-12 form-group">
-                <h5 class="text-center">Opis problema</h5>
-                <textarea id="problem" class="tinymce"></textarea>
+        
+            <div class="col-8 mx-auto">
+                <div class="row col-12 mx-auto">
+                    <input type="file"  ng-model="image1" accept="image/*" onchange="angular.element(this).scope().uploadedFile(this)" class="btn btn-info col-8 mx-auto"/>
+                </div>
+                <div class="col-12 mx-auto text-center">
+                    <img id="output"  style="width:400px; height:300px" class="img-responsive mx-auto"/>
+                </div>
+                <div class="col-12 mx-auto text-center">
+                    <input type="text" placeholder="Text alt..." class="col-8 form-control mx-auto" ng-model="imgAlt">
+                </div>
             </div>
-        </div>
-        <button ng-click="addQuestion()"
-            class="btn btn-sm text-dark mx-auto">
-            <i class="fas fa-plus-circle fa-3x"></i></button>
-        <hr>
-        <div class="col-12 my-2 row" style="display: none" ng-repeat="quest in questions">
-            <table class="table table-striped table-hover">
-                <thead class="border-top-0">
-                    <tr class="border-top-0">
-                        <th scope="col" class="border-top-0"></th>
-                        <th scope="col" class="border-top-0"></th>
-                        <th scope="col" class="border-top-0"></th>
-                        <th scope="col" class="row border-bottom-0 border-top-0">
-                            <button ng-click="editQuestion(quest.id)"
-                                class="btn btn-sm text-dark mx-auto">
-                                <i class="fas fa-edit"></i></button>
-                            <button ng-click="removeQuestion(quest.id)"
-                                class="btn btn-sm text-dark mx-auto">
-                                <i class="fas fa-trash-alt"></i></button>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">Pitanje</th>
-                        <td colspan="3">{{quest.UPITNICA}}</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Kratki opis</th>
-                        <td colspan="3" ng-bind-html="trustAsHtml(quest.UVOD)"></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Sadrzaj</th>
-                        <td colspan="3" ng-bind-html="trustAsHtml(quest.ODGOVOR)"></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
-            <hr class="bg-black">
-        </div>
-        <button type="submit" ng-click="uploadLast()" class="btn btn-info mx-auto my-3 col-4">Finish</button>
-    </form>
-</div>
+            <div class="form-group col-6 mx-auto my-2">
+                <label for="keys"><h5>Kljucne reci</h5></label>
+                <textarea ng-model="kljucnereci" class="form-control" rows="5" id="keys"  placeholder="Odvojeno zarezom..."></textarea>
+            </div>
+            <hr>
+            <button type="submit" ng-click="uploadFirst()" class="btn btn-success mx-auto my-3 col-4">Next</button>
+        </form>
+        <form class="col-10 mx-auto text-center animated hideForm" ng-show="finished" ng-class="finished ? 'bounceIn delay-1s' : 'bounceOut hideForm'" name="form" ng-init="initTiny()" id="nextPage">
+            <div class="col-12 my-3">
+                <div class="col-12 form-group">
+                    <h5 class="text-center">Pitanje</h5>
+                    <input ng-model="pitanje" id="quest.pitanje" type="text" class="col-12 form-control" placeholder="Sta je to... Lecenje... Simptomi...">
+                </div>
+                <div class="col-12 form-group">
+                    <h5 class="text-center">Kratak uvod</h5>
+                    <textarea id="opis" class="tinymce"></textarea>
+                </div>
+                <div class="col-12 form-group">
+                    <h5 class="text-center">Opis problema</h5>
+                    <textarea id="problem" class="tinymce"></textarea>
+                </div>
+            </div>
+            <button ng-click="addQuestion()"
+                class="btn btn-sm text-dark mx-auto">
+                <i class="fas fa-plus-circle fa-3x"></i></button>
+            <hr>
+            <div class="col-12 my-2 row" style="display: none" ng-repeat="quest in questions">
+                <table class="table table-striped table-hover">
+                    <thead class="border-top-0">
+                        <tr class="border-top-0">
+                            <th scope="col" class="border-top-0"></th>
+                            <th scope="col" class="border-top-0"></th>
+                            <th scope="col" class="border-top-0"></th>
+                            <th scope="col" class="row border-bottom-0 border-top-0">
+                                <button ng-click="editQuestion(quest.id)"
+                                    class="btn btn-sm text-dark mx-auto">
+                                    <i class="fas fa-edit"></i></button>
+                                <button ng-click="removeQuestion(quest.id)"
+                                    class="btn btn-sm text-dark mx-auto">
+                                    <i class="fas fa-trash-alt"></i></button>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Pitanje</th>
+                            <td colspan="3">{{quest.UPITNICA}}</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Kratki opis</th>
+                            <td colspan="3" ng-bind-html="trustAsHtml(quest.UVOD)"></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Sadrzaj</th>
+                            <td colspan="3" ng-bind-html="trustAsHtml(quest.ODGOVOR)"></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <hr class="bg-black">
+            </div>
+            <button type="submit" ng-click="uploadLast()" class="btn btn-info mx-auto my-3 col-4">Finish</button>
+        </form>
+    </div>
+</section>

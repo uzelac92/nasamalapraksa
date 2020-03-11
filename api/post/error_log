@@ -1,0 +1,87 @@
+[30-Jul-2019 21:31:04 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/eypaj666qboc/public_html/api/post/read.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/eypaj666qboc/public_html/api/post/read.php on line 16
+[30-Jul-2019 21:32:16 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/eypaj666qboc/public_html/api/post/read.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/eypaj666qboc/public_html/api/post/read.php on line 16
+[30-Jul-2019 21:32:22 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/eypaj666qboc/public_html/api/post/read.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/eypaj666qboc/public_html/api/post/read.php on line 16
+[30-Jul-2019 21:36:22 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/eypaj666qboc/public_html/api/post/read.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/eypaj666qboc/public_html/api/post/read.php on line 16
+[30-Jul-2019 21:36:27 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/eypaj666qboc/public_html/api/post/read.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/eypaj666qboc/public_html/api/post/read.php on line 16
+[30-Jul-2019 21:36:33 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/eypaj666qboc/public_html/api/post/read.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/eypaj666qboc/public_html/api/post/read.php on line 16
+[30-Jul-2019 21:39:06 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/eypaj666qboc/public_html/api/post/read.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/eypaj666qboc/public_html/api/post/read.php on line 16
+[30-Jul-2019 21:39:09 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/eypaj666qboc/public_html/api/post/read.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/eypaj666qboc/public_html/api/post/read.php on line 16
+[30-Jul-2019 21:41:11 UTC] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/eypaj666qboc/public_html/api/post/read.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/eypaj666qboc/public_html/api/post/read.php on line 16
+[30-Jul-2019 22:16:27 UTC] PHP Warning:  include_once(/api/config/database.php): failed to open stream: No such file or directory in /home/eypaj666qboc/public_html/api/post/read_one.php on line 10
+[30-Jul-2019 22:16:27 UTC] PHP Warning:  include_once(): Failed opening '/api/config/database.php' for inclusion (include_path='.:/opt/alt/php72/usr/share/pear') in /home/eypaj666qboc/public_html/api/post/read_one.php on line 10
+[30-Jul-2019 22:16:27 UTC] PHP Fatal error:  Uncaught Error: Class 'Database' not found in /home/eypaj666qboc/public_html/api/post/read_one.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/eypaj666qboc/public_html/api/post/read_one.php on line 13
+[30-Jul-2019 22:16:32 UTC] PHP Warning:  include_once(/api/config/database.php): failed to open stream: No such file or directory in /home/eypaj666qboc/public_html/api/post/read_one.php on line 10
+[30-Jul-2019 22:16:32 UTC] PHP Warning:  include_once(): Failed opening '/api/config/database.php' for inclusion (include_path='.:/opt/alt/php72/usr/share/pear') in /home/eypaj666qboc/public_html/api/post/read_one.php on line 10
+[30-Jul-2019 22:16:32 UTC] PHP Fatal error:  Uncaught Error: Class 'Database' not found in /home/eypaj666qboc/public_html/api/post/read_one.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/eypaj666qboc/public_html/api/post/read_one.php on line 13
+[30-Jul-2019 22:17:39 UTC] PHP Warning:  include_once(/api/config/database.php): failed to open stream: No such file or directory in /home/eypaj666qboc/public_html/api/post/read_one.php on line 10
+[30-Jul-2019 22:17:39 UTC] PHP Warning:  include_once(): Failed opening '/api/config/database.php' for inclusion (include_path='.:/opt/alt/php72/usr/share/pear') in /home/eypaj666qboc/public_html/api/post/read_one.php on line 10
+[30-Jul-2019 22:17:39 UTC] PHP Fatal error:  Uncaught Error: Class 'Database' not found in /home/eypaj666qboc/public_html/api/post/read_one.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/eypaj666qboc/public_html/api/post/read_one.php on line 13
+[30-Jul-2019 22:21:38 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/eypaj666qboc/public_html/api/post/read_one.php on line 29
+[30-Jul-2019 22:23:56 UTC] PHP Recoverable fatal error:  Object of class PDOStatement could not be converted to string in /home/eypaj666qboc/public_html/api/post/read_one.php on line 21
+[30-Jul-2019 22:23:57 UTC] PHP Recoverable fatal error:  Object of class PDOStatement could not be converted to string in /home/eypaj666qboc/public_html/api/post/read_one.php on line 21
+[30-Jul-2019 22:26:09 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/eypaj666qboc/public_html/api/post/read_one.php on line 29
+[31-Jul-2019 06:12:41 UTC] PHP Notice:  Undefined variable: row in /home/eypaj666qboc/public_html/api/post/read_one.php on line 26
+[31-Jul-2019 06:12:42 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/eypaj666qboc/public_html/api/post/read_one.php on line 26
+[31-Jul-2019 06:12:51 UTC] PHP Notice:  Undefined variable: row in /home/eypaj666qboc/public_html/api/post/read_one.php on line 26
+[31-Jul-2019 06:12:51 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/eypaj666qboc/public_html/api/post/read_one.php on line 26
+[31-Jul-2019 06:13:14 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/eypaj666qboc/public_html/api/post/read_one.php on line 29
+[31-Jul-2019 06:20:19 UTC] PHP Recoverable fatal error:  Object of class PDOStatement could not be converted to string in /home/eypaj666qboc/public_html/api/post/read_one.php on line 26
+[31-Jul-2019 06:20:32 UTC] PHP Warning:  json_decode() expects parameter 1 to be string, object given in /home/eypaj666qboc/public_html/api/post/read_one.php on line 26
+[31-Jul-2019 06:20:33 UTC] PHP Warning:  json_decode() expects parameter 1 to be string, object given in /home/eypaj666qboc/public_html/api/post/read_one.php on line 26
+[31-Jul-2019 06:28:36 UTC] PHP Recoverable fatal error:  Object of class PDO could not be converted to string in /home/eypaj666qboc/public_html/api/post/read_one.php on line 16
+[31-Jul-2019 06:29:02 UTC] PHP Recoverable fatal error:  Object of class PDO could not be converted to string in /home/eypaj666qboc/public_html/api/post/read_one.php on line 16
+[31-Jul-2019 06:30:21 UTC] PHP Warning:  include_once(/api/config/database.php): failed to open stream: No such file or directory in /home/eypaj666qboc/public_html/api/post/read.php on line 8
+[31-Jul-2019 06:30:21 UTC] PHP Warning:  include_once(): Failed opening '/api/config/database.php' for inclusion (include_path='.:/opt/alt/php72/usr/share/pear') in /home/eypaj666qboc/public_html/api/post/read.php on line 8
+[31-Jul-2019 06:30:21 UTC] PHP Fatal error:  Uncaught Error: Class 'Database' not found in /home/eypaj666qboc/public_html/api/post/read.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/eypaj666qboc/public_html/api/post/read.php on line 11
+[31-Jul-2019 06:30:53 UTC] PHP Warning:  include_once(): http:// wrapper is disabled in the server configuration by allow_url_include=0 in /home/eypaj666qboc/public_html/api/post/read.php on line 8
+[31-Jul-2019 06:30:53 UTC] PHP Warning:  include_once(http://www.nasamalapraksa.com/api/config/database.php): failed to open stream: no suitable wrapper could be found in /home/eypaj666qboc/public_html/api/post/read.php on line 8
+[31-Jul-2019 06:30:53 UTC] PHP Warning:  include_once(): Failed opening 'http://www.nasamalapraksa.com/api/config/database.php' for inclusion (include_path='.:/opt/alt/php72/usr/share/pear') in /home/eypaj666qboc/public_html/api/post/read.php on line 8
+[31-Jul-2019 06:30:53 UTC] PHP Fatal error:  Uncaught Error: Class 'Database' not found in /home/eypaj666qboc/public_html/api/post/read.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/eypaj666qboc/public_html/api/post/read.php on line 11
+[31-Jul-2019 06:31:24 UTC] PHP Recoverable fatal error:  Object of class PDO could not be converted to string in /home/eypaj666qboc/public_html/api/post/read.php on line 14
+[31-Jul-2019 06:31:29 UTC] PHP Recoverable fatal error:  Object of class PDO could not be converted to string in /home/eypaj666qboc/public_html/api/post/read.php on line 14
+[31-Jul-2019 06:31:48 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function json_enode() in /home/eypaj666qboc/public_html/api/post/read.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/eypaj666qboc/public_html/api/post/read.php on line 14

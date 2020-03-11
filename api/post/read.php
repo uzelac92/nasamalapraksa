@@ -10,7 +10,7 @@ include_once '../config/database.php';
 // instantiate database and post object
 $database = new Database();
 $db = $database->getConnection();
- 
+
 $query = "SELECT * FROM post ORDER BY ID DESC";
 
 $stmt = $db->prepare($query);

@@ -15,7 +15,7 @@
     $vUVOD = $data->vUvod;
     $vODGOVOR = $data->vOdgovor;
 
-    $query = "UPDATE PITANJE SET UPITNICA='$vUPITNICA', UVOD='$vUVOD', ODGOVOR='$vODGOVOR' WHERE PITANJEID=$vPITANJEID";
+    $query = "UPDATE `pitanje` SET UPITNICA='$vUPITNICA', UVOD='$vUVOD', ODGOVOR='$vODGOVOR' WHERE PITANJEID=$vPITANJEID";
  
     // prepare query statement
     $stmt = $db->prepare($query);

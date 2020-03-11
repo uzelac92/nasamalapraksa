@@ -1,5 +1,5 @@
 <div class="loaderwrapper"><div class="loaderCard mb-5"></div></div>
-<div class="row CardLK" data-ng-init="initLoader()">
+<div class="row px-1 CardLK" data-ng-init="initLoader()">
   	<div class="card" ng-repeat="item in postovi | limitTo:limit track by $index" ng-init="$last && finishLoad()">
       <a ng-href="/{{item.ID}}">
         <img class="cardimage" ng-src="images/{{item.SLIKA}}" alt="{{item.ALT}}"/>

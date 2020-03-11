@@ -15,15 +15,16 @@ $db = $database->getConnection();
 
 $id = $_GET['id'];
 
-$query = "UPDATE POST SET KLIK = KLIK + 1 WHERE ID = $id;";
-$stmt = $db->prepare( $query );
-$stmt->execute();
-$query = "SELECT * FROM POST WHERE ID = $id LIMIT 0,1;";
+$query = "UPDATE `post` SET KLIK = KLIK + 1 WHERE ID = $id;";
 $stmt = $db->prepare( $query );
 $stmt->execute();
 
+$query1 = "SELECT * FROM `post` WHERE ID=$id";
+$stmt = $db->prepare($query1);
+$stmt->execute();
+
 // get retrieved row
-$row = $stmt->fetch(PDO::FETCH_ASSOC);
+$row = $stmt->fetch(PDO::FETCH_BOTH);
 
 // set values to object properties
 $ID = $row['ID'];
@@ -33,10 +34,11 @@ $SLIKA = $row['SLIKA'];
 $ALT = $row['ALT'];
 $KLIK = $row['KLIK'];
 $KEYWORDS = $row['KEYWORDS'];
+
  
 if($row['NASLOV'] != null){
 
-    $query2 = "SELECT * FROM pitanje WHERE POST_ID = $ID
+    $query2 = "SELECT * FROM `pitanje` WHERE POST_ID=$ID
             ORDER BY PITANJEID ASC";
 
     $stmt2 = $db->prepare($query2);

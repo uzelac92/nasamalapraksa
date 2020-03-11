@@ -255,13 +255,13 @@ app.controller('myPostCtrl', function($scope, $http,$sce,$location,$routeParams,
         var post_id = $scope.lastID;
 
         if(upitnica == undefined || upitnica == '') {
-            alert('Unesi pitanje!');
-        } else if(uvod == undefined || uvod == '') {
-            alert('Unesi uvod pitanja!');
-        } else if(odgovor == undefined || odgovor == '') {
-            alert('Unesi odgovor');
+           toastr.error('Unesi pitanje!', 'Greska');
+        } else if(uvod == undefined || uvod.length <= 0) {
+           toastr.error('Unesi uvod pitanja!', 'Greska');
+        } else if(odgovor == undefined || odgovor.length <= 0) {
+           toastr.error('Unesi odgovor!', 'Greska');
         } else if(post_id == undefined || post_id == 0) {
-            alert('Pogresan post id!');
+           toastr.error('Pogresan post id!', 'Greska');
         } else {
             var vData = {
                 vUpitnica:upitnica,

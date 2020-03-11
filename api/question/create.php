@@ -16,7 +16,7 @@
     $vODGOVOR = $data->vOdgovor;
     $vPOSTID = $data->vPostId;
 
-    $query = "INSERT INTO `PITANJE` (`UPITNICA`, `UVOD`, `ODGOVOR`, `POST_ID`) VALUES ('$vUPITNICA', '$vUVOD', '$vODGOVOR ', $vPOSTID)";
+    $query = "INSERT INTO `pitanje` (`UPITNICA`, `UVOD`, `ODGOVOR`, `POST_ID`) VALUES ('$vUPITNICA', '$vUVOD', '$vODGOVOR ', $vPOSTID)";
     $stmt = $db->prepare($query);
     $state = $stmt->execute();
 

@@ -5,6 +5,19 @@ app.controller('postCtrl', function($scope, $http,$sce,$location,$routeParams,$r
 
     $scope.kljuc = $routeParams.postID;
 
+    $scope.reload = function() {
+        if (!localStorage.getItem("reload")) {
+            /* set reload to true and then reload the page */
+            localStorage.setItem("reload", "true");
+            location.reload();
+        }
+        /* after reloading remove "reload" from localStorage */
+        else {
+            localStorage.removeItem("reload");
+            // localStorage.clear(); // or clear it, instead
+        }
+    }
+
     $scope.$on('$destroy', function() {
         var tinyInstance = tinymce.get('intro');
   
@@ -161,11 +174,11 @@ app.controller('postCtrl', function($scope, $http,$sce,$location,$routeParams,$r
     }
 
     webservice.getPost($scope.kljuc).then(function (response) {
-        if (response.statusText == "OK") {
+        if (response.status == 200) {
             $scope.podaci = response.data;
 
             webservice.getComments($scope.podaci.ID).then(function (response) {
-                if (response.statusText == "OK") {
+                if (response.status == 200) {
                     $scope.komentari = response.data.komentari;
                 } else {
                     toastr.error('Nema komentara za prikaz!', 'Greska')

@@ -1,6 +1,6 @@
 <header>
-    <div class="container">
-        <nav class="navbar navbar-expand-sm navbar-light fixed-top">
+    <div class="container p-0 col-12">
+        <nav class="navbar navbar-expand-sm navbar-light fixed-top bg-white">
             <a class="navbar-brand" title="Nazad na glavnu" href="/" ng-click="sakriveno()"><img alt="logo stranice" src="../images/Brand.png"/></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -16,7 +16,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/" ng-click="pokazano()">O Nama</a>
                     </li>
-                    <li class="nav-item" ng-if="logID != ''">
+                    <li class="nav-item" ng-show="false">
                         <a class="nav-link" href="/newpost" ng-click="sakriveno()">Novi post</a>
                     </li>
                 </ul>
@@ -31,6 +31,6 @@
         </nav>
     </div>
     <div class="drzacbanera">
-        <img src="/images/banner.gif" id="slikabaner" class="W-100 col-sm-12 p-0 slikabaner"/>
+        <img src="/images/banner.gif" id="slikabaner" class="W-100 col-sm-12 m-0 p-0 slikabaner"/>
     </div>
 </header>

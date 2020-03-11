@@ -1,4 +1,4 @@
-app.controller('mainCtrl', function($scope, $routeParams,$uibModal, $firebaseAuth, webservice, $sce,$route,$location,$routeParams,){
+app.controller('mainCtrl', function($scope, $routeParams,$uibModal, $firebaseAuth, webservice, $sce,$route,$location,$routeParams,loginService){
   	// document.body.addEventListener("wheel", e=>{
     //   if(e.ctrlKey)
     //     event.preventDefault();//prevent zoom
@@ -6,6 +6,19 @@ app.controller('mainCtrl', function($scope, $routeParams,$uibModal, $firebaseAut
   
   	$scope.templateUrl = $routeParams.postID;
     $scope.klikID = $routeParams.klikID;
+
+    $scope.reload = function() {
+      if (!localStorage.getItem("reload")) {
+          /* set reload to true and then reload the page */
+          localStorage.setItem("reload", "true");
+          location.reload();
+      }
+      /* after reloading remove "reload" from localStorage */
+      else {
+          localStorage.removeItem("reload");
+          // localStorage.clear(); // or clear it, instead
+      }
+  }
 
     $scope.initLoader = function() {
         angular.element(document.getElementsByClassName("CardLK")).css('display','none');
@@ -24,7 +37,7 @@ app.controller('mainCtrl', function($scope, $routeParams,$uibModal, $firebaseAut
     };
 
     webservice.getPosts().then(function (response) {
-        if (response.statusText == "OK") {
+        if (response.status == 200) {
             $scope.osnovno = response.data.records;
             $scope.postovi = response.data.records;
             $scope.topPostovi = JSON.parse(JSON.stringify( $scope.postovi ));
@@ -65,12 +78,12 @@ app.controller('mainCtrl', function($scope, $routeParams,$uibModal, $firebaseAut
     }
     
     $scope.sakriveno = function() {
-      angular.element(document.querySelector("#aboutID")).css('display', 'none');
-      angular.element(document.querySelector("#navPost")).css('display', 'flex');
+      $("#aboutID").removeClass('d-inline-flex').addClass('d-none');
+      $("#navPost").removeClass('d-none').addClass('d-lg-inline-flex d-block');
     }
     $scope.pokazano = function() {
-      angular.element(document.querySelector("#aboutID")).css('display', 'inline-flex');
-      angular.element(document.querySelector("#navPost")).css('display', 'none');
+      $('#aboutID').removeClass('d-none').addClass('d-inline-flex');
+      $('#navPost').removeClass('d-lg-inline-flex d-block').addClass('d-none');
     }
 
     $scope.scrollGore = function() {
@@ -80,15 +93,8 @@ app.controller('mainCtrl', function($scope, $routeParams,$uibModal, $firebaseAut
     $scope.trustAsHtml = function(html) {
       return $sce.trustAsHtml(html);
     }
-
-    $scope.logID = localStorage.getItem('userID');;
-
+    
     $scope.openCustomer = function () {
-      if($scope.logID != '') {
-        $scope.logID = '';
-        localStorage.setItem('userID', '');
-        window.location.reload();
-      } else {
         $uibModal.open({
             templateUrl: 'pages/login.html',
             controller: 'customDialogCtrl',
@@ -96,7 +102,5 @@ app.controller('mainCtrl', function($scope, $routeParams,$uibModal, $firebaseAut
         }).result.catch(function (resp) {
           if (['cancel', 'backdrop click', 'escape key press'].indexOf(resp) === -1) throw resp;
         });
-      }
     }
- 
 });

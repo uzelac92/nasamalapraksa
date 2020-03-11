@@ -84,7 +84,7 @@ app.config(['$routeProvider', '$locationProvider','$compileProvider','ngMetaProv
 app.run(function($rootScope, $location,ngMeta) {  
   ngMeta.init();
   $rootScope.$on('$routeChangeSuccess', function ($scope) {
-    $scope.logID = localStorage.getItem('userID');
+    // $scope.logID = localStorage.getItem('userID');
   });
 });
   
